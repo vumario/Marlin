@@ -1,11 +1,27 @@
 dist: trusty
-sudo: true
-  #
-language: c
-  #
+sudo: false
+
+language: python
+python:
+  - "2.7"
+
 notifications:
   email: false
-  #
+
+# Cache PlatformIO packages using Travis CI container-based infrastructure
+sudo: false
+cache:
+  pip: true
+  directories:
+  - "~/.platformio"
+
+env:
+  - TEST_PLATFORM="megaatmega2560"
+  - TEST_PLATFORM="DUE"
+  - TEST_PLATFORM="LPC1768"
+  - TEST_PLATFORM="STM32F1"
+  - TEST_PLATFORM="teensy35"
+
 before_install:
   #
   # Fetch the tag information for the current branch
@@ -14,13 +30,11 @@ before_install:
   # Publish the buildroot script folder
   - chmod +x ${TRAVIS_BUILD_DIR}/buildroot/bin/*
   - export PATH=${TRAVIS_BUILD_DIR}/buildroot/bin/:${PATH}
-  #
-  # Start fb X server
-  - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_1.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :1 -ac -screen 0 1280x1024x16"
-  - sleep 3
-  - export DISPLAY=:1.0
-  #
+  - chmod +x ${TRAVIS_BUILD_DIR}/buildroot/share/tests/*
+  - export PATH=${TRAVIS_BUILD_DIR}/buildroot/share/tests/:${PATH}
+
 install:
+<<<<<<< HEAD
   #
   # Install arduino 1.8.5
   - wget http://downloads-02.arduino.cc/arduino-1.8.5-linux64.tar.xz
@@ -60,16 +74,24 @@ install:
   - git clone https://github.com/adafruit/Adafruit_NeoPixel.git
   - sudo mv Adafruit_NeoPixel /usr/local/share/arduino/libraries/Adafruit_NeoPixel
   #
+=======
+  #- pip install -U platformio
+  - pip install -U https://github.com/platformio/platformio-core/archive/develop.zip
+
+>>>>>>> upstream/bugfix-2.0.x
 before_script:
+  # Update PlatformIO packages
+  - platformio update
   #
   # Change current working directory to the build dir
   - cd ${TRAVIS_BUILD_DIR}
   #
   # Generate custom version include
-  - generate_version_header_for_marlin ${TRAVIS_BUILD_DIR}/Marlin
-  - cat ${TRAVIS_BUILD_DIR}/Marlin/_Version.h
+  - generate_version ${TRAVIS_BUILD_DIR}/Marlin/src/inc
+  - cat ${TRAVIS_BUILD_DIR}/Marlin/src/inc/_Version.h
   #
 script:
+<<<<<<< HEAD
   #
   # Backup Configuration.h, Configuration_adv.h, and pins_RAMPS.h
   #
@@ -386,3 +408,6 @@ script:
   #
   # To be added in nightly test branch
   #
+=======
+  - run_tests ${TRAVIS_BUILD_DIR} ${TEST_PLATFORM}
+>>>>>>> upstream/bugfix-2.0.x

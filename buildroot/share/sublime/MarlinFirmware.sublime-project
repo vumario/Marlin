@@ -2,6 +2,20 @@
 	"folders":
 	[
 		{
+<<<<<<< HEAD
+=======
+			"folder_exclude_patterns":
+			[
+				".pio*",
+				"MarlinFirmware/lib",
+				"Marlin/lib",
+				"datatmp",
+				"Marlin/*/src",
+				".vscode"
+			],
+			"binary_file_patterns":
+			[ "*.psd", "*.png", "*.jpg", "*.jpeg", "*.bdf", "*.patch", "avrdude_5.*", "*.svg" ],
+>>>>>>> upstream/bugfix-2.0.x
 			"file_exclude_patterns":
 			[
 				"Marlin/platformio.ini",
@@ -11,6 +25,7 @@
 				"Marlin/*/.travis.yml",
 				"Marlin/*/.gitignore"
 			],
+<<<<<<< HEAD
 			"folder_exclude_patterns":
 			[
 				".pio*",
@@ -19,6 +34,8 @@
 				"Marlin/*/src",
 				".vscode"
 			],
+=======
+>>>>>>> upstream/bugfix-2.0.x
 			"path": "../../.."
 		}
 	]

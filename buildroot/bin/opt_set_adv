@@ -2,4 +2,8 @@
 
 SED=$(which gsed || which sed)
 
+<<<<<<< HEAD
 eval "${SED} -i 's/\(#define \b${1}\b\).*$/\1 ${2}/g' Marlin/Configuration_adv.h"
+=======
+eval "${SED} -E -i 's/(\/\/)?(#define \b${1}\b).*$/\2 ${2}/g' Marlin/Configuration_adv.h"
+>>>>>>> upstream/bugfix-2.0.x

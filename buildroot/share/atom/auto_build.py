@@ -118,6 +118,7 @@ board_name = ''
 #    reboot
 #########
 
+<<<<<<< HEAD
 #
 # data/definitions used by memory check routine to determine if need to
 # insert % memory used
@@ -129,6 +130,9 @@ RAM_MAX = 8 * 1024
 FLASH_PERCENT_WARN = 0.90
 RAM_SYSTEM = 1024   # assume that 1K bytes is enough for stack, heap. ...
 RAM_WARN = RAM_SYSTEM * 1.5
+=======
+
+>>>>>>> upstream/bugfix-2.0.x
 
 ##########################################################################################
 #
@@ -937,9 +941,12 @@ class output_window(Text):
     global error_found
     error_found = False        # are there any errors?
 
+<<<<<<< HEAD
     global memory_check_first_time
     memory_check_first_time = True  #  wants to run memory_check twice
 
+=======
+>>>>>>> upstream/bugfix-2.0.x
 
     def  __init__(self):
 
@@ -1050,8 +1057,11 @@ class output_window(Text):
         if IO_queue.empty():
           if not(self.secondary_thread.is_alive()):
             continue_updates = False  # queue is exhausted and thread is dead so no need for further updates
+<<<<<<< HEAD
             self.memory_check()   # scan buffer and add percent used if needed
             print 'starting memory check'
+=======
+>>>>>>> upstream/bugfix-2.0.x
         else:
           try:
               temp_text = IO_queue.get(block = False)
@@ -1214,6 +1224,7 @@ class output_window(Text):
         if isok:
             self.delete('1.0', 'end')
 
+<<<<<<< HEAD
   # add memory % if needed
     def memory_check(self):
         global memory_check_first_time
@@ -1410,6 +1421,8 @@ class output_window(Text):
                self.report_failure(PIO_path, board_path)
                return False
 # end copy_boards_dir
+=======
+>>>>>>> upstream/bugfix-2.0.x
 
 # end - output_window
 
@@ -1437,6 +1450,7 @@ def main():
         os.environ["BOARD_NAME"] = board_name
 
         auto_build = output_window()
+<<<<<<< HEAD
 
         continue_script = True
         if 0 <= target_env.find('USB1286'):
@@ -1444,6 +1458,9 @@ def main():
 
         if continue_script:
           auto_build.start_thread()  # executes the "run_PIO" function
+=======
+        auto_build.start_thread()  # executes the "run_PIO" function
+>>>>>>> upstream/bugfix-2.0.x
 
         auto_build.root.mainloop()
 
