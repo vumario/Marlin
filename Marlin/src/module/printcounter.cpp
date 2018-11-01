@@ -20,43 +20,16 @@
  *
  */
 
-<<<<<<< HEAD:Marlin/printcounter.cpp
-#include "MarlinConfig.h"
-
-#if DISABLED(PRINTCOUNTER)
-
-#include "stopwatch.h"
-=======
 #include "../inc/MarlinConfig.h"
 
 #if DISABLED(PRINTCOUNTER)
 
 #include "../libs/stopwatch.h"
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/module/printcounter.cpp
 Stopwatch print_job_timer;      // Global Print Job Timer instance
 
 #else // PRINTCOUNTER
 
 #include "printcounter.h"
-<<<<<<< HEAD:Marlin/printcounter.cpp
-#include "duration_t.h"
-#include "Marlin.h"
-
-PrintCounter print_job_timer;   // Global Print Job Timer instance
-
-#if ENABLED(I2C_EEPROM) || ENABLED(SPI_EEPROM)
-  // round up address to next page boundary (assuming 32 byte pages)
-  #define STATS_EEPROM_ADDRESS 0x40
-#else
-  #define STATS_EEPROM_ADDRESS 0x32
-#endif
-
-const PrintCounter::promdress PrintCounter::address = STATS_EEPROM_ADDRESS;
-
-const uint16_t PrintCounter::updateInterval = 10;
-const uint16_t PrintCounter::saveInterval = 3600;
-printStatistics PrintCounter::data;
-=======
 #include "../Marlin.h"
 #include "../HAL/shared/persistent_store_api.h"
 
@@ -66,7 +39,6 @@ printStatistics PrintCounter::data;
 
 const PrintCounter::promdress PrintCounter::address = STATS_EEPROM_ADDRESS;
 
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/module/printcounter.cpp
 millis_t PrintCounter::lastDuration;
 bool PrintCounter::loaded = false;
 
@@ -100,13 +72,9 @@ void PrintCounter::initStats() {
   data = { 0, 0, 0, 0, 0.0 };
 
   saveStats();
-<<<<<<< HEAD:Marlin/printcounter.cpp
-  eeprom_write_byte((uint8_t*)address, 0x16);
-=======
   persistentStore.access_start();
   persistentStore.write_data(address, (uint8_t)0x16);
   persistentStore.access_finish();
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/module/printcounter.cpp
 }
 
 void PrintCounter::loadStats() {
@@ -114,13 +82,6 @@ void PrintCounter::loadStats() {
     debug(PSTR("loadStats"));
   #endif
 
-<<<<<<< HEAD:Marlin/printcounter.cpp
-  // Checks if the EEPROM block is initialized
-  if (eeprom_read_byte((uint8_t*)address) != 0x16) initStats();
-  else eeprom_read_block(&data,
-    (void*)(address + sizeof(uint8_t)), sizeof(printStatistics));
-
-=======
   // Check if the EEPROM block is initialized
   uint8_t value = 0;
   persistentStore.access_start();
@@ -130,7 +91,6 @@ void PrintCounter::loadStats() {
   else
     persistentStore.read_data(address + sizeof(uint8_t), (uint8_t*)&data, sizeof(printStatistics));
   persistentStore.access_finish();
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/module/printcounter.cpp
   loaded = true;
 }
 
@@ -143,14 +103,9 @@ void PrintCounter::saveStats() {
   if (!isLoaded()) return;
 
   // Saves the struct to EEPROM
-<<<<<<< HEAD:Marlin/printcounter.cpp
-  eeprom_update_block(&data,
-    (void*)(address + sizeof(uint8_t)), sizeof(printStatistics));
-=======
   persistentStore.access_start();
   persistentStore.write_data(address + sizeof(uint8_t), (uint8_t*)&data, sizeof(printStatistics));
   persistentStore.access_finish();
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/module/printcounter.cpp
 }
 
 void PrintCounter::showStats() {
@@ -207,30 +162,6 @@ void PrintCounter::showStats() {
 
 void PrintCounter::tick() {
   if (!isRunning()) return;
-<<<<<<< HEAD:Marlin/printcounter.cpp
-
-  static uint32_t update_last = millis(),
-                  eeprom_last = millis();
-
-  millis_t now = millis();
-
-  // Trying to get the amount of calculations down to the bare min
-  const static uint16_t i = updateInterval * 1000;
-
-  if (now - update_last >= i) {
-    #if ENABLED(DEBUG_PRINTCOUNTER)
-      debug(PSTR("tick"));
-    #endif
-
-    data.printTime += deltaDuration();
-    update_last = now;
-  }
-
-  // Trying to get the amount of calculations down to the bare min
-  const static millis_t j = saveInterval * 1000;
-  if (now - eeprom_last >= j) {
-    eeprom_last = now;
-=======
 
   millis_t now = millis();
 
@@ -246,7 +177,6 @@ void PrintCounter::tick() {
   static uint32_t eeprom_next; // = 0
   if (ELAPSED(now, eeprom_next)) {
     eeprom_next = now + saveInterval * 1000;
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/module/printcounter.cpp
     saveStats();
   }
 }

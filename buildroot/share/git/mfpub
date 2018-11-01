@@ -47,17 +47,10 @@ if [[ $BRANCH == "master" ]]; then
 
   # Don't lose upstream changes!
   git fetch upstream
-<<<<<<< HEAD
 
   # Rebase onto latest master
   if git rebase upstream/master; then
 
-=======
-
-  # Rebase onto latest master
-  if git rebase upstream/master; then
-
->>>>>>> upstream/bugfix-2.0.x
     # Allow working directly with the main fork
     echo
     echo -n "Pushing to origin/master... "

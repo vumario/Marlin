@@ -19,16 +19,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-#pragma once
 
-<<<<<<< HEAD:Marlin/cardreader.h
 #ifndef _CARDREADER_H_
 #define _CARDREADER_H_
 
-#include "MarlinConfig.h"
-=======
 #include "../inc/MarlinConfig.h"
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/sd/cardreader.h
 
 #if ENABLED(SDSUPPORT)
 
@@ -38,11 +33,8 @@
 
 #include "SdFile.h"
 
-<<<<<<< HEAD:Marlin/cardreader.h
-=======
 enum LsAction : uint8_t { LS_SerialPrint, LS_Count, LS_GetFilename };
 
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/sd/cardreader.h
 class CardReader {
 public:
   CardReader();
@@ -65,11 +57,6 @@ public:
       const bool re_sort=false
     #endif
   );
-<<<<<<< HEAD:Marlin/cardreader.h
-  void getStatus();
-  void printingHasFinished();
-  void printFilename();
-=======
   void getStatus(
     #if NUM_SERIAL > 1
       const int8_t port = -1
@@ -81,7 +68,6 @@ public:
       const int8_t port = -1
     #endif
   );
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/sd/cardreader.h
 
   #if ENABLED(LONG_FILENAME_HOST_SUPPORT)
     void printLongPath(char *path
@@ -117,17 +103,6 @@ public:
       FORCE_INLINE void setSortFolders(int i) { sort_folders = i; presort(); }
       //FORCE_INLINE void setSortReverse(bool b) { sort_reverse = b; }
     #endif
-  #else
-    FORCE_INLINE void getfilename_sorted(const uint16_t nr) { getfilename(nr); }
-  #endif
-
-  #if ENABLED(POWER_LOSS_RECOVERY)
-    void openJobRecoveryFile(const bool read);
-    void closeJobRecoveryFile();
-    bool jobRecoverFileExists();
-    int16_t saveJobRecoveryInfo();
-    int16_t loadJobRecoveryInfo();
-    void removeJobRecoveryFile();
   #endif
 
   #if ENABLED(POWER_LOSS_RECOVERY)
@@ -147,8 +122,11 @@ public:
   FORCE_INLINE uint32_t getIndex() { return sdpos; }
   FORCE_INLINE uint8_t percentDone() { return (isFileOpen() && filesize) ? sdpos / ((filesize + 99) / 100) : 0; }
   FORCE_INLINE char* getWorkDirName() { workDir.getFilename(filename); return filename; }
-  FORCE_INLINE int16_t read(void* buf, uint16_t nbyte) { return file.isOpen() ? file.read(buf, nbyte) : -1; }
-  FORCE_INLINE int16_t write(void* buf, uint16_t nbyte) { return file.isOpen() ? file.write(buf, nbyte) : -1; }
+
+  #if defined(__STM32F1__) && ENABLED(EEPROM_SETTINGS) && DISABLED(FLASH_EEPROM_EMULATION)
+    FORCE_INLINE int16_t read(void* buf, uint16_t nbyte) { return file.isOpen() ? file.read(buf, nbyte) : -1; }
+    FORCE_INLINE int16_t write(void* buf, uint16_t nbyte) { return file.isOpen() ? file.write(buf, nbyte) : -1; }
+  #endif
 
   Sd2Card& getSd2Card() { return sd2card; }
 
@@ -170,34 +148,10 @@ public:
 
   FORCE_INLINE char* longest_filename() { return longFilename[0] ? longFilename : filename; }
 
-  #if ENABLED(AUTO_REPORT_SD_STATUS)
-    void auto_report_sd_status(void);
-    FORCE_INLINE void set_auto_report_interval(uint8_t v) {
-      NOMORE(v, 60);
-      auto_report_sd_interval = v;
-      next_sd_report_ms = millis() + 1000UL * v;
-    }
-  #endif
-
-  FORCE_INLINE char* longest_filename() { return longFilename[0] ? longFilename : filename; }
-
 public:
   bool saving, logging, sdprinting, cardOK, filenameIsDir, abort_sd_printing;
   char filename[FILENAME_LENGTH], longFilename[LONG_FILENAME_LENGTH];
   int8_t autostart_index;
-<<<<<<< HEAD:Marlin/cardreader.h
-=======
-
-  #if ENABLED(FAST_FILE_TRANSFER)
-    bool binary_mode;
-    #if NUM_SERIAL > 1
-      uint8_t transfer_port;
-    #else
-      static constexpr uint8_t transfer_port = 0;
-    #endif
-  #endif
-
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/sd/cardreader.h
 private:
   SdFile root, workDir, workDirParents[MAX_DIR_DEPTH];
   uint8_t workDirDepth;
@@ -283,12 +237,9 @@ private:
   #if ENABLED(AUTO_REPORT_SD_STATUS)
     static uint8_t auto_report_sd_interval;
     static millis_t next_sd_report_ms;
-<<<<<<< HEAD:Marlin/cardreader.h
-=======
     #if NUM_SERIAL > 1
       static int8_t serialport;
     #endif
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/sd/cardreader.h
   #endif
 };
 
@@ -296,18 +247,6 @@ private:
   #define IS_SD_INSERTED() Sd2Card::isInserted()
 #elif PIN_EXISTS(SD_DETECT)
   #if ENABLED(SD_DETECT_INVERTED)
-<<<<<<< HEAD:Marlin/cardreader.h
-    #define IS_SD_INSERTED (READ(SD_DETECT_PIN) == HIGH)
-  #else
-    #define IS_SD_INSERTED (READ(SD_DETECT_PIN) == LOW)
-  #endif
-#else
-  // No card detect line? Assume the card is inserted.
-  #define IS_SD_INSERTED true
-#endif
-
-extern CardReader card;
-=======
     #define IS_SD_INSERTED()  READ(SD_DETECT_PIN)
   #else
     #define IS_SD_INSERTED() !READ(SD_DETECT_PIN)
@@ -317,27 +256,16 @@ extern CardReader card;
   #define IS_SD_INSERTED() true
 #endif
 
-#define IS_SD_PRINTING()  card.sdprinting
-#define IS_SD_FILE_OPEN() card.isFileOpen()
-
 extern CardReader card;
 
-#else // !SDSUPPORT
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/sd/cardreader.h
+#endif // SDSUPPORT
 
-#define IS_SD_PRINTING()  false
-#define IS_SD_FILE_OPEN() false
-
-<<<<<<< HEAD:Marlin/cardreader.h
 #if ENABLED(SDSUPPORT)
-  #define IS_SD_PRINTING (card.sdprinting)
-  #define IS_SD_FILE_OPEN (card.isFileOpen())
+  #define IS_SD_PRINTING()  card.sdprinting
+  #define IS_SD_FILE_OPEN() card.isFileOpen()
 #else
-  #define IS_SD_PRINTING (false)
-  #define IS_SD_FILE_OPEN (false)
+  #define IS_SD_PRINTING()  false
+  #define IS_SD_FILE_OPEN() false
 #endif
 
 #endif // _CARDREADER_H_
-=======
-#endif // !SDSUPPORT
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/sd/cardreader.h

@@ -23,10 +23,6 @@
 
 #define __MARLIN_FIRMWARE__
 
-<<<<<<< HEAD:Marlin/MarlinConfig.h
-#include "boards.h"
-#include "macros.h"
-=======
 //
 // Prefix header to acquire configurations
 //
@@ -34,32 +30,10 @@
 #include "../HAL/platforms.h"
 #include "../core/boards.h"
 #include "../core/macros.h"
-#include "../core/millis_t.h"
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/inc/MarlinConfigPre.h
+#include "../core/types.h"
 #include "Version.h"
 #include "../../Configuration.h"
 #include "Conditionals_LCD.h"
-<<<<<<< HEAD:Marlin/MarlinConfig.h
-#include "drivers.h"
-#include "Configuration_adv.h"
-
-#if USE_MARLINSERIAL
-  #define HardwareSerial_h // trick to disable the standard HWserial
-#endif
-
-#include "types.h"
-#include "HAL.h"
-#include "pins.h"
-#include "Conditionals_post.h"
-#include "SanityCheck.h"
-#include "enum.h"
-#include "language.h"
-#include "utility.h"
-#include "serial.h"
-
-#endif // MARLIN_CONFIG_H
-=======
 #include "../core/drivers.h"
 #include "../../Configuration_adv.h"
 #include "Conditionals_adv.h"
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/inc/MarlinConfigPre.h

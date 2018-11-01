@@ -19,7 +19,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-#pragma once
 
 /**
  * Configuration_adv.h
@@ -31,13 +30,9 @@
  * Basic settings can be found in Configuration.h
  *
  */
-<<<<<<< HEAD:Marlin/example_configurations/BQ/Hephestos_2/Configuration_adv.h
 #ifndef CONFIGURATION_ADV_H
 #define CONFIGURATION_ADV_H
-#define CONFIGURATION_ADV_H_VERSION 010109
-=======
 #define CONFIGURATION_ADV_H_VERSION 020000
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/config/examples/BQ/Hephestos_2/Configuration_adv.h
 
 // @section temperature
 
@@ -181,13 +176,8 @@
 #if ENABLED(EXTRUDER_RUNOUT_PREVENT)
   #define EXTRUDER_RUNOUT_MINTEMP 190
   #define EXTRUDER_RUNOUT_SECONDS 30
-<<<<<<< HEAD:Marlin/example_configurations/BQ/Hephestos_2/Configuration_adv.h
-  #define EXTRUDER_RUNOUT_SPEED 1500  // mm/m
-  #define EXTRUDER_RUNOUT_EXTRUDE 5   // mm
-=======
   #define EXTRUDER_RUNOUT_SPEED 1500  // (mm/m)
   #define EXTRUDER_RUNOUT_EXTRUDE 5   // (mm)
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/config/examples/BQ/Hephestos_2/Configuration_adv.h
 #endif
 
 // @section temperature
@@ -252,10 +242,7 @@
 #define E2_AUTO_FAN_PIN -1
 #define E3_AUTO_FAN_PIN -1
 #define E4_AUTO_FAN_PIN -1
-<<<<<<< HEAD:Marlin/example_configurations/BQ/Hephestos_2/Configuration_adv.h
-=======
 #define E5_AUTO_FAN_PIN -1
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/config/examples/BQ/Hephestos_2/Configuration_adv.h
 #define CHAMBER_AUTO_FAN_PIN -1
 #define EXTRUDER_AUTO_FAN_TEMPERATURE 50
 #define EXTRUDER_AUTO_FAN_SPEED 255   // 255 == full speed
@@ -301,8 +288,6 @@
 
 //#define Z_LATE_ENABLE // Enable Z the last moment. Needed if your Z driver overheats.
 
-<<<<<<< HEAD:Marlin/example_configurations/BQ/Hephestos_2/Configuration_adv.h
-=======
 // Employ an external closed loop controller. Override pins here if needed.
 //#define EXTERNAL_CLOSED_LOOP_CONTROLLER
 #if ENABLED(EXTERNAL_CLOSED_LOOP_CONTROLLER)
@@ -310,7 +295,6 @@
   //#define CLOSED_LOOP_MOVE_COMPLETE_PIN -1
 #endif
 
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/config/examples/BQ/Hephestos_2/Configuration_adv.h
 /**
  * Dual Steppers / Dual Endstops
  *
@@ -354,8 +338,6 @@
     #define Z_DUAL_ENDSTOPS_ADJUSTMENT  0
   #endif
 #endif
-<<<<<<< HEAD:Marlin/example_configurations/BQ/Hephestos_2/Configuration_adv.h
-=======
 
 //#define Z_TRIPLE_STEPPER_DRIVERS
 #if ENABLED(Z_TRIPLE_STEPPER_DRIVERS)
@@ -367,7 +349,6 @@
     #define Z_TRIPLE_ENDSTOPS_ADJUSTMENT3  0
   #endif
 #endif
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/config/examples/BQ/Hephestos_2/Configuration_adv.h
 
 /**
  * Dual X Carriage
@@ -381,12 +362,6 @@
  */
 //#define DUAL_X_CARRIAGE
 #if ENABLED(DUAL_X_CARRIAGE)
-<<<<<<< HEAD:Marlin/example_configurations/BQ/Hephestos_2/Configuration_adv.h
-  // Configuration for second X-carriage
-  // Note: the first x-carriage is defined as the x-carriage which homes to the minimum endstop;
-  // the second x-carriage always homes to the maximum endstop.
-=======
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/config/examples/BQ/Hephestos_2/Configuration_adv.h
   #define X1_MIN_POS X_MIN_POS  // set minimum to ensure first x-carriage doesn't hit the parked second X-carriage
   #define X1_MAX_POS X_BED_SIZE // set maximum to ensure first x-carriage doesn't hit the parked second X-carriage
   #define X2_MIN_POS 80     // set minimum to ensure second x-carriage doesn't hit the parked first X-carriage
@@ -434,30 +409,6 @@
 // Enable this if X or Y can't home without homing the other axis first.
 //#define CODEPENDENT_XY_HOMING
 
-<<<<<<< HEAD:Marlin/example_configurations/BQ/Hephestos_2/Configuration_adv.h
-=======
-/**
- * Z Steppers Auto-Alignment
- * Add the G34 command to align multiple Z steppers using a bed probe.
- */
-//#define Z_STEPPER_AUTO_ALIGN
-#if ENABLED(Z_STEPPER_AUTO_ALIGN)
-  // Define probe X and Y positions for Z1, Z2 [, Z3]
-  #define Z_STEPPER_ALIGN_X { 10, 150, 290 }
-  #define Z_STEPPER_ALIGN_Y { 290, 10, 290 }
-  // Set number of iterations to align
-  #define Z_STEPPER_ALIGN_ITERATIONS 3
-  // Enable to restore leveling setup after operation
-  #define RESTORE_LEVELING_AFTER_G34
-  // Use the amplification factor to de-/increase correction step.
-  // In case the stepper (spindle) position is further out than the test point
-  // Use a value > 1. NOTE: This may cause instability
-  #define Z_STEPPER_ALIGN_AMP 1.0
-  // Stop criterion. If the accuracy is better than this stop iterating early
-  #define Z_STEPPER_ALIGN_ACC 0.02
-#endif
-
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/config/examples/BQ/Hephestos_2/Configuration_adv.h
 // @section machine
 
 #define AXIS_RELATIVE_MODES {false, false, false, false}
@@ -488,12 +439,8 @@
 // @section lcd
 
 #if ENABLED(ULTIPANEL)
-<<<<<<< HEAD:Marlin/example_configurations/BQ/Hephestos_2/Configuration_adv.h
-  #define MANUAL_FEEDRATE { 50*60, 50*60, 4*60, 60 } // Feedrates for manual moves along X, Y, Z, E from panel
-=======
   #define MANUAL_FEEDRATE {50*60, 50*60, 4*60, 60} // Feedrates for manual moves along X, Y, Z, E from panel
   #define MANUAL_E_MOVES_RELATIVE // Show LCD extruder moves as relative rather than absolute positions
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/config/examples/BQ/Hephestos_2/Configuration_adv.h
   //#define ULTIPANEL_FEEDMULTIPLY  // Comment to disable setting feedrate multiplier via encoder
 #endif
 
@@ -531,39 +478,8 @@
  */
 //#define ADAPTIVE_STEP_SMOOTHING
 
-/**
- * Custom Microstepping
- * Override as-needed for your setup. Up to 3 MS pins are supported.
- */
-//#define MICROSTEP1 LOW,LOW,LOW
-//#define MICROSTEP2 HIGH,LOW,LOW
-//#define MICROSTEP4 LOW,HIGH,LOW
-//#define MICROSTEP8 HIGH,HIGH,LOW
-//#define MICROSTEP16 LOW,LOW,HIGH
-//#define MICROSTEP32 HIGH,LOW,HIGH
-
-//
-// Use Junction Deviation instead of traditional Jerk Limiting
-//
-//#define JUNCTION_DEVIATION
-#if ENABLED(JUNCTION_DEVIATION)
-  #define JUNCTION_DEVIATION_MM 0.02  // (mm) Distance from real junction edge
-#endif
-
-/**
- * Adaptive Step Smoothing increases the resolution of multi-axis moves, particularly at step frequencies
- * below 1kHz (for AVR) or 10kHz (for ARM), where aliasing between axes in multi-axis moves causes audible
- * vibration and surface artifacts. The algorithm adapts to provide the best possible step smoothing at the
- * lowest stepping frequencies.
- */
-//#define ADAPTIVE_STEP_SMOOTHING
-
 // Microstep setting (Only functional when stepper driver microstep pins are connected to MCU.
-<<<<<<< HEAD:Marlin/example_configurations/BQ/Hephestos_2/Configuration_adv.h
-#define MICROSTEP_MODES { 16, 16, 16, 16, 16 } // [1,2,4,8,16]
-=======
 #define MICROSTEP_MODES { 16, 16, 16, 16, 16, 16 } // [1,2,4,8,16]
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/config/examples/BQ/Hephestos_2/Configuration_adv.h
 
 /**
  *  @section  stepper motor current
@@ -603,29 +519,18 @@
   /**
    * Common slave addresses:
    *
-<<<<<<< HEAD:Marlin/example_configurations/BQ/Hephestos_2/Configuration_adv.h
-   *                    A   (A shifted)   B   (B shifted)  IC
-   * Smoothie          0x2C (0x58)       0x2D (0x5A)       MCP4451
-   * AZTEEG_X3_PRO     0x2C (0x58)       0x2E (0x5C)       MCP4451
-   * MIGHTYBOARD_REVE  0x2F (0x5E)                         MCP4018
-=======
    *                        A   (A shifted)   B   (B shifted)  IC
    * Smoothie              0x2C (0x58)       0x2D (0x5A)       MCP4451
    * AZTEEG_X3_PRO         0x2C (0x58)       0x2E (0x5C)       MCP4451
    * AZTEEG_X5_MINI_WIFI         0x58              0x5C        MCP4451
    * MIGHTYBOARD_REVE      0x2F (0x5E)                         MCP4018
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/config/examples/BQ/Hephestos_2/Configuration_adv.h
    */
   #define DIGIPOT_I2C_ADDRESS_A 0x2C  // unshifted slave address for first DIGIPOT
   #define DIGIPOT_I2C_ADDRESS_B 0x2D  // unshifted slave address for second DIGIPOT
 #endif
 
 //#define DIGIPOT_MCP4018          // Requires library from https://github.com/stawel/SlowSoftI2CMaster
-<<<<<<< HEAD:Marlin/example_configurations/BQ/Hephestos_2/Configuration_adv.h
-#define DIGIPOT_I2C_NUM_CHANNELS 8 // 5DPRINT: 4     AZTEEG_X3_PRO: 8
-=======
 #define DIGIPOT_I2C_NUM_CHANNELS 8 // 5DPRINT: 4     AZTEEG_X3_PRO: 8     MKS SBASE: 5
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/config/examples/BQ/Hephestos_2/Configuration_adv.h
 // Actual motor currents in Amps. The number of entries must match DIGIPOT_I2C_NUM_CHANNELS.
 // These correspond to the physical drivers, so be mindful if the order is changed.
 #define DIGIPOT_I2C_MOTOR_CURRENTS { 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 }  //  AZTEEG_X3_PRO
@@ -658,11 +563,7 @@
 // Add an 'M73' G-code to set the current percentage
 //#define LCD_SET_PROGRESS_MANUALLY
 
-<<<<<<< HEAD:Marlin/example_configurations/BQ/Hephestos_2/Configuration_adv.h
-#if ENABLED(SDSUPPORT) || ENABLED(LCD_SET_PROGRESS_MANUALLY)
-=======
 #if HAS_PRINT_PROGRESS
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/config/examples/BQ/Hephestos_2/Configuration_adv.h
   //#define LCD_PROGRESS_BAR              // Show a progress bar on HD44780 LCDs for SD printing
   #if ENABLED(LCD_PROGRESS_BAR)
     #define PROGRESS_BAR_BAR_TIME 2000    // (ms) Amount of time to show the bar
@@ -671,11 +572,7 @@
     //#define PROGRESS_MSG_ONCE           // Show the message for MSG_TIME then clear it
     //#define LCD_PROGRESS_BAR_TEST       // Add a menu item to test the progress bar
   #endif
-<<<<<<< HEAD:Marlin/example_configurations/BQ/Hephestos_2/Configuration_adv.h
 #endif // SDSUPPORT || LCD_SET_PROGRESS_MANUALLY
-=======
-#endif // HAS_PRINT_PROGRESS
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/config/examples/BQ/Hephestos_2/Configuration_adv.h
 
 /**
  * LED Control Menu
@@ -704,21 +601,12 @@
   #define SD_DETECT_INVERTED
 
   #define SD_FINISHED_STEPPERRELEASE false         // Disable steppers when SD Print is finished
-<<<<<<< HEAD:Marlin/example_configurations/BQ/Hephestos_2/Configuration_adv.h
-  #define SD_FINISHED_RELEASECOMMAND "G27 P0"      // You might want to keep the z enabled so your bed stays in place.
-
-  // Reverse SD sort to show "more recent" files first, according to the card's FAT.
-  // Since the FAT gets out of order with usage, SDCARD_SORT_ALPHA is recommended.
-  #define SDCARD_RATHERRECENTFIRST
-
-=======
   #define SD_FINISHED_RELEASECOMMAND "G27 P0"      // You might want to keep the Z enabled so your bed stays in place.
 
   // Reverse SD sort to show "more recent" files first, according to the card's FAT.
   // Since the FAT gets out of order with usage, SDCARD_SORT_ALPHA is recommended.
   #define SDCARD_RATHERRECENTFIRST
 
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/config/examples/BQ/Hephestos_2/Configuration_adv.h
   // Add an option in the menu to run all auto#.g files
   //#define MENU_ADDAUTOSTART
 
@@ -772,22 +660,6 @@
     #define SDSORT_DYNAMIC_RAM false  // Use dynamic allocation (within SD menus). Least expensive option. Set SDSORT_LIMIT before use!
     #define SDSORT_CACHE_VFATS 2      // Maximum number of 13-byte VFAT entries to use for sorting.
                                       // Note: Only affects SCROLL_LONG_FILENAMES with SDSORT_CACHE_NAMES but not SDSORT_DYNAMIC_RAM.
-<<<<<<< HEAD:Marlin/example_configurations/BQ/Hephestos_2/Configuration_adv.h
-  #endif
-
-  // This allows hosts to request long names for files and folders with M33
-  //#define LONG_FILENAME_HOST_SUPPORT
-
-  // Enable this option to scroll long filenames in the SD card menu
-  //#define SCROLL_LONG_FILENAMES
-
-  /**
-   * This option allows you to abort SD printing when any endstop is triggered.
-   * This feature must be enabled with "M540 S1" or from the LCD menu.
-   * To have any effect, endstops must be enabled during SD printing.
-   */
-  //#define ABORT_ON_ENDSTOP_HIT_FEATURE_ENABLED
-=======
   #endif
 
   // This allows hosts to request long names for files and folders with M33
@@ -849,22 +721,6 @@
     #define SD_FIRMWARE_UPDATE_INACTIVE_VALUE 0xFF
   #endif
 
-  // Add an optimized binary file transfer mode, initiated with 'M28 B1'
-  //#define FAST_FILE_TRANSFER
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/config/examples/BQ/Hephestos_2/Configuration_adv.h
-
-  /**
-   * This option makes it easier to print the same SD Card file again.
-   * On print completion the LCD Menu will open with the file selected.
-   * You can just click to start the print, or navigate elsewhere.
-   */
-  //#define SD_REPRINT_LAST_SELECTED_FILE
-
-  /**
-   * Auto-report SdCard status with M27 S<seconds>
-   */
-  //#define AUTO_REPORT_SD_STATUS
-
 #endif // SDSUPPORT
 
 /**
@@ -879,11 +735,7 @@
  * controller events, as there is a trade-off between reliable
  * printing performance versus fast display updates.
  */
-<<<<<<< HEAD:Marlin/example_configurations/BQ/Hephestos_2/Configuration_adv.h
 #if ENABLED(DOGLCD)
-=======
-#if HAS_GRAPHICAL_LCD
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/config/examples/BQ/Hephestos_2/Configuration_adv.h
   // Show SD percentage next to the progress bar
   //#define DOGM_SD_PERCENT
 
@@ -953,16 +805,6 @@
  */
 #define BABYSTEPPING
 #if ENABLED(BABYSTEPPING)
-<<<<<<< HEAD:Marlin/example_configurations/BQ/Hephestos_2/Configuration_adv.h
-  //#define BABYSTEP_XY                   // Also enable X/Y Babystepping. Not supported on DELTA!
-  #define BABYSTEP_INVERT_Z false         // Change if Z babysteps should go the other way
-  #define BABYSTEP_MULTIPLICATOR 2        // Babysteps are very small. Increase for faster motion.
-  //#define BABYSTEP_ZPROBE_OFFSET          // Enable to combine M851 and Babystepping
-  //#define DOUBLECLICK_FOR_Z_BABYSTEPPING  // Double-click on the Status Screen for Z Babystepping.
-  #define DOUBLECLICK_MAX_INTERVAL  1500  // Maximum interval between clicks, in milliseconds.
-                                          // Note: Extra time may be added to mitigate controller latency.
-  //#define BABYSTEP_ZPROBE_GFX_OVERLAY   // Enable graphical overlay on Z-offset editor
-=======
   //#define BABYSTEP_XY                     // Also enable X/Y Babystepping. Not supported on DELTA!
   #define BABYSTEP_INVERT_Z false           // Change if Z babysteps should go the other way
   #define BABYSTEP_MULTIPLICATOR  2         // Babysteps are very small. Increase for faster motion.
@@ -982,7 +824,6 @@
     //#define BABYSTEP_HOTEND_Z_OFFSET      // For multiple hotends, babystep relative Z offsets
     //#define BABYSTEP_ZPROBE_GFX_OVERLAY   // Enable graphical overlay on Z-offset editor
   #endif
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/config/examples/BQ/Hephestos_2/Configuration_adv.h
 #endif
 
 // @section extruder
@@ -1017,8 +858,6 @@
   //#define MESH_MIN_Y MESH_INSET
   //#define MESH_MAX_X X_BED_SIZE - (MESH_INSET)
   //#define MESH_MAX_Y Y_BED_SIZE - (MESH_INSET)
-<<<<<<< HEAD:Marlin/example_configurations/BQ/Hephestos_2/Configuration_adv.h
-=======
 #endif
 
 /**
@@ -1043,7 +882,6 @@
    */
   #define G29_ACTION_ON_RECOVER "probe_rewipe"
   #define G29_ACTION_ON_FAILURE "probe_failed"
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/config/examples/BQ/Hephestos_2/Configuration_adv.h
 #endif
 
 // @section extras
@@ -1077,39 +915,25 @@
  *     0 : No delay (Expect at least 10µS since one Stepper ISR must transpire)
  *    20 : Minimum for TMC2xxx drivers
  *   200 : Minimum for A4988 drivers
-<<<<<<< HEAD:Marlin/example_configurations/BQ/Hephestos_2/Configuration_adv.h
-=======
  *   400 : Minimum for A5984 drivers
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/config/examples/BQ/Hephestos_2/Configuration_adv.h
  *   500 : Minimum for LV8729 drivers (guess, no info in datasheet)
  *   650 : Minimum for DRV8825 drivers
  *  1500 : Minimum for TB6600 drivers (guess, no info in datasheet)
  * 15000 : Minimum for TB6560 drivers (guess, no info in datasheet)
-<<<<<<< HEAD:Marlin/example_configurations/BQ/Hephestos_2/Configuration_adv.h
-=======
  *
  * Override the default value based on the driver type set in Configuration.h.
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/config/examples/BQ/Hephestos_2/Configuration_adv.h
  */
 //#define MINIMUM_STEPPER_DIR_DELAY 650
 
 /**
  * Minimum stepper driver pulse width (in µs)
  *   0 : Smallest possible width the MCU can produce, compatible with TMC2xxx drivers
-<<<<<<< HEAD:Marlin/example_configurations/BQ/Hephestos_2/Configuration_adv.h
- *   1 : Minimum for A4988 stepper drivers
- *   1 : Minimum for LV8729 stepper drivers
- *   2 : Minimum for DRV8825 stepper drivers
- *   3 : Minimum for TB6600 stepper drivers
- *  30 : Minimum for TB6560 stepper drivers
-=======
  *   1 : Minimum for A4988, A5984, and LV8729 stepper drivers
  *   2 : Minimum for DRV8825 stepper drivers
  *   3 : Minimum for TB6600 stepper drivers
  *  30 : Minimum for TB6560 stepper drivers
  *
  * Override the default value based on the driver type set in Configuration.h.
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/config/examples/BQ/Hephestos_2/Configuration_adv.h
  */
 //#define MINIMUM_STEPPER_PULSE 2
 
@@ -1122,11 +946,8 @@
  *  150000 : Maximum for TB6600 stepper driver
  *  130000 : Maximum for LV8729 stepper driver
  *   15000 : Maximum for TB6560 stepper driver
-<<<<<<< HEAD:Marlin/example_configurations/BQ/Hephestos_2/Configuration_adv.h
-=======
  *
  * Override the default value based on the driver type set in Configuration.h.
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/config/examples/BQ/Hephestos_2/Configuration_adv.h
  */
 //#define MAXIMUM_STEPPER_RATE 250000
 
@@ -1248,15 +1069,6 @@
 #endif
 
 /**
- * Extra Fan Speed
- * Adds a secondary fan speed for each print-cooling fan.
- *   'M106 P<fan> T3-255' : Set a secondary speed for <fan>
- *   'M106 P<fan> T2'     : Use the set secondary speed
- *   'M106 P<fan> T1'     : Restore the previous fan speed
- */
-//#define EXTRA_FAN_SPEED
-
-/**
  * Advanced Pause
  * Experimental feature for filament change support and for parking the nozzle when paused.
  * Adds the GCode M600 for initiating filament change.
@@ -1370,11 +1182,8 @@
   #define E5_SENSE_RESISTOR   91
   #define E5_MICROSTEPS       16
 
-<<<<<<< HEAD:Marlin/example_configurations/BQ/Hephestos_2/Configuration_adv.h
-=======
 #endif // TMC26X
 
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/config/examples/BQ/Hephestos_2/Configuration_adv.h
 // @section tmc_smart
 
 /**
@@ -1383,13 +1192,8 @@
  * in your `pins_MYBOARD.h` file. (e.g., RAMPS 1.4 uses AUX3 pins `X_CS_PIN 53`, `Y_CS_PIN 49`, etc.).
  * You may also use software SPI if you wish to use general purpose IO pins.
  *
-<<<<<<< HEAD:Marlin/example_configurations/BQ/Hephestos_2/Configuration_adv.h
- * You'll also need the TMC2130Stepper Arduino library
- * (https://github.com/teemuatlut/TMC2130Stepper).
-=======
  * The TMC2130Stepper library is required for this stepper driver.
  * https://github.com/teemuatlut/TMC2130Stepper
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/config/examples/BQ/Hephestos_2/Configuration_adv.h
  *
  * To use TMC2208 stepper UART-configurable stepper drivers
  * connect #_SERIAL_TX_PIN to the driver side PDN_UART pin with a 1K resistor.
@@ -1397,13 +1201,8 @@
  * to PDN_UART without a resistor.
  * The drivers can also be used with hardware serial.
  *
-<<<<<<< HEAD:Marlin/example_configurations/BQ/Hephestos_2/Configuration_adv.h
- * You'll also need the TMC2208Stepper Arduino library
- * (https://github.com/teemuatlut/TMC2208Stepper).
-=======
  * The TMC2208Stepper library is required for this stepper driver.
  * https://github.com/teemuatlut/TMC2208Stepper
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/config/examples/BQ/Hephestos_2/Configuration_adv.h
  */
 #if HAS_TRINAMIC
 
@@ -1425,26 +1224,6 @@
 
   #define Y2_CURRENT         800
   #define Y2_MICROSTEPS       16
-<<<<<<< HEAD:Marlin/example_configurations/BQ/Hephestos_2/Configuration_adv.h
-
-  #define Z2_CURRENT         800
-  #define Z2_MICROSTEPS       16
-
-  #define E0_CURRENT         800
-  #define E0_MICROSTEPS       16
-
-  #define E1_CURRENT         800
-  #define E1_MICROSTEPS       16
-
-  #define E2_CURRENT         800
-  #define E2_MICROSTEPS       16
-
-  #define E3_CURRENT         800
-  #define E3_MICROSTEPS       16
-
-  #define E4_CURRENT         800
-  #define E4_MICROSTEPS       16
-=======
 
   #define Z2_CURRENT         800
   #define Z2_MICROSTEPS       16
@@ -1469,7 +1248,6 @@
 
   #define E5_CURRENT         800
   #define E5_MICROSTEPS       16
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/config/examples/BQ/Hephestos_2/Configuration_adv.h
 
   /**
    * Use software SPI for TMC2130.
@@ -1520,10 +1298,7 @@
   #define Y2_HYBRID_THRESHOLD    100
   #define Z_HYBRID_THRESHOLD       3
   #define Z2_HYBRID_THRESHOLD      3
-<<<<<<< HEAD:Marlin/example_configurations/BQ/Hephestos_2/Configuration_adv.h
-=======
   #define Z3_HYBRID_THRESHOLD      3
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/config/examples/BQ/Hephestos_2/Configuration_adv.h
   #define E0_HYBRID_THRESHOLD     30
   #define E1_HYBRID_THRESHOLD     30
   #define E2_HYBRID_THRESHOLD     30
@@ -1532,19 +1307,11 @@
   #define E5_HYBRID_THRESHOLD     30
 
   /**
-<<<<<<< HEAD:Marlin/example_configurations/BQ/Hephestos_2/Configuration_adv.h
-   * Use stallGuard2 to sense an obstacle and trigger an endstop.
-   * You need to place a wire from the driver's DIAG1 pin to the X/Y endstop pin.
-   * X, Y, and Z homing will always be done in spreadCycle mode.
-   *
-   * X/Y/Z_HOMING_SENSITIVITY is used for tuning the trigger sensitivity.
-=======
    * Use StallGuard2 to sense an obstacle and trigger an endstop.
    * Connect the stepper driver's DIAG1 pin to the X/Y endstop pin.
    * X, Y, and Z homing will always be done in spreadCycle mode.
    *
    * X/Y/Z_STALL_SENSITIVITY is used for tuning the trigger sensitivity.
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/config/examples/BQ/Hephestos_2/Configuration_adv.h
    * Higher values make the system LESS sensitive.
    * Lower value make the system MORE sensitive.
    * Too low values can lead to false positives, while too high values will collide the axis without triggering.
@@ -1553,12 +1320,6 @@
    */
   //#define SENSORLESS_HOMING // TMC2130 only
 
-<<<<<<< HEAD:Marlin/example_configurations/BQ/Hephestos_2/Configuration_adv.h
-  #if ENABLED(SENSORLESS_HOMING)
-    #define X_HOMING_SENSITIVITY  8
-    #define Y_HOMING_SENSITIVITY  8
-    #define Z_HOMING_SENSITIVITY  8
-=======
   /**
    * Use StallGuard2 to probe the bed with the nozzle.
    *
@@ -1571,7 +1332,6 @@
     #define X_STALL_SENSITIVITY  8
     #define Y_STALL_SENSITIVITY  8
     //#define Z_STALL_SENSITIVITY  8
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/config/examples/BQ/Hephestos_2/Configuration_adv.h
   #endif
 
   /**
@@ -1610,11 +1370,7 @@
    */
   #define TMC_ADV() {  }
 
-<<<<<<< HEAD:Marlin/example_configurations/BQ/Hephestos_2/Configuration_adv.h
-#endif // TMC2130 || TMC2208
-=======
 #endif // HAS_TRINAMIC
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/config/examples/BQ/Hephestos_2/Configuration_adv.h
 
 // @section L6470
 
@@ -1626,55 +1382,9 @@
  */
 #if HAS_DRIVER(L6470)
 
-<<<<<<< HEAD:Marlin/example_configurations/BQ/Hephestos_2/Configuration_adv.h
-  #define X_MICROSTEPS      16 // number of microsteps
-  #define X_OVERCURRENT   2000 // maxc current in mA. If the current goes over this value, the driver will switch off
-  #define X_STALLCURRENT  1500 // current in mA where the driver will detect a stall
-
-  #define X2_MICROSTEPS     16
-  #define X2_OVERCURRENT  2000
-  #define X2_STALLCURRENT 1500
-
-  #define Y_MICROSTEPS      16
-  #define Y_OVERCURRENT   2000
-  #define Y_STALLCURRENT  1500
-
-  #define Y2_MICROSTEPS     16
-  #define Y2_OVERCURRENT  2000
-  #define Y2_STALLCURRENT 1500
-
-  #define Z_MICROSTEPS      16
-  #define Z_OVERCURRENT   2000
-  #define Z_STALLCURRENT  1500
-
-  #define Z2_MICROSTEPS     16
-  #define Z2_OVERCURRENT  2000
-  #define Z2_STALLCURRENT 1500
-
-  #define E0_MICROSTEPS     16
-  #define E0_OVERCURRENT  2000
-  #define E0_STALLCURRENT 1500
-
-  #define E1_MICROSTEPS     16
-  #define E1_OVERCURRENT  2000
-  #define E1_STALLCURRENT 1500
-
-  #define E2_MICROSTEPS     16
-  #define E2_OVERCURRENT  2000
-  #define E2_STALLCURRENT 1500
-
-  #define E3_MICROSTEPS     16
-  #define E3_OVERCURRENT  2000
-  #define E3_STALLCURRENT 1500
-
-  #define E4_MICROSTEPS     16
-  #define E4_OVERCURRENT  2000
-  #define E4_STALLCURRENT 1500
-=======
   #define X_MICROSTEPS        16 // number of microsteps
   #define X_OVERCURRENT     2000 // maxc current in mA. If the current goes over this value, the driver will switch off
   #define X_STALLCURRENT    1500 // current in mA where the driver will detect a stall
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/config/examples/BQ/Hephestos_2/Configuration_adv.h
 
   #define X2_MICROSTEPS       16
   #define X2_OVERCURRENT    2000
@@ -1911,12 +1621,11 @@
  */
 //#define PAREN_COMMENTS      // Support for parentheses-delimited comments
 //#define GCODE_MOTION_MODES  // Remember the motion mode (G0 G1 G2 G3 G5 G38.X) and apply for X Y Z E F, etc.
-
-// Enable and set a (default) feedrate for all G0 moves
-//#define G0_FEEDRATE 3000 // (mm/m)
-#ifdef G0_FEEDRATE
-  //#define VARIABLE_G0_FEEDRATE // The G0 feedrate is set by F in G0 motion mode
+//#define G0_FEEDRATE         // Add a G0-specific sticky feedrate, applied to all subsequent G0 moves.
+#if ENABLED(G0_FEEDRATE)
+  #define DEFAULT_G0_FEEDRATE 3000  // (mm/m)
 #endif
+
 /**
  * User-defined menu items that execute custom GCode
  */
@@ -1930,10 +1639,10 @@
   #define USER_DESC_1 "Home & UBL Info"
   #define USER_GCODE_1 "G28\nG29 W"
 
-  #define USER_DESC_2 "Preheat for " PREHEAT_1_LABEL
+  #define USER_DESC_2 "Preheat for PLA"
   #define USER_GCODE_2 "M140 S" STRINGIFY(PREHEAT_1_TEMP_BED) "\nM104 S" STRINGIFY(PREHEAT_1_TEMP_HOTEND)
 
-  #define USER_DESC_3 "Preheat for " PREHEAT_2_LABEL
+  #define USER_DESC_3 "Preheat for ABS"
   #define USER_GCODE_3 "M140 S" STRINGIFY(PREHEAT_2_TEMP_BED) "\nM104 S" STRINGIFY(PREHEAT_2_TEMP_HOTEND)
 
   #define USER_DESC_4 "Heat Bed/Home/Level"
@@ -2059,11 +1768,8 @@
   #define MAX7219_NUMBER_UNITS 1   // Number of Max7219 units in chain.
   #define MAX7219_ROTATE       0   // Rotate the display clockwise (in multiples of +/- 90°)
                                    // connector at:  right=0   bottom=-90  top=90  left=180
-<<<<<<< HEAD:Marlin/example_configurations/BQ/Hephestos_2/Configuration_adv.h
-=======
   //#define MAX7219_REVERSE_ORDER  // The individual LED matrix units may be in reversed order
 
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/config/examples/BQ/Hephestos_2/Configuration_adv.h
   /**
    * Sample debug features
    * If you add more debug displays, be careful to avoid conflicts!
@@ -2090,12 +1796,6 @@
                               // Default behaviour is limited to Z axis only.
 #endif
 
-<<<<<<< HEAD:Marlin/example_configurations/BQ/Hephestos_2/Configuration_adv.h
-// Enable Marlin dev mode which adds some special commands
-//#define MARLIN_DEV_MODE
-
-#endif // CONFIGURATION_ADV_H
-=======
 /**
  * WiFi Support (Espressif ESP32 WiFi)
  */
@@ -2107,4 +1807,5 @@
 
 // Enable Marlin dev mode which adds some special commands
 //#define MARLIN_DEV_MODE
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/config/examples/BQ/Hephestos_2/Configuration_adv.h
+
+#endif // CONFIGURATION_ADV_H

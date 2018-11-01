@@ -34,16 +34,12 @@
 #ifndef LANGUAGE_SK_UTF_H
 #define LANGUAGE_SK_UTF_H
 
-<<<<<<< HEAD:Marlin/language_sk_utf8.h
-#define MAPPER_C3C4C5_SK
-=======
 // Put characters here that should be displayed with M117
 //_UxGT("aäAÄaáAÁeéEÉiíIÍlĺLĹ")
 //_UxGT("oóOÓoôOÔrŕRŔuúUÚyýYÝ")
 //_UxGT("cčCČdďDĎlľLĽnňNŇsšSŠ")
 //_UxGT("tťTŤzžZŽ")
 
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/lcd/language/language_sk.h
 #define DISPLAY_CHARSET_ISO10646_SK
 #define CHARSIZE 2
 
@@ -52,11 +48,7 @@
 #define MSG_SD_INSERTED                     _UxGT("Karta vložená")
 #define MSG_SD_REMOVED                      _UxGT("Karta vybraná")
 #define MSG_LCD_ENDSTOPS                    _UxGT("Endstopy") // max 8 znakov
-<<<<<<< HEAD:Marlin/language_sk_utf8.h
-#define MSG_LCD_SOFT_ENDSTOPS               _UxGT("Soft.endstopy")
-=======
 #define MSG_LCD_SOFT_ENDSTOPS               _UxGT("Soft. endstopy")
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/lcd/language/language_sk.h
 #define MSG_MAIN                            _UxGT("Hlavná ponuka")
 #define MSG_ADVANCED_SETTINGS               _UxGT("Pokročilé nastav.")
 #define MSG_CONFIGURATION                   _UxGT("Konfigurácia")
@@ -69,11 +61,7 @@
 #define MSG_AUTO_HOME_Y                     _UxGT("Domov os Y")
 #define MSG_AUTO_HOME_Z                     _UxGT("Domov os Z")
 #define MSG_TMC_Z_CALIBRATION               _UxGT("Kalibrovať Z")
-<<<<<<< HEAD:Marlin/language_sk_utf8.h
-#define MSG_LEVEL_BED_HOMING                _UxGT("Meranie podložky")
-=======
 #define MSG_LEVEL_BED_HOMING                _UxGT("Parkovanie XYZ")
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/lcd/language/language_sk.h
 #define MSG_LEVEL_BED_WAITING               _UxGT("Kliknutím spusťte")
 #define MSG_LEVEL_BED_NEXT_POINT            _UxGT("Ďalší bod")
 #define MSG_LEVEL_BED_DONE                  _UxGT("Meranie hotové!")
@@ -81,13 +69,13 @@
 #define MSG_SET_HOME_OFFSETS                _UxGT("Nastaviť offsety")
 #define MSG_HOME_OFFSETS_APPLIED            _UxGT("Offsety nastavené")
 #define MSG_SET_ORIGIN                      _UxGT("Nastaviť začiatok")
-#define MSG_PREHEAT_1                       _UxGT("Zahriať " PREHEAT_1_LABEL)
+#define MSG_PREHEAT_1                       _UxGT("Zahriať PLA")
 #define MSG_PREHEAT_1_N                     MSG_PREHEAT_1 _UxGT(" ")
 #define MSG_PREHEAT_1_ALL                   MSG_PREHEAT_1 _UxGT(" všetko")
 #define MSG_PREHEAT_1_END                   MSG_PREHEAT_1 _UxGT(" hotend")
 #define MSG_PREHEAT_1_BEDONLY               MSG_PREHEAT_1 _UxGT(" podlož")
 #define MSG_PREHEAT_1_SETTINGS              MSG_PREHEAT_1 _UxGT(" nast.")
-#define MSG_PREHEAT_2                       _UxGT("Zahriať " PREHEAT_2_LABEL)
+#define MSG_PREHEAT_2                       _UxGT("Zahriať ABS")
 #define MSG_PREHEAT_2_N                     MSG_PREHEAT_2 _UxGT(" ")
 #define MSG_PREHEAT_2_ALL                   MSG_PREHEAT_2 _UxGT(" všetko")
 #define MSG_PREHEAT_2_END                   MSG_PREHEAT_2 _UxGT(" hotend")
@@ -127,32 +115,24 @@
 #define MSG_UBL_MOVING_TO_NEXT              _UxGT("Presun na ďalší")
 #define MSG_UBL_ACTIVATE_MESH               _UxGT("Aktivovať UBL")
 #define MSG_UBL_DEACTIVATE_MESH             _UxGT("Deaktivovať UBL")
-<<<<<<< HEAD:Marlin/language_sk_utf8.h
 #define MSG_UBL_SET_BED_TEMP                _UxGT("Teplota podložky")
 #define MSG_UBL_CUSTOM_BED_TEMP             MSG_UBL_SET_BED_TEMP
 #define MSG_UBL_SET_HOTEND_TEMP             _UxGT("Teplota hotendu")
 #define MSG_UBL_CUSTOM_HOTEND_TEMP          MSG_UBL_SET_HOTEND_TEMP
-#define MSG_UBL_MESH_EDIT                   _UxGT("Úprava sieťe bodov")
-=======
-#define MSG_UBL_SET_TEMP_BED                _UxGT("Teplota podložky")
-#define MSG_UBL_BED_TEMP_CUSTOM             MSG_UBL_SET_TEMP_BED
-#define MSG_UBL_SET_TEMP_HOTEND             _UxGT("Teplota hotendu")
-#define MSG_UBL_HOTEND_TEMP_CUSTOM          MSG_UBL_SET_TEMP_HOTEND
 #define MSG_UBL_MESH_EDIT                   _UxGT("Úprava siete bodov")
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/lcd/language/language_sk.h
 #define MSG_UBL_EDIT_CUSTOM_MESH            _UxGT("Upraviť vlastnú sieť")
 #define MSG_UBL_FINE_TUNE_MESH              _UxGT("Doladiť sieť bodov")
 #define MSG_UBL_DONE_EDITING_MESH           _UxGT("Koniec úprav siete")
 #define MSG_UBL_BUILD_CUSTOM_MESH           _UxGT("Vlastná sieť")
 #define MSG_UBL_BUILD_MESH_MENU             _UxGT("Vytvoriť sieť")
-#define MSG_UBL_BUILD_MESH_M1               _UxGT("Sieť bodov " PREHEAT_1_LABEL)
-#define MSG_UBL_BUILD_MESH_M2               _UxGT("Sieť bodov " PREHEAT_2_LABEL)
+#define MSG_UBL_BUILD_PLA_MESH              _UxGT("Sieť bodov PLA")
+#define MSG_UBL_BUILD_ABS_MESH              _UxGT("Sieť bodov ABS")
 #define MSG_UBL_BUILD_COLD_MESH             _UxGT("Studená sieť bodov")
 #define MSG_UBL_MESH_HEIGHT_ADJUST          _UxGT("Upraviť výšku siete")
 #define MSG_UBL_MESH_HEIGHT_AMOUNT          _UxGT("Výška")
 #define MSG_UBL_VALIDATE_MESH_MENU          _UxGT("Skontrolovať sieť")
-#define MSG_UBL_VALIDATE_MESH_M1            _UxGT("Kontrola siete " PREHEAT_1_LABEL)
-#define MSG_UBL_VALIDATE_MESH_M2            _UxGT("Kontrola siete " PREHEAT_2_LABEL)
+#define MSG_UBL_VALIDATE_PLA_MESH           _UxGT("Kontrola siete PLA")
+#define MSG_UBL_VALIDATE_ABS_MESH           _UxGT("Kontrola siete ABS")
 #define MSG_UBL_VALIDATE_CUSTOM_MESH        _UxGT("Kontrola vlast.siete")
 #define MSG_UBL_CONTINUE_MESH               _UxGT("Pokračovať v sieti")
 #define MSG_UBL_MESH_LEVELING               _UxGT("Sieťové rovnanie")
@@ -182,13 +162,8 @@
 #define MSG_MESH_LOADED                     _UxGT("Sieť %i načítaná")
 #define MSG_MESH_SAVED                      _UxGT("Sieť %i uložená")
 #define MSG_NO_STORAGE                      _UxGT("Nedostatok miesta")
-<<<<<<< HEAD:Marlin/language_sk_utf8.h
-#define MSG_UBL_SAVE_ERROR                  _UxGT("Err: Uložiť UBL")
-#define MSG_UBL_RESTORE_ERROR               _UxGT("Err: Obnoviť UBL")
-=======
 #define MSG_UBL_SAVE_ERROR                  _UxGT("Chyba: Ukladanie UBL")
 #define MSG_UBL_RESTORE_ERROR               _UxGT("Chyba: Obnovenie UBL")
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/lcd/language/language_sk.h
 #define MSG_UBL_Z_OFFSET_STOPPED            _UxGT("Koniec Z-Offsetu")
 #define MSG_UBL_STEP_BY_STEP_MENU           _UxGT("Postupné UBL")
 
@@ -211,18 +186,12 @@
 #define MSG_INTENSITY_W                     _UxGT("Inten. bielej")
 #define MSG_LED_BRIGHTNESS                  _UxGT("Jas")
 
-<<<<<<< HEAD:Marlin/language_sk_utf8.h
-#define MSG_USER_MENU                       _UxGT("Vlastné príkazy")
-#define MSG_MOVING                          _UxGT("Posun...")
-=======
 #define MSG_MOVING                          _UxGT("Posúvam...")
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/lcd/language/language_sk.h
 #define MSG_FREE_XY                         _UxGT("Uvolniť XY")
 #define MSG_MOVE_X                          _UxGT("Posunúť X")
 #define MSG_MOVE_Y                          _UxGT("Posunúť Y")
 #define MSG_MOVE_Z                          _UxGT("Posunúť Z")
 #define MSG_MOVE_E                          _UxGT("Extrudér")
-#define MSG_HOTEND_TOO_COLD                 _UxGT("Hotend je studený")
 #define MSG_MOVE_01MM                       _UxGT("Posunúť o 0,1mm")
 #define MSG_MOVE_1MM                        _UxGT("Posunúť o 1mm")
 #define MSG_MOVE_10MM                       _UxGT("Posunúť o 10mm")
@@ -287,17 +256,10 @@
 #define MSG_MOTION                          _UxGT("Pohyb")
 #define MSG_FILAMENT                        _UxGT("Filament")
 #define MSG_VOLUMETRIC_ENABLED              _UxGT("E na mm3")
-<<<<<<< HEAD:Marlin/language_sk_utf8.h
-#define MSG_FILAMENT_DIAM                   _UxGT("Fil. Priem.")
-#define MSG_FILAMENT_UNLOAD                 _UxGT("Vysunúť mm")
-#define MSG_FILAMENT_LOAD                   _UxGT("Zaviesť mm")
-#define MSG_ADVANCE_K                       _UxGT("K pro posun")
-=======
 #define MSG_FILAMENT_DIAM                   _UxGT("Priem. fil.")
 #define MSG_FILAMENT_UNLOAD                 _UxGT("Vysunúť mm")
 #define MSG_FILAMENT_LOAD                   _UxGT("Zaviesť mm")
 #define MSG_ADVANCE_K                       _UxGT("K pre posun")
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/lcd/language/language_sk.h
 #define MSG_CONTRAST                        _UxGT("Kontrast LCD")
 #define MSG_STORE_EEPROM                    _UxGT("Uložiť nastavenie")
 #define MSG_LOAD_EEPROM                     _UxGT("Načítať nastavenie")
@@ -316,11 +278,7 @@
 #define MSG_CARD_MENU                       _UxGT("Tlačiť z SD")
 #define MSG_NO_CARD                         _UxGT("Žiadna SD karta")
 #define MSG_DWELL                           _UxGT("Spím...")
-<<<<<<< HEAD:Marlin/language_sk_utf8.h
-#define MSG_USERWAIT                        _UxGT("Kliknutím pokrač.")
-=======
 #define MSG_USERWAIT                        _UxGT("Pokrač. kliknutím...")
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/lcd/language/language_sk.h
 #define MSG_PRINT_PAUSED                    _UxGT("Tlač pozastavená")
 #define MSG_PRINTING                        _UxGT("Tlačím...")
 #define MSG_PRINT_ABORTED                   _UxGT("Tlač zrušená")
@@ -337,8 +295,7 @@
 #define MSG_CONTROL_RETRACT_RECOVER_SWAPF   _UxGT("S UnRet V")
 #define MSG_AUTORETRACT                     _UxGT("AutoRetr.")
 #define MSG_FILAMENT_SWAP_LENGTH            _UxGT("Dĺžka retrakcie")
-#define MSG_TOOL_CHANGE                     _UxGT("Výmena nástroja")
-#define MSG_TOOL_CHANGE_ZLIFT               _UxGT("Zdvihnúť Z")
+#define MSG_SINGLENOZZLE_TOOL_CHANGE        _UxGT("Výmena nástroja")
 #define MSG_SINGLENOZZLE_PRIME_SPD          _UxGT("Primárna rýchl.")
 #define MSG_SINGLENOZZLE_RETRACT_SPD        _UxGT("Rýchl. retrakcie")
 #define MSG_FILAMENTCHANGE                  _UxGT("Vymeniť filament")
@@ -347,13 +304,8 @@
 #define MSG_FILAMENTUNLOAD_ALL              _UxGT("Vysunúť všetko")
 
 #define MSG_INIT_SDCARD                     _UxGT("Načítať SD kartu")
-<<<<<<< HEAD:Marlin/language_sk_utf8.h
 #define MSG_CNG_SDCARD                      _UxGT("Vymeniť SD kartu")
-#define MSG_ZPROBE_OUT                      _UxGT("Sonda Z mimo podl")
-=======
-#define MSG_CHANGE_SDCARD                   _UxGT("Vymeniť SD kartu")
 #define MSG_ZPROBE_OUT                      _UxGT("Sonda Z mimo podl.")
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/lcd/language/language_sk.h
 #define MSG_SKEW_FACTOR                     _UxGT("Faktor skosenia")
 #define MSG_BLTOUCH                         _UxGT("BLTouch")
 #define MSG_BLTOUCH_SELFTEST                _UxGT("Self-Test BLTouch")
@@ -371,17 +323,6 @@
 #define MSG_ENDSTOP_ABORT                   _UxGT("Zastavenie Endstop")
 #define MSG_HEATING_FAILED_LCD              _UxGT("Chyba ohrevu")
 #define MSG_HEATING_FAILED_LCD_BED          _UxGT("Chyba ohrevu podl.")
-<<<<<<< HEAD:Marlin/language_sk_utf8.h
-#define MSG_ERR_REDUNDANT_TEMP              _UxGT("REDUND. TEPLOTA")
-#define MSG_THERMAL_RUNAWAY                 _UxGT("TEPLOTNÝ SKOK")
-#define MSG_THERMAL_RUNAWAY_BED             _UxGT("TEPLOTNÝ SKOK PODL.")
-#define MSG_ERR_MAXTEMP                     _UxGT("VYSOKÁ TEPLOTA")
-#define MSG_ERR_MINTEMP                     _UxGT("NÍZKA TEPLOTA")
-#define MSG_ERR_MAXTEMP_BED                 _UxGT("VYS. TEPL. PODL.")
-#define MSG_ERR_MINTEMP_BED                 _UxGT("NÍZ. TEPL. PODL.")
-#define MSG_ERR_Z_HOMING                    MSG_HOME _UxGT(" ") MSG_X MSG_Y _UxGT(" ") MSG_FIRST
-#define MSG_HALTED                          _UxGT("TLAČ. ZASTAVENÁ")
-=======
 #define MSG_ERR_REDUNDANT_TEMP              _UxGT("Chyba: REDUND. TEP.")
 #define MSG_THERMAL_RUNAWAY                 _UxGT("TEPLOTNÝ SKOK")
 #define MSG_THERMAL_RUNAWAY_BED             _UxGT("TEPLOTNÝ SKOK PODL.")
@@ -391,7 +332,6 @@
 #define MSG_ERR_MINTEMP_BED                 _UxGT("Chyba: MINTEMP PODL.")
 #define MSG_ERR_Z_HOMING                    MSG_HOME _UxGT(" ") MSG_X MSG_Y _UxGT(" ") MSG_FIRST
 #define MSG_HALTED                          _UxGT("TLAČIAREŇ ZASTAVENÁ")
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/lcd/language/language_sk.h
 #define MSG_PLEASE_RESET                    _UxGT("Spravte reset")
 #define MSG_SHORT_DAY                       _UxGT("d")
 #define MSG_SHORT_HOUR                      _UxGT("h")
@@ -399,19 +339,6 @@
 #define MSG_HEATING                         _UxGT("Ohrev...")
 #define MSG_COOLING                         _UxGT("Ochladzovanie...")
 #define MSG_BED_HEATING                     _UxGT("Ohrev podl...")
-<<<<<<< HEAD:Marlin/language_sk_utf8.h
-#define MSG_BED_COOLING                     _UxGT("Ochladzovanie podl...")
-#define MSG_DELTA_CALIBRATE                 _UxGT("Delta Kalibrácia")
-#define MSG_DELTA_CALIBRATE_X               _UxGT("Kalibrovať X")
-#define MSG_DELTA_CALIBRATE_Y               _UxGT("Kalibrovať Y")
-#define MSG_DELTA_CALIBRATE_Z               _UxGT("Kalibrovať Z")
-#define MSG_DELTA_CALIBRATE_CENTER          _UxGT("Kalibrovať Stred")
-#define MSG_DELTA_SETTINGS                  _UxGT("Delta nastavenia")
-#define MSG_DELTA_AUTO_CALIBRATE            _UxGT("Autokalibrácia")
-#define MSG_DELTA_HEIGHT_CALIBRATE          _UxGT("Nast.výšku delty")
-#define MSG_DELTA_Z_OFFSET_CALIBRATE        _UxGT("Offset sondy Z")
-#define MSG_DELTA_DIAG_ROD                  _UxGT("Diag rameno")
-=======
 #define MSG_BED_COOLING                     _UxGT("Ochladzovanie podl..")
 #define MSG_DELTA_CALIBRATE                 _UxGT("Delta kalibrácia")
 #define MSG_DELTA_CALIBRATE_X               _UxGT("Kalibrovať X")
@@ -423,7 +350,6 @@
 #define MSG_DELTA_HEIGHT_CALIBRATE          _UxGT("Nast. výšku delty")
 #define MSG_DELTA_Z_OFFSET_CALIBRATE        _UxGT("Offset sondy Z")
 #define MSG_DELTA_DIAG_ROD                  _UxGT("Diag. rameno")
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/lcd/language/language_sk.h
 #define MSG_DELTA_HEIGHT                    _UxGT("Výška")
 #define MSG_DELTA_RADIUS                    _UxGT("Polomer")
 #define MSG_INFO_MENU                       _UxGT("O tlačiarni")
@@ -466,15 +392,6 @@
 #define MSG_FILAMENT_CHANGE_HEADER_PAUSE    _UxGT("PAUZA TLAČE")
 #define MSG_FILAMENT_CHANGE_HEADER_LOAD     _UxGT("ZAVEDENIE FILAMENTU")
 #define MSG_FILAMENT_CHANGE_HEADER_UNLOAD   _UxGT("VYSUNUTIE FILAMENTU")
-<<<<<<< HEAD:Marlin/language_sk_utf8.h
-#define MSG_FILAMENT_CHANGE_OPTION_HEADER   _UxGT("MOŽN. POKRAČ.:")
-#define MSG_FILAMENT_CHANGE_OPTION_PURGE    _UxGT("Vytlačiť viacej")
-#define MSG_FILAMENT_CHANGE_OPTION_RESUME   _UxGT("Obnoviť tlač")
-#define MSG_FILAMENT_CHANGE_NOZZLE          _UxGT("  Tryska: ")
-#define MSG_ERR_HOMING_FAILED               _UxGT("Parkovanie zlyhalo")
-#define MSG_ERR_PROBING_FAILED              _UxGT("Kalibrácia zlyhala")
-#define MSG_M600_TOO_COLD                   _UxGT("M600: Príliž studený")
-=======
 #define MSG_FILAMENT_CHANGE_OPTION_HEADER   _UxGT("MOŽNOSTI POKRAČ.:")
 #define MSG_FILAMENT_CHANGE_OPTION_PURGE    _UxGT("Vytlačiť viacej")
 #define MSG_FILAMENT_CHANGE_OPTION_RESUME   _UxGT("Obnoviť tlač")
@@ -483,7 +400,6 @@
 #define MSG_ERR_HOMING_FAILED               _UxGT("Parkovanie zlyhalo")
 #define MSG_ERR_PROBING_FAILED              _UxGT("Kalibrácia zlyhala")
 #define MSG_M600_TOO_COLD                   _UxGT("M600: Príliš studený")
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/lcd/language/language_sk.h
 
 #if LCD_HEIGHT >= 4
   // Up to 3 lines allowed

@@ -23,13 +23,9 @@
 #ifndef __UTILITY_H__
 #define __UTILITY_H__
 
-<<<<<<< HEAD:Marlin/utility.h
-#include "types.h"
-=======
 #include "../inc/MarlinConfigPre.h"
 
 constexpr char axis_codes[XYZE] = { 'X', 'Y', 'Z', 'E' };
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/core/utility.h
 
 void safe_delay(millis_t ms);
 
@@ -37,9 +33,6 @@ void safe_delay(millis_t ms);
   void crc16(uint16_t *crc, const void * const data, uint16_t cnt);
 #endif
 
-<<<<<<< HEAD:Marlin/utility.h
-#if ENABLED(ULTRA_LCD) || (ENABLED(DEBUG_LEVELING_FEATURE) && (ENABLED(MESH_BED_LEVELING) || (HAS_ABL && !ABL_PLANAR)))
-=======
 #if ENABLED(AUTO_BED_LEVELING_UBL) || ENABLED(G26_MESH_VALIDATION)
   /**
    * These support functions allow the use of large bit arrays of flags that take very
@@ -53,7 +46,6 @@ void safe_delay(millis_t ms);
 #endif
 
 #if ENABLED(ULTRA_LCD) || ENABLED(DEBUG_LEVELING_FEATURE) || ENABLED(EXTENSIBLE_UI)
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/core/utility.h
 
   // Convert uint8_t to string with 123 format
   char* i8tostr3(const uint8_t x);
@@ -105,7 +97,7 @@ void safe_delay(millis_t ms);
     FORCE_INLINE char* ftostr4sign(const float &x) { return itostr4sign(int(x + (x < 0 ? -0.5f : 0.5f))); }
   #endif
 
-#endif // ULTRA_LCD || (DEBUG_LEVELING_FEATURE && (MESH_BED_LEVELING || (HAS_ABL && !ABL_PLANAR)))
+#endif // ULTRA_LCD
 
 #if ENABLED(DEBUG_LEVELING_FEATURE)
   void log_machine_info();

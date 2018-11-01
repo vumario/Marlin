@@ -195,11 +195,7 @@ else ifeq ($(HARDWARE_MOTHERBOARD),49)
 else ifeq ($(HARDWARE_MOTHERBOARD),7)
 # Ultimaker (Older electronics. Pre 1.5.4. This is rare)
 else ifeq ($(HARDWARE_MOTHERBOARD),71)
-<<<<<<< HEAD
-MCU ?= atmega1280
-=======
   MCU ?= atmega1280
->>>>>>> upstream/bugfix-2.0.x
 # Azteeg X3
 else ifeq ($(HARDWARE_MOTHERBOARD),67)
 # Azteeg X3 Pro
@@ -269,15 +265,9 @@ else ifeq ($(HARDWARE_MOTHERBOARD),75)
 #
 
 else ifeq ($(HARDWARE_MOTHERBOARD),702)
-<<<<<<< HEAD
-MCU              ?= atmega1281
-else ifeq ($(HARDWARE_MOTHERBOARD),25)
-MCU              ?= atmega1281
-=======
   MCU              ?= atmega1281
 else ifeq ($(HARDWARE_MOTHERBOARD),25)
   MCU              ?= atmega1281
->>>>>>> upstream/bugfix-2.0.x
 
 #
 # Sanguinololu and Derivatives - ATmega644P, ATmega1284P
@@ -285,46 +275,6 @@ else ifeq ($(HARDWARE_MOTHERBOARD),25)
 
 # Sanguinololu < 1.2
 else ifeq ($(HARDWARE_MOTHERBOARD),6)
-<<<<<<< HEAD
-HARDWARE_VARIANT ?= Sanguino
-MCU              ?= atmega644p
-# Sanguinololu 1.2 and above
-else ifeq ($(HARDWARE_MOTHERBOARD),62)
-HARDWARE_VARIANT ?= Sanguino
-MCU              ?= atmega644p
-# Melzi
-else ifeq ($(HARDWARE_MOTHERBOARD),63)
-HARDWARE_VARIANT ?= Sanguino
-MCU              ?= atmega644p
-# Melzi with ATmega1284 (MaKr3d version)
-else ifeq ($(HARDWARE_MOTHERBOARD),66)
-HARDWARE_VARIANT ?= Sanguino
-MCU              ?= atmega1284p
-# Melzi Creality3D board (for CR-10 etc)
-else ifeq ($(HARDWARE_MOTHERBOARD),89)
-HARDWARE_VARIANT ?= Sanguino
-MCU              ?= atmega1284p
-# Melzi Malyan M150 board
-else ifeq ($(HARDWARE_MOTHERBOARD),92)
-HARDWARE_VARIANT ?= Sanguino
-MCU              ?= atmega1284p
-# Tronxy X5S
-else ifeq ($(HARDWARE_MOTHERBOARD),505)
-HARDWARE_VARIANT ?= Sanguino
-MCU              ?= atmega1284p
-# STB V1.1
-else ifeq ($(HARDWARE_MOTHERBOARD),64)
-HARDWARE_VARIANT ?= Sanguino
-MCU              ?= atmega1284p
-# Azteeg X1
-else ifeq ($(HARDWARE_MOTHERBOARD),65)
-HARDWARE_VARIANT ?= Sanguino
-MCU              ?= atmega1284p
-# Anet 1.0 (Melzi clone)
-else ifeq ($(HARDWARE_MOTHERBOARD),69)
-HARDWARE_VARIANT ?= Sanguino
-MCU              ?= atmega1284p
-=======
   HARDWARE_VARIANT ?= Sanguino
   MCU              ?= atmega644p
 # Sanguinololu 1.2 and above
@@ -363,7 +313,6 @@ else ifeq ($(HARDWARE_MOTHERBOARD),65)
 else ifeq ($(HARDWARE_MOTHERBOARD),69)
   HARDWARE_VARIANT ?= Sanguino
   MCU              ?= atmega1284p
->>>>>>> upstream/bugfix-2.0.x
 
 #
 # Other ATmega644P, ATmega644, ATmega1284P
@@ -371,91 +320,6 @@ else ifeq ($(HARDWARE_MOTHERBOARD),69)
 
 # Gen3 Monolithic Electronics
 else ifeq ($(HARDWARE_MOTHERBOARD),22)
-<<<<<<< HEAD
-HARDWARE_VARIANT ?= Sanguino
-MCU              ?= atmega644p
-# Gen3+
-else ifeq ($(HARDWARE_MOTHERBOARD),9)
-HARDWARE_VARIANT ?= Sanguino
-MCU              ?= atmega644p
-# Gen6
-else ifeq ($(HARDWARE_MOTHERBOARD),5)
-HARDWARE_VARIANT ?= Gen6
-MCU              ?= atmega644p
-# Gen6 deluxe
-else ifeq ($(HARDWARE_MOTHERBOARD),51)
-HARDWARE_VARIANT ?= Gen6
-MCU              ?= atmega644p
-# Gen7 custom (Alfons3 Version)
-else ifeq ($(HARDWARE_MOTHERBOARD),10)
-HARDWARE_VARIANT ?= Gen7
-MCU              ?= atmega644
-F_CPU            ?= 20000000
-# Gen7 v1.1, v1.2
-else ifeq ($(HARDWARE_MOTHERBOARD),11)
-HARDWARE_VARIANT ?= Gen7
-MCU              ?= atmega644p
-F_CPU            ?= 20000000
-# Gen7 v1.3
-else ifeq ($(HARDWARE_MOTHERBOARD),12)
-HARDWARE_VARIANT ?= Gen7
-MCU              ?= atmega644p
-F_CPU            ?= 20000000
-# Gen7 v1.4
-else ifeq ($(HARDWARE_MOTHERBOARD),13)
-HARDWARE_VARIANT ?= Gen7
-MCU              ?= atmega1284p
-F_CPU            ?= 20000000
-# Alpha OMCA board
-else ifeq ($(HARDWARE_MOTHERBOARD),90)
-HARDWARE_VARIANT ?= SanguinoA
-MCU              ?= atmega644
-# Final OMCA board
-else ifeq ($(HARDWARE_MOTHERBOARD),91)
-HARDWARE_VARIANT ?= Sanguino
-MCU              ?= atmega644p
-# Sethi 3D_1
-else ifeq ($(HARDWARE_MOTHERBOARD),20)
-HARDWARE_VARIANT ?= Sanguino
-MCU              ?= atmega644p
-
-#
-# Teensyduino - AT90USB1286, AT90USB1286P
-#
-
-# Teensylu
-else ifeq ($(HARDWARE_MOTHERBOARD),8)
-HARDWARE_VARIANT ?= Teensy
-MCU              ?= at90usb1286
-# Printrboard (AT90USB1286)
-else ifeq ($(HARDWARE_MOTHERBOARD),81)
-HARDWARE_VARIANT ?= Teensy
-MCU              ?= at90usb1286
-# Printrboard Revision F (AT90USB1286)
-else ifeq ($(HARDWARE_MOTHERBOARD),811)
-HARDWARE_VARIANT ?= Teensy
-MCU              ?= at90usb1286
-# Brainwave (AT90USB646)
-else ifeq ($(HARDWARE_MOTHERBOARD),82)
-HARDWARE_VARIANT ?= Teensy
-MCU              ?= at90usb646
-# Brainwave Pro (AT90USB1286)
-else ifeq ($(HARDWARE_MOTHERBOARD),83)
-HARDWARE_VARIANT ?= Teensy
-MCU              ?= at90usb1286
-# SAV Mk-I (AT90USB1286)
-else ifeq ($(HARDWARE_MOTHERBOARD),84)
-HARDWARE_VARIANT ?= Teensy
-MCU              ?= at90usb1286
-# Teensy++2.0 (AT90USB1286) - CLI compile: HARDWARE_MOTHERBOARD=84  make
-else ifeq ($(HARDWARE_MOTHERBOARD),85)
-HARDWARE_VARIANT ?= Teensy
-MCU              ?= at90usb1286
-# 5DPrint D8 Driver Board
-else ifeq ($(HARDWARE_MOTHERBOARD),88)
-HARDWARE_VARIANT ?= Teensy
-MCU              ?= at90usb1286
-=======
   HARDWARE_VARIANT ?= Sanguino
   MCU              ?= atmega644p
 # Gen3+
@@ -502,7 +366,6 @@ else ifeq ($(HARDWARE_MOTHERBOARD),91)
 else ifeq ($(HARDWARE_MOTHERBOARD),20)
   HARDWARE_VARIANT ?= Sanguino
   MCU              ?= atmega644p
->>>>>>> upstream/bugfix-2.0.x
 
 #
 # Teensyduino - AT90USB1286, AT90USB1286P
@@ -554,11 +417,6 @@ endif
 # Set to 16Mhz if not yet set.
 F_CPU ?= 16000000
 
-<<<<<<< HEAD
-# Set to arduino, ATmega2560 if not yet set.
-HARDWARE_VARIANT ?= arduino
-MCU ?= atmega2560
-=======
 # Set to microcontroller if IS_MCU not yet set
 IS_MCU ?= 1
 
@@ -575,7 +433,6 @@ else
   CPU_FLAGS   = -mthumb -mcpu=$(MCPU)
   SIZE_FLAGS  = -A
 endif
->>>>>>> upstream/bugfix-2.0.x
 
 # Arduino contained the main source code for the Arduino
 # Libraries, the "hardware variant" are for boards
@@ -669,14 +526,9 @@ ifeq ($(HARDWARE_VARIANT), Teensy)
   LIB_SRC = wiring.c
   VPATH += $(ARDUINO_INSTALL_DIR)/hardware/teensy/cores/teensy
 endif
-<<<<<<< HEAD
-CXXSRC = WMath.cpp WString.cpp Print.cpp SPI.cpp Tone.cpp
-CXXSRC += $(wildcard *.cpp)
-=======
 
 LIB_CXXSRC = WMath.cpp WString.cpp Print.cpp SPI.cpp
 
->>>>>>> upstream/bugfix-2.0.x
 ifeq ($(NEOPIXEL), 1)
   LIB_CXXSRC += Adafruit_NeoPixel.cpp
 endif
@@ -703,13 +555,8 @@ ifeq ($(TMC), 1)
 endif
 
 ifeq ($(RELOC_WORKAROUND), 1)
-<<<<<<< HEAD
-LD_PREFIX=-nodefaultlibs
-LD_SUFFIX=-lm -lgcc -lc -lgcc -L$(ARDUINO_INSTALL_DIR)/hardware/tools/avr/avr/lib/avr6 -l$(MCU)
-=======
   LD_PREFIX=-nodefaultlibs
   LD_SUFFIX=-lm -lgcc -lc -lgcc
->>>>>>> upstream/bugfix-2.0.x
 endif
 
 #Check for Arduino 1.0.0 or higher and use the correct source files for that version

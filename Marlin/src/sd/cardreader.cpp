@@ -20,36 +20,18 @@
  *
  */
 
-<<<<<<< HEAD:Marlin/cardreader.cpp
-#include "MarlinConfig.h"
-=======
 #include "../inc/MarlinConfig.h"
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/sd/cardreader.cpp
 
 #if ENABLED(SDSUPPORT)
 
 #include "cardreader.h"
 
-<<<<<<< HEAD:Marlin/cardreader.cpp
-#include "ultralcd.h"
-#include "stepper.h"
-#include "language.h"
-#include "printcounter.h"
-
-#if ENABLED(POWER_LOSS_RECOVERY)
-  #include "power_loss_recovery.h"
-#endif
-=======
 #include "../Marlin.h"
 #include "../lcd/ultralcd.h"
 #include "../module/planner.h"
 #include "../module/printcounter.h"
 #include "../core/language.h"
 #include "../gcode/queue.h"
-
-#if ENABLED(EMERGENCY_PARSER)
-  #include "../feature/emergency_parser.h"
-#endif
 
 #if ENABLED(POWER_LOSS_RECOVERY)
   #include "../feature/power_loss_recovery.h"
@@ -60,7 +42,6 @@
 #endif
 
 #include <ctype.h>
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/sd/cardreader.cpp
 
 CardReader::CardReader() {
   #if ENABLED(SDCARD_SORT_ALPHA)
@@ -108,15 +89,11 @@ char *createFilename(char *buffer, const dir_t &p) { //buffer > 12characters
 
 uint16_t nrFile_index;
 
-<<<<<<< HEAD:Marlin/cardreader.cpp
-void CardReader::lsDive(const char *prepend, SdFile parent, const char * const match/*=NULL*/) {
-=======
 void CardReader::lsDive(const char *prepend, SdFile parent, const char * const match/*=NULL*/
   #if NUM_SERIAL > 1
     , const int8_t port/*= -1*/
   #endif
 ) {
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/sd/cardreader.cpp
   dir_t p;
   uint8_t cnt = 0;
 
@@ -149,15 +126,9 @@ void CardReader::lsDive(const char *prepend, SdFile parent, const char * const m
       SdFile dir;
       if (!dir.open(&parent, dosFilename, O_READ)) {
         if (lsAction == LS_SerialPrint) {
-<<<<<<< HEAD:Marlin/cardreader.cpp
-          SERIAL_ECHO_START();
-          SERIAL_ECHOPGM(MSG_SD_CANT_OPEN_SUBDIR);
-          SERIAL_ECHOLN(dosFilename);
-=======
           SERIAL_ECHO_START_P(port);
           SERIAL_ECHOPGM_P(port, MSG_SD_CANT_OPEN_SUBDIR);
           SERIAL_ECHOLN_P(port, dosFilename);
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/sd/cardreader.cpp
         }
       }
       lsDive(path, dir
@@ -186,17 +157,10 @@ void CardReader::lsDive(const char *prepend, SdFile parent, const char * const m
 
         case LS_SerialPrint:
           createFilename(filename, p);
-<<<<<<< HEAD:Marlin/cardreader.cpp
-          if (prepend) SERIAL_PROTOCOL(prepend);
-          SERIAL_PROTOCOL(filename);
-          SERIAL_PROTOCOLCHAR(' ');
-          SERIAL_PROTOCOLLN(p.fileSize);
-=======
           if (prepend) SERIAL_PROTOCOL_P(port, prepend);
           SERIAL_PROTOCOL_P(port, filename);
           SERIAL_PROTOCOLCHAR_P(port, ' ');
           SERIAL_PROTOCOLLN_P(port, p.fileSize);
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/sd/cardreader.cpp
           break;
 
         case LS_GetFilename:
@@ -220,15 +184,11 @@ void CardReader::ls(
 ) {
   lsAction = LS_SerialPrint;
   root.rewind();
-<<<<<<< HEAD:Marlin/cardreader.cpp
-  lsDive(NULL, root);
-=======
   lsDive(NULL, root
     #if NUM_SERIAL > 1
       , NULL, port
     #endif
   );
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/sd/cardreader.cpp
 }
 
 #if ENABLED(LONG_FILENAME_HOST_SUPPORT)
@@ -267,15 +227,11 @@ void CardReader::ls(
 
       // Find the item, setting the long filename
       diveDir.rewind();
-<<<<<<< HEAD:Marlin/cardreader.cpp
-      lsDive(NULL, diveDir, segment);
-=======
       lsDive(NULL, diveDir, segment
         #if NUM_SERIAL > 1
           , port
         #endif
       );
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/sd/cardreader.cpp
 
       // Print /LongNamePart to serial output
       SERIAL_PROTOCOLCHAR_P(port, '/');
@@ -289,17 +245,10 @@ void CardReader::ls(
       // Open the sub-item as the new dive parent
       SdFile dir;
       if (!dir.open(&diveDir, segment, O_READ)) {
-<<<<<<< HEAD:Marlin/cardreader.cpp
-        SERIAL_EOL();
-        SERIAL_ECHO_START();
-        SERIAL_ECHOPGM(MSG_SD_CANT_OPEN_SUBDIR);
-        SERIAL_ECHO(segment);
-=======
         SERIAL_EOL_P(port);
         SERIAL_ECHO_START_P(port);
         SERIAL_ECHOPGM_P(port, MSG_SD_CANT_OPEN_SUBDIR);
         SERIAL_ECHO_P(port, segment);
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/sd/cardreader.cpp
         break;
       }
 
@@ -316,18 +265,6 @@ void CardReader::ls(
 /**
  * Echo the DOS 8.3 filename (and long filename, if any)
  */
-<<<<<<< HEAD:Marlin/cardreader.cpp
-void CardReader::printFilename() {
-  if (file.isOpen()) {
-    char dosFilename[FILENAME_LENGTH];
-    file.getFilename(dosFilename);
-    SERIAL_ECHO(dosFilename);
-    #if ENABLED(LONG_FILENAME_HOST_SUPPORT)
-      getfilename(0, dosFilename);
-      if (longFilename[0]) {
-        SERIAL_ECHO(' ');
-        SERIAL_ECHO(longFilename);
-=======
 void CardReader::printFilename(
   #if NUM_SERIAL > 1
     const int8_t port/*= -1*/
@@ -342,20 +279,13 @@ void CardReader::printFilename(
       if (longFilename[0]) {
         SERIAL_ECHO_P(port, ' ');
         SERIAL_ECHO_P(port, longFilename);
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/sd/cardreader.cpp
       }
     #endif
   }
   else
-<<<<<<< HEAD:Marlin/cardreader.cpp
-    SERIAL_ECHOPGM("(no file)");
-
-  SERIAL_EOL();
-=======
     SERIAL_ECHOPGM_P(port, "(no file)");
 
   SERIAL_EOL_P(port);
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/sd/cardreader.cpp
 }
 
 void CardReader::initsd() {
@@ -421,11 +351,7 @@ void CardReader::stopSDPrint(
   #if ENABLED(ADVANCED_PAUSE_FEATURE)
     did_pause_print = 0;
   #endif
-<<<<<<< HEAD:Marlin/cardreader.cpp
-  sdprinting = false;
-=======
   sdprinting = abort_sd_printing = false;
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/sd/cardreader.cpp
   if (isFileOpen()) file.close();
   #if SD_RESORT
     if (re_sort) presort();
@@ -468,11 +394,7 @@ void CardReader::openFile(char * const path, const bool read, const bool subcall
         SERIAL_ERROR_START();
         SERIAL_ERRORPGM("trying to call sub-gcode files with too many levels. MAX level is:");
         SERIAL_ERRORLN((int)SD_PROCEDURE_DEPTH);
-<<<<<<< HEAD:Marlin/cardreader.cpp
-        kill(PSTR(MSG_KILLED));
-=======
         kill();
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/sd/cardreader.cpp
         return;
       }
 
@@ -539,15 +461,7 @@ void CardReader::openFile(char * const path, const bool read, const bool subcall
     }
     else {
       saving = true;
-<<<<<<< HEAD:Marlin/cardreader.cpp
       SERIAL_PROTOCOLLNPAIR(MSG_SD_WRITE_TO_FILE, path);
-=======
-      getfilename(0, fname);
-      #if ENABLED(EMERGENCY_PARSER)
-        emergency_parser.disable();
-      #endif
-      SERIAL_PROTOCOLLNPAIR(MSG_SD_WRITE_TO_FILE, fname);
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/sd/cardreader.cpp
       lcd_setstatus(fname);
     }
   }
@@ -577,17 +491,6 @@ void CardReader::removeFile(const char * const name) {
   }
 }
 
-<<<<<<< HEAD:Marlin/cardreader.cpp
-void CardReader::getStatus() {
-  if (cardOK && sdprinting) {
-    SERIAL_PROTOCOLPGM(MSG_SD_PRINTING_BYTE);
-    SERIAL_PROTOCOL(sdpos);
-    SERIAL_PROTOCOLCHAR('/');
-    SERIAL_PROTOCOLLN(filesize);
-  }
-  else
-    SERIAL_PROTOCOLLNPGM(MSG_SD_NOT_PRINTING);
-=======
 void CardReader::getStatus(
   #if NUM_SERIAL > 1
     const int8_t port/*= -1*/
@@ -601,7 +504,6 @@ void CardReader::getStatus(
   }
   else
     SERIAL_PROTOCOLLNPGM_P(port, MSG_SD_NOT_PRINTING);
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/sd/cardreader.cpp
 }
 
 void CardReader::write_command(char *buf) {
@@ -630,7 +532,6 @@ void CardReader::write_command(char *buf) {
 // - After finishing the previous autostart file
 // - From the LCD command to run the autostart file
 //
-<<<<<<< HEAD:Marlin/cardreader.cpp
 
 void CardReader::checkautostart() {
 
@@ -638,27 +539,13 @@ void CardReader::checkautostart() {
 
   if (!cardOK) initsd();
 
-=======
-
-void CardReader::checkautostart() {
-
-  if (autostart_index < 0 || sdprinting) return;
-
-  if (!cardOK) initsd();
-
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/sd/cardreader.cpp
   if (cardOK
     #if ENABLED(POWER_LOSS_RECOVERY)
       && !jobRecoverFileExists() // Don't run auto#.g when a resume file exists
     #endif
   ) {
-<<<<<<< HEAD:Marlin/cardreader.cpp
-    char autoname[10];
-    sprintf_P(autoname, PSTR("auto%i.g"), int(autostart_index));
-=======
     char autoname[8];
     sprintf_P(autoname, PSTR("auto%c.g"), autostart_index + '0');
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/sd/cardreader.cpp
     dir_t p;
     root.rewind();
     while (root.readDir(&p, NULL) > 0) {
@@ -671,7 +558,6 @@ void CardReader::checkautostart() {
     }
   }
   autostart_index = -1;
-<<<<<<< HEAD:Marlin/cardreader.cpp
 }
 
 void CardReader::beginautostart() {
@@ -679,22 +565,10 @@ void CardReader::beginautostart() {
   setroot();
 }
 
-=======
-}
-
-void CardReader::beginautostart() {
-  autostart_index = 0;
-  setroot();
-}
-
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/sd/cardreader.cpp
 void CardReader::closefile(const bool store_location) {
   file.sync();
   file.close();
   saving = logging = false;
-  #if ENABLED(EMERGENCY_PARSER)
-    emergency_parser.enable();
-  #endif
 
   if (store_location) {
     //future: store printer state, filename and position for continuing a stopped print
@@ -1089,26 +963,19 @@ void CardReader::printingHasFinished() {
 #if ENABLED(AUTO_REPORT_SD_STATUS)
   uint8_t CardReader::auto_report_sd_interval = 0;
   millis_t CardReader::next_sd_report_ms;
-<<<<<<< HEAD:Marlin/cardreader.cpp
-=======
   #if NUM_SERIAL > 1
     int8_t CardReader::serialport;
   #endif
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/sd/cardreader.cpp
 
   void CardReader::auto_report_sd_status() {
     millis_t current_ms = millis();
     if (auto_report_sd_interval && ELAPSED(current_ms, next_sd_report_ms)) {
       next_sd_report_ms = current_ms + 1000UL * auto_report_sd_interval;
-<<<<<<< HEAD:Marlin/cardreader.cpp
-      getStatus();
-=======
       getStatus(
         #if NUM_SERIAL > 1
           serialport
         #endif
       );
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/sd/cardreader.cpp
     }
   }
 #endif // AUTO_REPORT_SD_STATUS

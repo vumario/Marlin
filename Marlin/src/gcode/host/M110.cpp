@@ -24,23 +24,8 @@
 #include "../queue.h" // for gcode_LastN
 
 /**
-<<<<<<< HEAD:Marlin/blinkm.h
- * blinkm.h - Control a BlinkM over i2c
- */
-
-#ifndef _BLINKM_H_
-#define _BLINKM_H_
-
-struct LEDColor;
-typedef LEDColor LEDColor;
-
-void blinkm_set_led_color(const LEDColor &color);
-
-#endif // _BLINKM_H_
-=======
  * M110: Set Current Line Number
  */
 void GcodeSuite::M110() {
   if (parser.seenval('N')) gcode_LastN = parser.value_long();
 }
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/gcode/host/M110.cpp

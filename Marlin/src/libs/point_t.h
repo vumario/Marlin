@@ -51,10 +51,5 @@ struct point_t {
    * @param y The y-coordinate of the point.
    */
   point_t(const float x, const float y) : point_t(x, y, NAN) {}
-<<<<<<< HEAD:Marlin/point_t.h
-
-};
-=======
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/libs/point_t.h
 
 };

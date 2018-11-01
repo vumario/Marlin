@@ -21,25 +21,13 @@
  *
  */
 
-<<<<<<< HEAD:Marlin/mesh_bed_leveling.cpp
-#include "MarlinConfig.h"
-=======
 #ifdef STM32F7
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/HAL/HAL_STM32F7/HAL_Servo_STM32F7.cpp
 
 #include "../../inc/MarlinConfig.h"
 
-<<<<<<< HEAD:Marlin/mesh_bed_leveling.cpp
-  #include "mesh_bed_leveling.h"
-  #include "Marlin.h"
-  #include "serial.h"
-
-  mesh_bed_leveling mbl;
-=======
 #if HAS_SERVOS
 
 #include "HAL_Servo_STM32F7.h"
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/HAL/HAL_STM32F7/HAL_Servo_STM32F7.cpp
 
 int8_t libServo::attach(const int pin) {
   if (this->servoIndex >= MAX_SERVOS) return -1;
@@ -50,11 +38,6 @@ int8_t libServo::attach(const int pin, const int min, const int max) {
   return Servo::attach(pin, min, max);
 }
 
-<<<<<<< HEAD:Marlin/mesh_bed_leveling.cpp
-  void mesh_bed_leveling::reset() {
-    z_offset = 0;
-    ZERO(z_values);
-=======
 void libServo::move(const int value) {
   constexpr uint16_t servo_delay[] = SERVO_DELAY;
   static_assert(COUNT(servo_delay) == NUM_SERVOS, "SERVO_DELAY must be an array NUM_SERVOS long.");
@@ -64,22 +47,8 @@ void libServo::move(const int value) {
     #if ENABLED(DEACTIVATE_SERVOS_AFTER_MOVE)
       this->detach();
     #endif
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/HAL/HAL_STM32F7/HAL_Servo_STM32F7.cpp
   }
 }
 #endif // HAS_SERVOS
 
-<<<<<<< HEAD:Marlin/mesh_bed_leveling.cpp
-  void mesh_bed_leveling::report_mesh() {
-    SERIAL_PROTOCOLLNPGM("Num X,Y: " STRINGIFY(GRID_MAX_POINTS_X) "," STRINGIFY(GRID_MAX_POINTS_Y));
-    SERIAL_PROTOCOLPGM("Z offset: "); SERIAL_PROTOCOL_F(z_offset, 5);
-    SERIAL_PROTOCOLLNPGM("\nMeasured points:");
-    print_2d_array(GRID_MAX_POINTS_X, GRID_MAX_POINTS_Y, 5,
-      [](const uint8_t ix, const uint8_t iy) { return z_values[ix][iy]; }
-    );
-  }
-
-#endif // MESH_BED_LEVELING
-=======
 #endif // STM32F7
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/HAL/HAL_STM32F7/HAL_Servo_STM32F7.cpp

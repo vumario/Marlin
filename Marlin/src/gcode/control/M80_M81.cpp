@@ -27,7 +27,7 @@
 
 #include "../../inc/MarlinConfig.h"
 
-#if HAS_LCD_MENU
+#if ENABLED(ULTIPANEL)
   #include "../../lcd/ultralcd.h"
 #endif
 
@@ -82,7 +82,7 @@
       restore_stepper_drivers();
     #endif
 
-    #if HAS_LCD_MENU
+    #if ENABLED(ULTIPANEL)
       lcd_reset_status();
     #endif
   }
@@ -115,7 +115,7 @@ void GcodeSuite::M81() {
     PSU_OFF();
   #endif
 
-  #if HAS_LCD_MENU
+  #if ENABLED(ULTIPANEL)
     LCD_MESSAGEPGM(MACHINE_NAME " " MSG_OFF ".");
   #endif
 }

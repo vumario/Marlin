@@ -35,13 +35,9 @@
 #define _SDFILE_H_
 
 #include "SdBaseFile.h"
-<<<<<<< HEAD:Marlin/SdFile.h
-#include <Print.h>
-=======
 
 #include <stdint.h>
 #include <string.h>
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/sd/SdFile.h
 
 /**
  * \class SdFile

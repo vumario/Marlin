@@ -52,11 +52,7 @@
 #define MSG_AUTO_HOME_X                     _UxGT("Xジク ゲンテンフッキ")             // "Home X"
 #define MSG_AUTO_HOME_Y                     _UxGT("Yジク ゲンテンフッキ")             // "Home Y"
 #define MSG_AUTO_HOME_Z                     _UxGT("Zジク ゲンテンフッキ")             // "Home Z"
-<<<<<<< HEAD:Marlin/language_kana_utf8.h
-#define MSG_TMC_Z_CALIBRATION               _UxGT("Zジク コウセイ")                 // "Calibrate Z"
-=======
 #define MSG_TMC_Z_CALIBRATION               _UxGT("Zジク コウセイ")
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/lcd/language/language_jp-kana.h
 #define MSG_LEVEL_BED_HOMING                _UxGT("ゲンテンフッキチュウ")              // "Homing XYZ"
 #define MSG_LEVEL_BED_WAITING               _UxGT("レベリングカイシ")                // "Click to Begin"
 #define MSG_LEVEL_BED_NEXT_POINT            _UxGT("ツギノソクテイテンヘ")             // "Next Point"
@@ -64,15 +60,15 @@
 #define MSG_SET_HOME_OFFSETS                _UxGT("キジュンオフセットセッテイ")         // "Set home offsets"
 #define MSG_HOME_OFFSETS_APPLIED            _UxGT("オフセットガテキヨウサレマシタ")       // "Offsets applied"
 #define MSG_SET_ORIGIN                      _UxGT("キジュンセット")                 // "Set origin"
-#define MSG_PREHEAT_1                       _UxGT(PREHEAT_1_LABEL " ヨネツ")       // "Preheat " PREHEAT_1_LABEL
+#define MSG_PREHEAT_1                       _UxGT("PLA ヨネツ")                   // "Preheat PLA"
 #define MSG_PREHEAT_1_N                     MSG_PREHEAT_1 _UxGT(" ")
-#define MSG_PREHEAT_1_ALL                   _UxGT(PREHEAT_1_LABEL " スベテヨネツ")  // " All"
-#define MSG_PREHEAT_1_BEDONLY               _UxGT(PREHEAT_1_LABEL " ベッドヨネツ")  // " Bed"
+#define MSG_PREHEAT_1_ALL                   _UxGT("PLA スベテヨネツ")              // " All"
+#define MSG_PREHEAT_1_BEDONLY               _UxGT("PLA ベッドヨネツ")              // " Bed"
 #define MSG_PREHEAT_1_SETTINGS              MSG_PREHEAT_1 _UxGT("セッテイ")       // " conf"
-#define MSG_PREHEAT_2                       _UxGT(PREHEAT_2_LABEL " ヨネツ")      // "Preheat " PREHEAT_2_LABEL
+#define MSG_PREHEAT_2                       _UxGT("ABS ヨネツ")                  // "Preheat ABS"
 #define MSG_PREHEAT_2_N                     MSG_PREHEAT_2 _UxGT(" ")
-#define MSG_PREHEAT_2_ALL                   _UxGT(PREHEAT_2_LABEL " スベテヨネツ")  // " All"
-#define MSG_PREHEAT_2_BEDONLY               _UxGT(PREHEAT_2_LABEL " ベッドヨネツ")  // " Bed"
+#define MSG_PREHEAT_2_ALL                   _UxGT("ABS スベテヨネツ")              // " All"
+#define MSG_PREHEAT_2_BEDONLY               _UxGT("ABS ベッドヨネツ")              // " Bed"
 #define MSG_PREHEAT_2_SETTINGS              MSG_PREHEAT_2 _UxGT("セッテイ")       // " conf"
 #define MSG_COOLDOWN                        _UxGT("カネツテイシ")                  // "Cooldown"
 #define MSG_SWITCH_PS_ON                    _UxGT("デンゲン オン")                 // "Switch power on"
@@ -82,12 +78,8 @@
 #define MSG_MOVE_AXIS                       _UxGT("ジクイドウ")                    // "Move axis"
 #define MSG_BED_LEVELING                    _UxGT("ベッドレベリング")                // "Bed leveling"
 #define MSG_LEVEL_BED                       _UxGT("ベッドレベリング")                // "Level bed"
-<<<<<<< HEAD:Marlin/language_kana_utf8.h
-#define MSG_MOVING                          _UxGT("イドウチュウ...")                // "Moving..."
-=======
 
 #define MSG_MOVING                          _UxGT("イドウチュウ")                   // "Moving..."
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/lcd/language/language_jp-kana.h
 #define MSG_FREE_XY                         _UxGT("XYジク カイホウ")                // "Free XY"
 #define MSG_MOVE_X                          _UxGT("Xジク イドウ")                  // "Move X"
 #define MSG_MOVE_Y                          _UxGT("Yジク イドウ")                  // "Move Y"
@@ -151,13 +143,8 @@
 #define MSG_STOP_PRINT                      _UxGT("プリントテイシ")                 // "Stop print"
 #define MSG_CARD_MENU                       _UxGT("SDカードカラプリント")            // "Print from SD"
 #define MSG_NO_CARD                         _UxGT("SDカードガアリマセン")            // "No SD card"
-<<<<<<< HEAD:Marlin/language_kana_utf8.h
-#define MSG_DWELL                           _UxGT("キュウシ...")                  // "Sleep..."
-#define MSG_USERWAIT                        _UxGT("シバラクオマチクダサイ...")        // "Wait for user..."
-=======
 #define MSG_DWELL                           _UxGT("キュウシ")                     // "Sleep..."
 #define MSG_USERWAIT                        _UxGT("シバラクオマチクダサイ")           // "Wait for user..."
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/lcd/language/language_jp-kana.h
 #define MSG_PRINT_ABORTED                   _UxGT("プリントガチュウシサレマシタ")       // "Print aborted"
 #define MSG_NO_MOVE                         _UxGT("ウゴキマセン")                  // "No move."
 #define MSG_KILLED                          _UxGT("ヒジョウテイシ")                  // "KILLED. "
@@ -172,7 +159,7 @@
 #define MSG_AUTORETRACT                     _UxGT("ジドウヒキコミ")                 // "AutoRetr."
 #define MSG_FILAMENTCHANGE                  _UxGT("フィラメントコウカン")              // "Change filament"
 #define MSG_INIT_SDCARD                     _UxGT("SDカードサイヨミコミ")             // "Init. SD card"
-#define MSG_CHANGE_SDCARD                   _UxGT("SDカードコウカン")               // "Change SD card"
+#define MSG_CNG_SDCARD                      _UxGT("SDカードコウカン")               // "Change SD card"
 #define MSG_ZPROBE_OUT                      _UxGT("Zプローブ ベッドガイ")            // "Z probe out. bed"
 #define MSG_BLTOUCH_SELFTEST                _UxGT("BLTouch ジコシンダン")          // "BLTouch Self-Test"
 #define MSG_BLTOUCH_RESET                   _UxGT("BLTouch リセット")             // "Reset BLTouch"
@@ -196,13 +183,8 @@
 #define MSG_SHORT_DAY                       _UxGT("d")                          // One character only
 #define MSG_SHORT_HOUR                      _UxGT("h")                          // One character only
 #define MSG_SHORT_MINUTE                    _UxGT("m")                          // One character only
-<<<<<<< HEAD:Marlin/language_kana_utf8.h
-#define MSG_HEATING                         _UxGT("カネツチュウ...")                // "Heating..."
-#define MSG_BED_HEATING                     _UxGT("ベッド カネツチュウ...")           // "Bed Heating..."
-=======
 #define MSG_HEATING                         _UxGT("カネツチュウ")                   // "Heating..."
 #define MSG_BED_HEATING                     _UxGT("ベッド カネツチュウ")              // "Bed Heating..."
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/lcd/language/language_jp-kana.h
 #define MSG_DELTA_CALIBRATE                 _UxGT("デルタ コウセイ")                // "Delta Calibration"
 #define MSG_DELTA_CALIBRATE_X               _UxGT("Xジク コウセイ")                 // "Calibrate X"
 #define MSG_DELTA_CALIBRATE_Y               _UxGT("Yジク コウセイ")                 // "Calibrate Y"

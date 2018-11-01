@@ -86,11 +86,7 @@ class Nozzle {
 
   #if ENABLED(NOZZLE_PARK_FEATURE)
 
-<<<<<<< HEAD:Marlin/nozzle.h
-    static void park(const uint8_t &z_action, const point_t &park=NOZZLE_PARK_POINT) _Os;
-=======
     static void park(const uint8_t z_action, const point_t &park=NOZZLE_PARK_POINT) _Os;
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/libs/nozzle.h
 
   #endif
 };

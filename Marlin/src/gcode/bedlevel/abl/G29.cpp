@@ -103,10 +103,6 @@
  *
  *  S  Set the XY travel speed between probe points (in units/min)
  *
- *  H  Set bounds to a centered square H x H units in size
- *
- *     -or-
- *
  *  F  Set the Front limit of the probing grid
  *  B  Set the Back limit of the probing grid
  *  L  Set the Left limit of the probing grid
@@ -385,19 +381,10 @@ G29_TYPE GcodeSuite::G29() {
 
       xy_probe_feedrate_mm_s = MMM_TO_MMS(parser.linearval('S', XY_PROBE_SPEED));
 
-      if (parser.seen('H')) {
-        const int16_t size = (int16_t)parser.value_linear_units();
-        left_probe_bed_position  = MAX((MIN_PROBE_X + MAX_PROBE_X - size) / 2, MIN_PROBE_X);
-        right_probe_bed_position = MIN(left_probe_bed_position + size,         MAX_PROBE_X);
-        front_probe_bed_position = MAX((MIN_PROBE_Y + MAX_PROBE_Y - size) / 2, MIN_PROBE_Y);
-        back_probe_bed_position  = MIN(front_probe_bed_position + size,        MAX_PROBE_Y);
-      }
-      else {
-        left_probe_bed_position  = parser.seenval('L') ? (int)RAW_X_POSITION(parser.value_linear_units()) : LEFT_PROBE_BED_POSITION;
-        right_probe_bed_position = parser.seenval('R') ? (int)RAW_X_POSITION(parser.value_linear_units()) : RIGHT_PROBE_BED_POSITION;
-        front_probe_bed_position = parser.seenval('F') ? (int)RAW_Y_POSITION(parser.value_linear_units()) : FRONT_PROBE_BED_POSITION;
-        back_probe_bed_position  = parser.seenval('B') ? (int)RAW_Y_POSITION(parser.value_linear_units()) : BACK_PROBE_BED_POSITION;
-      }
+      left_probe_bed_position  = parser.seenval('L') ? (int)RAW_X_POSITION(parser.value_linear_units()) : LEFT_PROBE_BED_POSITION;
+      right_probe_bed_position = parser.seenval('R') ? (int)RAW_X_POSITION(parser.value_linear_units()) : RIGHT_PROBE_BED_POSITION;
+      front_probe_bed_position = parser.seenval('F') ? (int)RAW_Y_POSITION(parser.value_linear_units()) : FRONT_PROBE_BED_POSITION;
+      back_probe_bed_position  = parser.seenval('B') ? (int)RAW_Y_POSITION(parser.value_linear_units()) : BACK_PROBE_BED_POSITION;
 
       if (
         #if IS_SCARA || ENABLED(DELTA)

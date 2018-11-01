@@ -73,17 +73,10 @@
 #define I2CPE_ERR_CNT_THRESH          3.00
 #define I2CPE_ERR_CNT_DEBOUNCE_MS     2000
 
-<<<<<<< HEAD:Marlin/I2CPositionEncoder.h
-  #if ENABLED(I2CPE_ERR_ROLLING_AVERAGE)
-    #define I2CPE_ERR_ARRAY_SIZE        32
-    #define I2CPE_ERR_PRST_ARRAY_SIZE   10
-  #endif
-=======
 #if ENABLED(I2CPE_ERR_ROLLING_AVERAGE)
   #define I2CPE_ERR_ARRAY_SIZE        32
   #define I2CPE_ERR_PRST_ARRAY_SIZE   10
 #endif
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/feature/I2CPositionEncoder.h
 
 // Error Correction Methods
 #define I2CPE_ECM_NONE                0
@@ -102,19 +95,12 @@
 #define LOOP_PE(VAR) LOOP_L_N(VAR, I2CPE_ENCODER_CNT)
 #define CHECK_IDX() do{ if (!WITHIN(idx, 0, I2CPE_ENCODER_CNT - 1)) return; }while(0)
 
-<<<<<<< HEAD:Marlin/I2CPositionEncoder.h
-  typedef union {
-    volatile int32_t val = 0;
-    uint8_t          bval[4];
-  } i2cLong;
-=======
 extern const char axis_codes[XYZE];
 
 typedef union {
   volatile int32_t val = 0;
   uint8_t          bval[4];
 } i2cLong;
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/feature/I2CPositionEncoder.h
 
 class I2CPositionEncoder {
   private:
@@ -160,7 +146,6 @@ class I2CPositionEncoder {
     void update();
 
     void set_homed();
-    void set_unhomed();
 
     int32_t get_raw_count();
 
@@ -226,15 +211,9 @@ class I2CPositionEncoder {
 
     FORCE_INLINE int get_stepper_ticks() { return stepperTicks; }
     FORCE_INLINE void set_stepper_ticks(const int ticks) { stepperTicks = ticks; }
-<<<<<<< HEAD:Marlin/I2CPositionEncoder.h
-  };
-
-  class I2CPositionEncodersMgr {
-=======
 };
 
 class I2CPositionEncodersMgr {
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/feature/I2CPositionEncoder.h
   private:
     static bool I2CPE_anyaxis;
     static uint8_t I2CPE_addr, I2CPE_idx;
@@ -249,11 +228,6 @@ class I2CPositionEncodersMgr {
     static void homed(const AxisEnum axis) {
       LOOP_PE(i)
         if (encoders[i].get_axis() == axis) encoders[i].set_homed();
-    }
-
-    static void unhomed(const AxisEnum axis) {
-      LOOP_PE(i)
-        if (encoders[i].get_axis() == axis) encoders[i].set_unhomed();
     }
 
     static void report_position(const int8_t idx, const bool units, const bool noOffset);

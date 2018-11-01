@@ -22,11 +22,7 @@
 
 #include "stopwatch.h"
 
-<<<<<<< HEAD:Marlin/stopwatch.cpp
-#include "Marlin.h"
-=======
 #include "../inc/MarlinConfig.h"
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/libs/stopwatch.cpp
 
 Stopwatch::State Stopwatch::state;
 millis_t Stopwatch::accumulator;

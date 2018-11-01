@@ -27,22 +27,13 @@
  * This file is part of the Arduino Sd2Card Library
  */
 
-<<<<<<< HEAD:Marlin/SdBaseFile.cpp
-#include "MarlinConfig.h"
-=======
 #include "../inc/MarlinConfig.h"
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/sd/SdBaseFile.cpp
 
 #if ENABLED(SDSUPPORT)
 
 #include "SdBaseFile.h"
-<<<<<<< HEAD:Marlin/SdBaseFile.cpp
-#include "Marlin.h"
-
-=======
 
 #include "../Marlin.h"
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/sd/SdBaseFile.cpp
 SdBaseFile* SdBaseFile::cwd_ = 0;   // Pointer to Current Working Directory
 
 // callback function for date/time
@@ -575,15 +566,9 @@ bool SdBaseFile::open(SdBaseFile* dirFile, const char* path, uint8_t oflag) {
   uint8_t dname[11];
   SdBaseFile dir1, dir2;
   SdBaseFile *parent = dirFile, *sub = &dir1;
-<<<<<<< HEAD:Marlin/SdBaseFile.cpp
 
   if (!dirFile || isOpen()) return false;
 
-=======
-
-  if (!dirFile || isOpen()) return false;
-
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/sd/SdBaseFile.cpp
   if (*path == '/') {                                         // Path starts with '/'
     if (!dirFile->isRoot()) {                                 // Is the passed dirFile the root?
       if (!dir2.openRoot(dirFile->vol_)) return false;        // Get the root in dir2, if possible

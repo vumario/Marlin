@@ -545,13 +545,10 @@
     #elif ENABLED(ZONESTAR_LCD)
 
       #define ADC_KEYPAD_PIN    12
-<<<<<<< HEAD:Marlin/pins_RAMPS.h
-=======
 
     #elif ENABLED(AZSMZ_12864)
 
       // Pins only defined for RAMPS_SMART currently
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/pins/pins_RAMPS.h
 
     #else
 

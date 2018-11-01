@@ -26,22 +26,15 @@
  *
  * This file is part of the Arduino Sd2Card Library
  */
-<<<<<<< HEAD:Marlin/SdVolume.cpp
-#include "MarlinConfig.h"
-=======
 
 #include "../inc/MarlinConfig.h"
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/sd/SdVolume.cpp
 
 #if ENABLED(SDSUPPORT)
 
 #include "SdVolume.h"
 
-<<<<<<< HEAD:Marlin/SdVolume.cpp
-=======
 #include "../Marlin.h"
 
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/sd/SdVolume.cpp
 #if !USE_MULTIPLE_CARDS
   // raw block cache
   uint32_t SdVolume::cacheBlockNumber_;  // current block number

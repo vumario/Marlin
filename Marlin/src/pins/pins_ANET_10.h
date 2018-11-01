@@ -193,11 +193,7 @@
   #endif
 #else
   #define SERVO0_PIN         27
-<<<<<<< HEAD:Marlin/pins_ANET_10.h
-#endif  // ULTRA_LCD && NEWPANEL
-=======
 #endif
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/pins/pins_ANET_10.h
 
 /**
  * ====================================================================

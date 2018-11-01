@@ -86,11 +86,7 @@ static void i2c_send(const uint8_t channel, const byte v) {
 }
 
 // This is for the MCP4018 I2C based digipot
-<<<<<<< HEAD:Marlin/digipot_mcp4018.cpp
-void digipot_i2c_set_current(uint8_t channel, float current) {
-=======
 void digipot_i2c_set_current(const uint8_t channel, const float current) {
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/feature/digipot/digipot_mcp4018.cpp
   i2c_send(channel, current_to_wiper(MIN(MAX(current, 0), float(DIGIPOT_A4988_MAX_CURRENT))));
 }
 

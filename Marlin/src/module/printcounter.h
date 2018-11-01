@@ -23,15 +23,6 @@
 #ifndef PRINTCOUNTER_H
 #define PRINTCOUNTER_H
 
-<<<<<<< HEAD:Marlin/printcounter.h
-// Print debug messages with M111 S2
-//#define DEBUG_PRINTCOUNTER
-
-#include "macros.h"
-#include "language.h"
-#include "stopwatch.h"
-#include <avr/eeprom.h>
-=======
 #include "../libs/stopwatch.h"
 #include "../libs/duration_t.h"
 #include "../inc/MarlinConfig.h"
@@ -45,7 +36,6 @@
 #else
   #define STATS_EEPROM_ADDRESS 0x32
 #endif
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/module/printcounter.h
 
 struct printStatistics {    // 16 bytes
   //const uint8_t magic;    // Magic header, it will always be 0x16
@@ -60,11 +50,7 @@ class PrintCounter: public Stopwatch {
   private:
     typedef Stopwatch super;
 
-<<<<<<< HEAD:Marlin/printcounter.h
-    #if ENABLED(I2C_EEPROM) || ENABLED(SPI_EEPROM)
-=======
     #if ENABLED(I2C_EEPROM) || ENABLED(SPI_EEPROM) || defined(CPU_32_BIT)
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/module/printcounter.h
       typedef uint32_t promdress;
     #else
       typedef uint16_t promdress;
@@ -86,11 +72,7 @@ class PrintCounter: public Stopwatch {
      * @note The max value for this option is 60(s), otherwise integer
      * overflow will happen.
      */
-<<<<<<< HEAD:Marlin/printcounter.h
-    static const uint16_t updateInterval;
-=======
     static constexpr uint16_t updateInterval = 10;
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/module/printcounter.h
 
     /**
      * @brief Interval in seconds between EEPROM saves
@@ -98,11 +80,7 @@ class PrintCounter: public Stopwatch {
      * EEPROM save cycle, the development team recommends to set this value
      * no lower than 3600 secs (1 hour).
      */
-<<<<<<< HEAD:Marlin/printcounter.h
-    static const uint16_t saveInterval;
-=======
     static constexpr uint16_t saveInterval = 3600;
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/module/printcounter.h
 
     /**
      * @brief Timestamp of the last call to deltaDuration()

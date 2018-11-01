@@ -27,8 +27,6 @@
 
 #include "../../inc/MarlinConfigPre.h"
 
-#include <string.h>
-
 #if ENABLED(NEOPIXEL_LED)
   #include "neopixel.h"
 #endif
@@ -47,7 +45,6 @@ typedef struct LEDColor {
       #endif
     #endif
   ;
-
   LEDColor() : r(255), g(255), b(255)
     #if HAS_WHITE_LED
       , w(255)
@@ -56,7 +53,6 @@ typedef struct LEDColor {
       #endif
     #endif
   {}
-
   LEDColor(uint8_t r, uint8_t g, uint8_t b
     #if HAS_WHITE_LED
       , uint8_t w=0
@@ -72,7 +68,6 @@ typedef struct LEDColor {
       #endif
     #endif
   {}
-
   LEDColor(const uint8_t (&rgbw)[4]) : r(rgbw[0]), g(rgbw[1]), b(rgbw[2])
     #if HAS_WHITE_LED
       , w(rgbw[3])
@@ -81,7 +76,6 @@ typedef struct LEDColor {
       #endif
     #endif
   {}
-
   LEDColor& operator=(const uint8_t (&rgbw)[4]) {
     r = rgbw[0]; g = rgbw[1]; b = rgbw[2];
     #if HAS_WHITE_LED
@@ -89,19 +83,15 @@ typedef struct LEDColor {
     #endif
     return *this;
   }
-
   LEDColor& operator=(const LEDColor &right) {
     if (this != &right) memcpy(this, &right, sizeof(LEDColor));
     return *this;
   }
-
   bool operator==(const LEDColor &right) {
     if (this == &right) return true;
     return 0 == memcmp(this, &right, sizeof(LEDColor));
   }
-
   bool operator!=(const LEDColor &right) { return !operator==(right); }
-
   bool is_off() const {
     return 3 > r + g + b
       #if HAS_WHITE_LED

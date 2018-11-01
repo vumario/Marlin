@@ -43,11 +43,7 @@
 //
 // Servos
 //
-<<<<<<< HEAD:Marlin/pins_ULTIMAKER.h
-#define SERVO0_PIN         13   // UNTESTED
-=======
 #define SERVO0_PIN         11
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/pins/pins_ULTIMAKER.h
 
 //
 // Limit Switches

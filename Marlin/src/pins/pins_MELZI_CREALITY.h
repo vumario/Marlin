@@ -52,13 +52,6 @@
 #define LCD_PINS_ENABLE    17   // ST9720 DAT
 #define LCD_PINS_D4        30   // ST9720 CLK
 #define FIL_RUNOUT_PIN     -1   // Uses Beeper/LED Pin Pulled to GND
-<<<<<<< HEAD:Marlin/pins_MELZI_CREALITY.h
-=======
-
-#if DISABLED(SPEAKER) && ENABLED(BLTOUCH)
-  #define SERVO0_PIN 27
-#endif
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/pins/pins_MELZI_CREALITY.h
 
 // Alter timing for graphical display
 #ifndef ST7920_DELAY_1

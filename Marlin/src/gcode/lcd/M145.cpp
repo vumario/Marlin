@@ -22,7 +22,7 @@
 
 #include "../../inc/MarlinConfig.h"
 
-#if HAS_LCD_MENU
+#if ENABLED(ULTIPANEL)
 
 #include "../gcode.h"
 #include "../../lcd/ultralcd.h"
@@ -30,7 +30,7 @@
 /**
  * M145: Set the heatup state for a material in the LCD menu
  *
- *   S<material>
+ *   S<material> (0=PLA, 1=ABS)
  *   H<hotend temp>
  *   B<bed temp>
  *   F<fan speed>
@@ -60,4 +60,4 @@ void GcodeSuite::M145() {
   }
 }
 
-#endif // HAS_LCD_MENU
+#endif // ULTIPANEL

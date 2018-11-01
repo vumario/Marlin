@@ -28,7 +28,7 @@
 // Make a buzzer and macro
 #if ENABLED(LCD_USE_I2C_BUZZER)
   // BUZZ() will be defined in ultralcd.h
-#elif PIN_EXISTS(BEEPER)
+#elif PIN_EXISTS(BEEPER) || ENABLED(EXTENSIBLE_UI)
 
 #include "circularqueue.h"
 
@@ -104,18 +104,7 @@ class Buzzer {
      * @param duration Duration of the tone in milliseconds
      * @param frequency Frequency of the tone in hertz
      */
-<<<<<<< HEAD:Marlin/buzzer.h
-    void tone(const uint16_t &duration, const uint16_t &frequency=0) {
-      while (buffer.isFull()) {
-        this->tick();
-        thermalManager.manage_heater();
-      }
-      tone_t tone = { duration, frequency };
-      this->buffer.enqueue(tone);
-    }
-=======
     static void tone(const uint16_t duration, const uint16_t frequency=0);
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/libs/buzzer.h
 
     /**
      * @brief Tick function

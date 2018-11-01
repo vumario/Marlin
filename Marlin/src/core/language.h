@@ -19,7 +19,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-#pragma once
+
+#ifndef LANGUAGE_H
+#define LANGUAGE_H
 
 #include "../inc/MarlinConfig.h"
 
@@ -51,11 +53,9 @@
 // el-gr      Greek (Greece)
 // en         English
 // es         Spanish
-// es_utf8    Spanish (UTF8)
 // eu         Basque-Euskera
 // fi         Finnish
 // fr         French
-// fr_utf8    French (UTF8)
 // gl         Galician
 // hr         Croatian
 // it         Italian
@@ -141,25 +141,6 @@
 #define MSG_RESEND                          "Resend: "
 #define MSG_UNKNOWN_COMMAND                 "Unknown command: \""
 #define MSG_ACTIVE_EXTRUDER                 "Active Extruder: "
-<<<<<<< HEAD:Marlin/language.h
-#define MSG_X_MIN                           "x_min: "
-#define MSG_X_MAX                           "x_max: "
-#define MSG_X2_MIN                          "x2_min: "
-#define MSG_X2_MAX                          "x2_max: "
-#define MSG_Y_MIN                           "y_min: "
-#define MSG_Y_MAX                           "y_max: "
-#define MSG_Y2_MIN                          "y2_min: "
-#define MSG_Y2_MAX                          "y2_max: "
-#define MSG_Z_MIN                           "z_min: "
-#define MSG_Z_MAX                           "z_max: "
-#define MSG_Z2_MIN                          "z2_min: "
-#define MSG_Z2_MAX                          "z2_max: "
-#define MSG_Z_PROBE                         "z_probe: "
-#define MSG_PROBE_Z_OFFSET                  "Probe Z Offset"
-#define MSG_SKEW_MIN                        "min_skew_factor: "
-#define MSG_SKEW_MAX                        "max_skew_factor: "
-#define MSG_FILAMENT_RUNOUT_SENSOR          "filament: "
-=======
 #define MSG_X_MIN                           "x_min"
 #define MSG_X_MAX                           "x_max"
 #define MSG_X2_MIN                          "x2_min"
@@ -179,7 +160,6 @@
 #define MSG_PROBE_Z_OFFSET                  "Probe Z Offset"
 #define MSG_SKEW_MIN                        "min_skew_factor: "
 #define MSG_SKEW_MAX                        "max_skew_factor: "
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/core/language.h
 #define MSG_ERR_MATERIAL_INDEX              "M145 S<index> out of range (0-1)"
 #define MSG_ERR_M355_NONE                   "No case light"
 #define MSG_ERR_M421_PARAMETERS             "M421 incorrect parameter usage"
@@ -220,11 +200,7 @@
 #define MSG_ENDSTOPS_HIT                    "endstops hit: "
 #define MSG_ERR_COLD_EXTRUDE_STOP           " cold extrusion prevented"
 #define MSG_ERR_LONG_EXTRUDE_STOP           " too long extrusion prevented"
-<<<<<<< HEAD:Marlin/language.h
 #define MSG_HOTEND_TOO_COLD                 "Hotend too cold"
-=======
-#define MSG_ERR_HOTEND_TOO_COLD             "Hotend too cold"
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/core/language.h
 
 #define MSG_FILAMENT_CHANGE_HEAT            "Press button (or M108) to heat nozzle"
 #define MSG_FILAMENT_CHANGE_INSERT          "Insert filament and press button (or M108)"
@@ -288,7 +264,7 @@
 
 // LCD Menu Messages
 
-#define LANGUAGE_DATA_INCL_(M) STRINGIFY_(fontdata/langdata_##M.h)
+#define LANGUAGE_DATA_INCL_(M) STRINGIFY_(../lcd/dogm/language_data_##M.h)
 #define LANGUAGE_DATA_INCL(M) LANGUAGE_DATA_INCL_(M)
 #define INCLUDE_LANGUAGE_DATA LANGUAGE_DATA_INCL(LCD_LANGUAGE)
 
@@ -310,13 +286,10 @@
   #define MSG_B "Y"
   #define MSG_C "Z"
 #endif
-<<<<<<< HEAD:Marlin/language.h
-=======
 #define MSG_X2 "X2"
 #define MSG_Y2 "Y2"
 #define MSG_Z2 "Z2"
 #define MSG_Z3 "Z3"
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/core/language.h
 #define MSG_H1 "1"
 #define MSG_H2 "2"
 #define MSG_H3 "3"
@@ -369,3 +342,5 @@
   #undef MSG_USER_MENU
   #define MSG_USER_MENU CUSTOM_USER_MENU_TITLE
 #endif
+
+#endif // __LANGUAGE_H

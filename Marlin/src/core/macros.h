@@ -29,10 +29,6 @@
 #define ABC  3
 #define XYZ  3
 
-<<<<<<< HEAD:Marlin/macros.h
-// For use in macros that take a single axis letter
-=======
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/core/macros.h
 #define _AXIS(A) (A##_AXIS)
 
 #define _XMIN_ 100
@@ -42,12 +38,8 @@
 #define _YMAX_ 201
 #define _ZMAX_ 301
 
-<<<<<<< HEAD:Marlin/macros.h
-#define FORCE_INLINE __attribute__((always_inline)) inline
-=======
 #define _FORCE_INLINE_ __attribute__((__always_inline__)) __inline__
 #define  FORCE_INLINE  __attribute__((always_inline)) inline
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/core/macros.h
 #define _UNUSED      __attribute__((unused))
 #define _O0          __attribute__((optimize("O0")))
 #define _Os          __attribute__((optimize("Os")))
@@ -56,14 +48,9 @@
 #define _O3          __attribute__((optimize("O3")))
 
 // Clock speed factors
-<<<<<<< HEAD:Marlin/macros.h
-#define CYCLES_PER_MICROSECOND (F_CPU / 1000000L) // 16 or 20
-#define INT0_PRESCALER 8
-=======
 #if !defined(CYCLES_PER_MICROSECOND) && !defined(__STM32F1__)
-  #define CYCLES_PER_MICROSECOND (F_CPU / 1000000UL) // 16 or 20 on AVR
+  #define CYCLES_PER_MICROSECOND (F_CPU / 1000000L) // 16 or 20 on AVR
 #endif
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/core/macros.h
 
 // Nanoseconds per cycle
 #define NANOSECONDS_PER_CYCLE (1000000000.0 / F_CPU)
@@ -80,11 +67,7 @@
 
 // Macros for bit masks
 #undef _BV
-<<<<<<< HEAD:Marlin/macros.h
-#define _BV(b) (1 << (b))
-=======
 #define _BV(n) (1<<(n))
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/core/macros.h
 #define TEST(n,b) !!((n)&_BV(b))
 #define SBI(n,b) (n |= _BV(b))
 #define CBI(n,b) (n &= ~_BV(b))
@@ -94,32 +77,10 @@
 #define TEST32(n,b) !!((n)&_BV32(b))
 #define SBI32(n,b) (n |= _BV32(b))
 #define CBI32(n,b) (n &= ~_BV32(b))
-<<<<<<< HEAD:Marlin/macros.h
-
-// Macro to check that a number if a power if 2
-#define IS_POWER_OF_2(x) ((x) && !((x) & ((x) - 1)))
-=======
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/core/macros.h
 
 // Macros for maths shortcuts
 #undef M_PI
 #define M_PI 3.14159265358979323846f
-<<<<<<< HEAD:Marlin/macros.h
-#define RADIANS(d) ((d)*M_PI/180.0f)
-#define DEGREES(r) ((r)*180.0f/M_PI)
-#define HYPOT2(x,y) (sq(x)+sq(y))
-
-#define CIRCLE_AREA(R) (M_PI * sq(float(R)))
-#define CIRCLE_CIRC(R) (2 * M_PI * (float(R)))
-
-#define SIGN(a) ((a>0)-(a<0))
-#define IS_POWER_OF_2(x) ((x) && !((x) & ((x) - 1)))
-
-// Macros to contrain values
-#define NOLESS(v,n) do{ if (v < n) v = n; }while(0)
-#define NOMORE(v,n) do{ if (v > n) v = n; }while(0)
-#define LIMIT(v,n1,n2) do{ if (v < n1) v = n1; else if (v > n2) v = n2; }while(0)
-=======
 
 #define RADIANS(d) ((d)*float(M_PI)/180.0f)
 #define DEGREES(r) ((r)*180.0f/float(M_PI))
@@ -171,7 +132,6 @@
     } while(0)
 
 #endif
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/core/macros.h
 
 // Macros to support option testing
 #define _CAT(a, ...) a ## __VA_ARGS__
@@ -233,8 +193,8 @@
 
 #define PIN_EXISTS(PN) (defined(PN ##_PIN) && PN ##_PIN >= 0)
 
-#define MMM_TO_MMS(MM_M) ((MM_M)/60.0f)
-#define MMS_TO_MMM(MM_S) ((MM_S)*60.0f)
+#define PENDING(NOW,SOON) ((long)(NOW-(SOON))<0)
+#define ELAPSED(NOW,SOON) (!PENDING(NOW,SOON))
 
 #define MMM_TO_MMS(MM_M) ((MM_M)/60.0f)
 #define MMS_TO_MMM(MM_S) ((MM_S)*60.0f)
@@ -243,69 +203,19 @@
 
 #define CEILING(x,y) (((x) + (y) - 1) / (y))
 
-<<<<<<< HEAD:Marlin/macros.h
-// Avoid double evaluation of arguments on MIN/MAX/ABS
-#undef MIN
-#undef MAX
-#undef ABS
-#ifdef __cplusplus
-
-  // C++11 solution that is standards compliant. Return type is deduced automatically
-  template <class L, class R> static inline constexpr auto MIN(const L lhs, const R rhs) -> decltype(lhs + rhs) {
-    return lhs < rhs ? lhs : rhs;
-  }
-  template <class L, class R> static inline constexpr auto MAX(const L lhs, const R rhs) -> decltype(lhs + rhs){
-    return lhs > rhs ? lhs : rhs;
-  }
-  template <class T> static inline constexpr const T ABS(const T v) {
-    return v >= 0 ? v : -v;
-  }
-#else
-
-  // Using GCC extensions, but Travis GCC version does not like it and gives
-  //  "error: statement-expressions are not allowed outside functions nor in template-argument lists"
-  #define MIN(a, b) \
-    ({__typeof__(a) _a = (a); \
-      __typeof__(b) _b = (b); \
-      _a < _b ? _a : _b;})
-
-  #define MAX(a, b) \
-    ({__typeof__(a) _a = (a); \
-      __typeof__(b) _b = (b); \
-      _a > _b ? _a : _b;})
-
-  #define ABS(a) \
-    ({__typeof__(a) _a = (a); \
-      _a >= 0 ? _a : -_a;})
-
-#endif
-
-#define MIN3(a, b, c)       MIN(MIN(a, b), c)
-#define MIN4(a, b, c, d)    MIN(MIN3(a, b, c), d)
-#define MIN5(a, b, c, d, e) MIN(MIN4(a, b, c, d), e)
-#define MAX3(a, b, c)       MAX(MAX(a, b), c)
-#define MAX4(a, b, c, d)    MAX(MAX3(a, b, c), d)
-#define MAX5(a, b, c, d, e) MAX(MAX4(a, b, c, d), e)
-=======
 #undef ABS
 #ifdef __cplusplus
   template <class T> static inline constexpr const T ABS(const T v) { return v >= 0 ? v : -v; }
 #else
   #define ABS(a) ({__typeof__(a) _a = (a); _a >= 0 ? _a : -_a;})
 #endif
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/core/macros.h
 
 #define UNEAR_ZERO(x) ((x) < 0.000001f)
 #define NEAR_ZERO(x) WITHIN(x, -0.000001f, 0.000001f)
 #define NEAR(x,y) NEAR_ZERO((x)-(y))
 
-<<<<<<< HEAD:Marlin/macros.h
-#define RECIPROCAL(x) (NEAR_ZERO(x) ? 0.0f : 1.0f / (x))
-#define FIXFLOAT(f) (f + (f < 0.0f ? -0.00005f : 0.00005f))
-=======
 #define RECIPROCAL(x) (NEAR_ZERO(x) ? 0 : (1 / float(x)))
 #define FIXFLOAT(f) (f + (f < 0 ? -0.00005f : 0.00005f))
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/core/macros.h
 
 //
 // Maths macros that can be overridden by HAL
@@ -319,8 +229,3 @@
 #define LROUND(x)   lroundf(x)
 #define FMOD(x, y)  fmodf(x, y)
 #define HYPOT(x,y)  SQRT(HYPOT2(x,y))
-<<<<<<< HEAD:Marlin/macros.h
-
-#endif // MACROS_H
-=======
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/core/macros.h

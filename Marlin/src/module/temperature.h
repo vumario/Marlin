@@ -35,30 +35,13 @@
 #endif
 
 #if ENABLED(AUTO_POWER_CONTROL)
-<<<<<<< HEAD:Marlin/temperature.h
-  #include "power.h"
-#endif
-
-#if ENABLED(PID_EXTRUSION_SCALING)
-  #include "stepper.h"
-=======
   #include "../feature/power.h"
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/module/temperature.h
 #endif
 
 #ifndef SOFT_PWM_SCALE
   #define SOFT_PWM_SCALE 0
 #endif
 
-<<<<<<< HEAD:Marlin/temperature.h
-#define ENABLE_TEMPERATURE_INTERRUPT()  SBI(TIMSK0, OCIE0B)
-#define DISABLE_TEMPERATURE_INTERRUPT() CBI(TIMSK0, OCIE0B)
-#define TEMPERATURE_ISR_ENABLED()      TEST(TIMSK0, OCIE0B)
-
-#define HOTEND_LOOP() for (int8_t e = 0; e < HOTENDS; e++)
-
-=======
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/module/temperature.h
 #if HOTENDS == 1
   #define HOTEND_INDEX  0
 #else
@@ -147,16 +130,6 @@ enum ADCSensorState : char {
 #define ACTUAL_ADC_SAMPLES MAX(int(MIN_ADC_ISR_LOOPS), int(SensorsReady))
 
 #if HAS_PID_HEATING
-<<<<<<< HEAD:Marlin/temperature.h
-  #define PID_K2 (1.0f-PID_K1)
-  #define PID_dT ((OVERSAMPLENR * float(ACTUAL_ADC_SAMPLES)) / (F_CPU / 64.0f / 256.0f))
-
-  // Apply the scale factors to the PID values
-  #define scalePID_i(i)   ( (i) * float(PID_dT) )
-  #define unscalePID_i(i) ( (i) / float(PID_dT) )
-  #define scalePID_d(d)   ( (d) / float(PID_dT) )
-  #define unscalePID_d(d) ( (d) * float(PID_dT) )
-=======
   #define PID_K2 (1-float(PID_K1))
   #define PID_dT ((OVERSAMPLENR * float(ACTUAL_ADC_SAMPLES)) / TEMP_TIMER_FREQUENCY)
 
@@ -165,29 +138,21 @@ enum ADCSensorState : char {
   #define unscalePID_i(i) ( float(i) / PID_dT )
   #define scalePID_d(d)   ( float(d) / PID_dT )
   #define unscalePID_d(d) ( float(d) * PID_dT )
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/module/temperature.h
 #endif
 
 class Temperature {
 
   public:
 
-<<<<<<< HEAD:Marlin/temperature.h
-=======
     static volatile bool in_temp_isr;
 
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/module/temperature.h
     static float current_temperature[HOTENDS];
     static int16_t current_temperature_raw[HOTENDS],
                    target_temperature[HOTENDS];
     static uint8_t soft_pwm_amount[HOTENDS];
 
     #if ENABLED(AUTO_POWER_E_FANS)
-<<<<<<< HEAD:Marlin/temperature.h
-      static int16_t autofan_speed[HOTENDS];
-=======
       static uint8_t autofan_speed[HOTENDS];
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/module/temperature.h
     #endif
 
     #if ENABLED(FAN_SOFT_PWM)
@@ -196,29 +161,7 @@ class Temperature {
     #endif
 
     #if ENABLED(PIDTEMP)
-<<<<<<< HEAD:Marlin/temperature.h
-
-      #if ENABLED(PID_PARAMS_PER_HOTEND) && HOTENDS > 1
-
-        static float Kp[HOTENDS], Ki[HOTENDS], Kd[HOTENDS];
-        #if ENABLED(PID_EXTRUSION_SCALING)
-          static float Kc[HOTENDS];
-        #endif
-        #define PID_PARAM(param, h) Temperature::param[h]
-
-      #else
-
-        static float Kp, Ki, Kd;
-        #if ENABLED(PID_EXTRUSION_SCALING)
-          static float Kc;
-        #endif
-        #define PID_PARAM(param, h) Temperature::param
-
-      #endif // PID_PARAMS_PER_HOTEND
-
-=======
       static hotend_pid_t pid[HOTENDS];
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/module/temperature.h
     #endif
 
     #if HAS_HEATED_BED
@@ -226,20 +169,12 @@ class Temperature {
       static int16_t current_temperature_bed_raw, target_temperature_bed;
       static uint8_t soft_pwm_amount_bed;
       #if ENABLED(PIDTEMPBED)
-<<<<<<< HEAD:Marlin/temperature.h
-        static float bedKp, bedKi, bedKd;
-=======
         static PID_t bed_pid;
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/module/temperature.h
       #endif
     #endif
 
     #if ENABLED(BABYSTEPPING)
-<<<<<<< HEAD:Marlin/temperature.h
-      static volatile int babystepsTodo[3];
-=======
       static volatile int16_t babystepsTodo[3];
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/module/temperature.h
     #endif
 
     #if ENABLED(PREVENT_COLD_EXTRUSION)
@@ -247,7 +182,6 @@ class Temperature {
       static int16_t extrude_min_temp;
       FORCE_INLINE static bool tooCold(const int16_t temp) { return allow_cold_extrude ? false : temp < extrude_min_temp; }
       FORCE_INLINE static bool tooColdToExtrude(const uint8_t e) {
-<<<<<<< HEAD:Marlin/temperature.h
         #if HOTENDS == 1
           UNUSED(e);
         #endif
@@ -257,17 +191,6 @@ class Temperature {
         #if HOTENDS == 1
           UNUSED(e);
         #endif
-=======
-        #if HOTENDS == 1
-          UNUSED(e);
-        #endif
-        return tooCold(degHotend(HOTEND_INDEX));
-      }
-      FORCE_INLINE static bool targetTooColdToExtrude(const uint8_t e) {
-        #if HOTENDS == 1
-          UNUSED(e);
-        #endif
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/module/temperature.h
         return tooCold(degTargetHotend(HOTEND_INDEX));
       }
     #else
@@ -280,13 +203,10 @@ class Temperature {
 
   private:
 
-<<<<<<< HEAD:Marlin/temperature.h
-=======
     #if EARLY_WATCHDOG
       static bool inited;   // If temperature controller is running
     #endif
 
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/module/temperature.h
     static volatile bool temp_meas_ready;
     static uint16_t raw_temp_value[MAX_EXTRUDERS];
 
@@ -320,18 +240,7 @@ class Temperature {
         static uint16_t watch_target_bed_temp;
         static millis_t watch_bed_next_ms;
       #endif
-<<<<<<< HEAD:Marlin/temperature.h
-      #if ENABLED(PIDTEMPBED)
-        static float temp_iState_bed,
-                     temp_dState_bed,
-                     pTerm_bed,
-                     iTerm_bed,
-                     dTerm_bed,
-                     pid_error_bed;
-      #else
-=======
       #if DISABLED(PIDTEMPBED)
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/module/temperature.h
         static millis_t next_bed_check_ms;
       #endif
       #if HEATER_IDLE_HANDLER
@@ -518,16 +427,12 @@ class Temperature {
       return target_temperature[HOTEND_INDEX] < current_temperature[HOTEND_INDEX];
     }
 
-<<<<<<< HEAD:Marlin/temperature.h
-    #if HAS_HEATED_BED
-=======
     #if HAS_TEMP_HOTEND
       static bool wait_for_hotend(const uint8_t target_extruder, const bool no_wait_for_cooling=true);
     #endif
 
     #if HAS_HEATED_BED
 
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/module/temperature.h
       #if ENABLED(SHOW_TEMP_ADC_VALUES)
         FORCE_INLINE static int16_t rawBedTemp()  { return current_temperature_bed_raw; }
       #endif
@@ -555,16 +460,11 @@ class Temperature {
       #if WATCH_THE_BED
         static void start_watching_bed();
       #endif
-<<<<<<< HEAD:Marlin/temperature.h
-    #endif
-
-=======
 
       static void wait_for_bed(const bool no_wait_for_cooling);
 
     #endif // HAS_HEATED_BED
 
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/module/temperature.h
     #if HAS_TEMP_CHAMBER
       #if ENABLED(SHOW_TEMP_ADC_VALUES)
         FORCE_INLINE static int16_t rawChamberTemp() { return current_temperature_chamber_raw; }
@@ -572,11 +472,7 @@ class Temperature {
       FORCE_INLINE static float degChamber() { return current_temperature_chamber; }
     #endif
 
-<<<<<<< HEAD:Marlin/temperature.h
-    FORCE_INLINE static bool wait_for_heating(const uint8_t e) {
-=======
     FORCE_INLINE static bool still_heating(const uint8_t e) {
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/module/temperature.h
       return degTargetHotend(e) > TEMP_HYSTERESIS && ABS(degHotend(e) - degTargetHotend(e)) > TEMP_HYSTERESIS;
     }
 
@@ -697,15 +593,11 @@ class Temperature {
     #endif // HEATER_IDLE_HANDLER
 
     #if HAS_TEMP_SENSOR
-<<<<<<< HEAD:Marlin/temperature.h
-      static void print_heaterstates();
-=======
       static void print_heaterstates(
         #if NUM_SERIAL > 1
           const int8_t port = -1
         #endif
       );
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/module/temperature.h
       #if ENABLED(AUTO_REPORT_TEMPERATURES)
         static uint8_t auto_report_temp_interval;
         static millis_t next_temp_report_ms;

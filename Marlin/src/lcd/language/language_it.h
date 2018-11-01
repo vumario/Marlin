@@ -58,24 +58,14 @@
 #define MSG_SET_HOME_OFFSETS                _UxGT("Imp. offset home")
 #define MSG_HOME_OFFSETS_APPLIED            _UxGT("Offset applicato")
 #define MSG_SET_ORIGIN                      _UxGT("Imposta Origine")
-<<<<<<< HEAD:Marlin/language_it.h
 #define MSG_PREHEAT_1                       _UxGT("Preriscalda PLA")
 #define MSG_PREHEAT_1_N                     _UxGT("Preris.PLA ")
-=======
-#define MSG_PREHEAT_1                       _UxGT("Preriscalda " PREHEAT_1_LABEL)
-#define MSG_PREHEAT_1_N                     _UxGT("Preris." PREHEAT_1_LABEL " ")
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/lcd/language/language_it.h
 #define MSG_PREHEAT_1_ALL                   MSG_PREHEAT_1_N _UxGT("Tutto")
 #define MSG_PREHEAT_1_END                   MSG_PREHEAT_1_N _UxGT("Ugello")
 #define MSG_PREHEAT_1_BEDONLY               MSG_PREHEAT_1_N _UxGT("Piatto")
 #define MSG_PREHEAT_1_SETTINGS              MSG_PREHEAT_1_N _UxGT("conf")
-<<<<<<< HEAD:Marlin/language_it.h
 #define MSG_PREHEAT_2                       _UxGT("Preriscalda ABS")
 #define MSG_PREHEAT_2_N                     _UxGT("Preris.ABS ")
-=======
-#define MSG_PREHEAT_2                       _UxGT("Preriscalda " PREHEAT_2_LABEL)
-#define MSG_PREHEAT_2_N                     _UxGT("Preris." PREHEAT_2_LABEL " ")
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/lcd/language/language_it.h
 #define MSG_PREHEAT_2_ALL                   MSG_PREHEAT_2_N _UxGT("Tutto")
 #define MSG_PREHEAT_2_END                   MSG_PREHEAT_2_N _UxGT("Ugello")
 #define MSG_PREHEAT_2_BEDONLY               MSG_PREHEAT_2_N _UxGT("Piatto")
@@ -88,20 +78,11 @@
 #define MSG_RETRACT                         _UxGT("Ritrai")
 #define MSG_MOVE_AXIS                       _UxGT("Muovi Asse")
 #define MSG_BED_LEVELING                    _UxGT("Livella piano")
-<<<<<<< HEAD:Marlin/language_it.h
-#define MSG_LEVEL_BED                       _UxGT("Livella piano")
-#define MSG_LEVEL_CORNERS                   _UxGT("Livella spigoli")
-#define MSG_NEXT_CORNER                     _UxGT("Prossimo spigolo")
-#define MSG_EDITING_STOPPED                 _UxGT("Modifica Mesh Fermata")
-#define MSG_USER_MENU                       _UxGT("Comandi Utente")
-
-=======
 #define MSG_LEVEL_BED                       MSG_BED_LEVELING
 #define MSG_LEVEL_CORNERS                   _UxGT("Livella spigoli")
 #define MSG_NEXT_CORNER                     _UxGT("Prossimo spigolo")
 #define MSG_EDITING_STOPPED                 _UxGT("Modif. Mesh Fermata")
 #define MSG_USER_MENU                       _UxGT("Comandi personaliz.")
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/lcd/language/language_it.h
 #define MSG_UBL_DOING_G29                   _UxGT("G29 in corso")
 #define MSG_UBL_UNHOMED                     _UxGT("Home XYZ prima")
 #define MSG_UBL_TOOLS                       _UxGT("Strumenti UBL")
@@ -118,41 +99,28 @@
 #define MSG_UBL_MANUAL_MESH                 _UxGT("Mesh Manuale")
 #define MSG_UBL_BC_INSERT                   _UxGT("Metti spes. e misura")
 #define MSG_UBL_BC_INSERT2                  _UxGT("Misura")
-<<<<<<< HEAD:Marlin/language_it.h
-#define MSG_UBL_BC_REMOVE                   _UxGT("Rimuovi e misura piatto")
-#define MSG_UBL_MOVING_TO_NEXT              _UxGT("Spostamento sucessivo")
-#define MSG_UBL_ACTIVATE_MESH               _UxGT("Attiva UBL")
-#define MSG_UBL_DEACTIVATE_MESH             _UxGT("Disattiva UBL")
-#define MSG_UBL_SET_BED_TEMP                _UxGT("Temp Piatto")
-#define MSG_UBL_CUSTOM_BED_TEMP             MSG_UBL_SET_BED_TEMP
-#define MSG_UBL_SET_HOTEND_TEMP             _UxGT("Temp Ugello")
-#define MSG_UBL_CUSTOM_HOTEND_TEMP          MSG_UBL_SET_HOTEND_TEMP
-#define MSG_UBL_MESH_EDIT                   _UxGT("Modifica Mesh")
-#define MSG_UBL_EDIT_CUSTOM_MESH            _UxGT("Modif Custom Mesh")
-=======
 #define MSG_UBL_BC_REMOVE                   _UxGT("Rimuovi e mis.piatto")
 #define MSG_UBL_MOVING_TO_NEXT              _UxGT("Spostamento succes.")
 #define MSG_UBL_ACTIVATE_MESH               _UxGT("Attiva UBL")
 #define MSG_UBL_DEACTIVATE_MESH             _UxGT("Disattiva UBL")
-#define MSG_UBL_SET_TEMP_BED                _UxGT("Temp. Piatto")
-#define MSG_UBL_BED_TEMP_CUSTOM             MSG_UBL_SET_TEMP_BED
-#define MSG_UBL_SET_TEMP_HOTEND             _UxGT("Temp. Ugello")
-#define MSG_UBL_HOTEND_TEMP_CUSTOM          MSG_UBL_SET_TEMP_HOTEND
+#define MSG_UBL_SET_BED_TEMP                _UxGT("Temp. Piatto")
+#define MSG_UBL_CUSTOM_BED_TEMP             MSG_UBL_SET_BED_TEMP
+#define MSG_UBL_SET_HOTEND_TEMP             _UxGT("Temp. Ugello")
+#define MSG_UBL_CUSTOM_HOTEND_TEMP          MSG_UBL_SET_HOTEND_TEMP
 #define MSG_UBL_MESH_EDIT                   _UxGT("Modifica Mesh")
 #define MSG_UBL_EDIT_CUSTOM_MESH            _UxGT("Modif.Mesh personal.")
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/lcd/language/language_it.h
 #define MSG_UBL_FINE_TUNE_MESH              _UxGT("Ritocca Mesh")
 #define MSG_UBL_DONE_EDITING_MESH           _UxGT("Modif.Mesh fatta")
 #define MSG_UBL_BUILD_CUSTOM_MESH           _UxGT("Crea Mesh personal.")
 #define MSG_UBL_BUILD_MESH_MENU             _UxGT("Crea Mesh")
-#define MSG_UBL_BUILD_MESH_M1               _UxGT("Crea Mesh " PREHEAT_1_LABEL)
-#define MSG_UBL_BUILD_MESH_M2               _UxGT("Crea Mesh " PREHEAT_2_LABEL)
+#define MSG_UBL_BUILD_PLA_MESH              _UxGT("Crea Mesh PLA")
+#define MSG_UBL_BUILD_ABS_MESH              _UxGT("Crea Mesh ABS")
 #define MSG_UBL_BUILD_COLD_MESH             _UxGT("Crea Mesh a freddo")
 #define MSG_UBL_MESH_HEIGHT_ADJUST          _UxGT("Aggiusta Alt. Mesh")
 #define MSG_UBL_MESH_HEIGHT_AMOUNT          _UxGT("Altezza")
 #define MSG_UBL_VALIDATE_MESH_MENU          _UxGT("Valida Mesh")
-#define MSG_UBL_VALIDATE_MESH_M1            _UxGT("Valida Mesh " PREHEAT_1_LABEL)
-#define MSG_UBL_VALIDATE_MESH_M2            _UxGT("Valida Mesh " PREHEAT_2_LABEL)
+#define MSG_UBL_VALIDATE_PLA_MESH           _UxGT("Valida Mesh PLA")
+#define MSG_UBL_VALIDATE_ABS_MESH           _UxGT("Valida Mesh ABS")
 #define MSG_UBL_VALIDATE_CUSTOM_MESH        _UxGT("Valida Mesh pers.")
 #define MSG_UBL_CONTINUE_MESH               _UxGT("Continua Mesh")
 #define MSG_UBL_MESH_LEVELING               _UxGT("Livell. Mesh")
@@ -189,11 +157,7 @@
 
 #define MSG_LED_CONTROL                     _UxGT("Controllo LED")
 #define MSG_LEDS                            _UxGT("Luci")
-<<<<<<< HEAD:Marlin/language_it.h
-#define MSG_LED_PRESETS                     _UxGT("Preset luci")
-=======
 #define MSG_LED_PRESETS                     _UxGT("Preset luce")
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/lcd/language/language_it.h
 #define MSG_SET_LEDS_RED                    _UxGT("Rosso")
 #define MSG_SET_LEDS_ORANGE                 _UxGT("Arancione")
 #define MSG_SET_LEDS_YELLOW                 _UxGT("Giallo")
@@ -204,19 +168,11 @@
 #define MSG_SET_LEDS_WHITE                  _UxGT("Bianco")
 #define MSG_SET_LEDS_DEFAULT                _UxGT("Predefinito")
 #define MSG_CUSTOM_LEDS                     _UxGT("Luci personalizzate")
-<<<<<<< HEAD:Marlin/language_it.h
-#define MSG_INTENSITY_R                     _UxGT("Intensita rosso")
-#define MSG_INTENSITY_G                     _UxGT("Intensita verde")
-#define MSG_INTENSITY_B                     _UxGT("Intensita blu")
-#define MSG_INTENSITY_W                     _UxGT("Intensita bianco")
-#define MSG_LED_BRIGHTNESS                  _UxGT("Luminosita")
-=======
 #define MSG_INTENSITY_R                     _UxGT("Intensità rosso")
 #define MSG_INTENSITY_G                     _UxGT("Intensità verde")
 #define MSG_INTENSITY_B                     _UxGT("Intensità blu")
 #define MSG_INTENSITY_W                     _UxGT("Intensità bianco")
 #define MSG_LED_BRIGHTNESS                  _UxGT("Luminosità")
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/lcd/language/language_it.h
 
 #define MSG_MOVING                          _UxGT("In movimento...")
 #define MSG_FREE_XY                         _UxGT("XY liberi")
@@ -224,7 +180,6 @@
 #define MSG_MOVE_Y                          _UxGT("Muovi Y")
 #define MSG_MOVE_Z                          _UxGT("Muovi Z")
 #define MSG_MOVE_E                          _UxGT("Estrusore")
-#define MSG_HOTEND_TOO_COLD                 _UxGT("Ugello freddo")
 #define MSG_MOVE_01MM                       _UxGT("Muovi di 0.1mm")
 #define MSG_MOVE_1MM                        _UxGT("Muovi di 1mm")
 #define MSG_MOVE_10MM                       _UxGT("Muovi di 10mm")
@@ -232,13 +187,8 @@
 #define MSG_BED_Z                           _UxGT("Piatto Z")
 #define MSG_NOZZLE                          _UxGT("Ugello")
 #define MSG_BED                             _UxGT("Piatto")
-<<<<<<< HEAD:Marlin/language_it.h
-#define MSG_FAN_SPEED                       _UxGT("Velocita ventola")
-#define MSG_EXTRA_FAN_SPEED                 _UxGT("Magg vel ventola")
-=======
 #define MSG_FAN_SPEED                       _UxGT("Velocità ventola")
 #define MSG_EXTRA_FAN_SPEED                 _UxGT("Extra vel. ventola")
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/lcd/language/language_it.h
 #define MSG_FLOW                            _UxGT("Flusso")
 #define MSG_CONTROL                         _UxGT("Controllo")
 #define MSG_MIN                             LCD_STR_THERMOMETER _UxGT(" Min")
@@ -318,10 +268,7 @@
 #define MSG_DWELL                           _UxGT("Sospensione...")
 #define MSG_USERWAIT                        _UxGT("Premi tasto..")
 #define MSG_PRINT_PAUSED                    _UxGT("Stampa sospesa")
-<<<<<<< HEAD:Marlin/language_it.h
-=======
 #define MSG_PRINTING                        _UxGT("Stampa...")
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/lcd/language/language_it.h
 #define MSG_PRINT_ABORTED                   _UxGT("Stampa annullata")
 #define MSG_NO_MOVE                         _UxGT("Nessun Movimento")
 #define MSG_KILLED                          _UxGT("UCCISO. ")
@@ -332,11 +279,7 @@
 #define MSG_CONTROL_RETRACT_ZHOP            _UxGT("Salta mm")
 #define MSG_CONTROL_RETRACT_RECOVER         _UxGT("UnRet mm")
 #define MSG_CONTROL_RETRACT_RECOVER_SWAP    _UxGT("Scamb. UnRet mm")
-<<<<<<< HEAD:Marlin/language_it.h
-#define MSG_CONTROL_RETRACT_RECOVERF        _UxGT("UnRet  V")
-=======
 #define MSG_CONTROL_RETRACT_RECOVERF        _UxGT("UnRet V")
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/lcd/language/language_it.h
 #define MSG_CONTROL_RETRACT_RECOVER_SWAPF   _UxGT("S UnRet V")
 #define MSG_AUTORETRACT                     _UxGT("AutoRitrai")
 #define MSG_FILAMENT_SWAP_LENGTH            _UxGT("Dist. ritrazione")
@@ -349,13 +292,8 @@
 #define MSG_FILAMENTUNLOAD                  _UxGT("Rimuovi filamento")
 #define MSG_FILAMENTUNLOAD_ALL              _UxGT("Rimuovi tutto")
 #define MSG_INIT_SDCARD                     _UxGT("Iniz. SD-Card")
-<<<<<<< HEAD:Marlin/language_it.h
 #define MSG_CNG_SDCARD                      _UxGT("Cambia SD-Card")
-#define MSG_ZPROBE_OUT                      _UxGT("Z probe out. bed")
-=======
-#define MSG_CHANGE_SDCARD                   _UxGT("Cambia SD-Card")
 #define MSG_ZPROBE_OUT                      _UxGT("Z probe fuori piatto")
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/lcd/language/language_it.h
 #define MSG_SKEW_FACTOR                     _UxGT("Fattore distorsione")
 #define MSG_BLTOUCH                         _UxGT("BLTouch")
 #define MSG_BLTOUCH_SELFTEST                _UxGT("Autotest BLTouch")
@@ -373,25 +311,11 @@
 #define MSG_ENDSTOP_ABORT                   _UxGT("Finecorsa annullati")
 #define MSG_HEATING_FAILED_LCD              _UxGT("Riscald. Fallito")
 #define MSG_HEATING_FAILED_LCD_BED          _UxGT("Risc. piatto fallito")
-<<<<<<< HEAD:Marlin/language_it.h
-#define MSG_ERR_REDUNDANT_TEMP              _UxGT("Err: TEMP RIDONDANTI")
-=======
 #define MSG_ERR_REDUNDANT_TEMP              _UxGT("Err: TEMP RIDONDANTE")
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/lcd/language/language_it.h
 #define MSG_THERMAL_RUNAWAY                 _UxGT("TEMP FUORI CONTROLLO")
 #define MSG_THERMAL_RUNAWAY_BED             _UxGT("TEMP PIAT.FUORI CTRL")
 #define MSG_ERR_MAXTEMP                     _UxGT("Err: TEMP MASSIMA")
 #define MSG_ERR_MINTEMP                     _UxGT("Err: TEMP MINIMA")
-<<<<<<< HEAD:Marlin/language_it.h
-#define MSG_ERR_MAXTEMP_BED                 _UxGT("Err: TEMP MASSIMA PIATTO")
-#define MSG_ERR_MINTEMP_BED                 _UxGT("Err: TEMP MINIMA PIATTO")
-#define MSG_ERR_Z_HOMING                    MSG_HOME _UxGT(" ") MSG_X MSG_Y _UxGT(" ") MSG_FIRST
-#define MSG_HALTED                          _UxGT("STAMPANTE FERMATA")
-#define MSG_PLEASE_RESET                    _UxGT("Riavviare prego")
-#define MSG_SHORT_DAY                       _UxGT("g") // One character only
-#define MSG_SHORT_HOUR                      _UxGT("h") // One character only
-#define MSG_SHORT_MINUTE                    _UxGT("m") // One character only
-=======
 #define MSG_ERR_MAXTEMP_BED                 _UxGT("Err: TEMP MAX PIATTO")
 #define MSG_ERR_MINTEMP_BED                 _UxGT("Err: TEMP MIN PIATTO")
 #define MSG_ERR_Z_HOMING                    MSG_HOME _UxGT(" ") MSG_X MSG_Y _UxGT(" ") MSG_FIRST
@@ -400,7 +324,6 @@
 #define MSG_SHORT_DAY                       _UxGT("g") // Un solo carattere
 #define MSG_SHORT_HOUR                      _UxGT("h") // Un solo carattere
 #define MSG_SHORT_MINUTE                    _UxGT("m") // Un solo carattere
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/lcd/language/language_it.h
 #define MSG_HEATING                         _UxGT("Riscaldamento...")
 #define MSG_COOLING                         _UxGT("Raffreddamento..")
 #define MSG_BED_HEATING                     _UxGT("Risc. piatto...")
@@ -409,18 +332,11 @@
 #define MSG_DELTA_CALIBRATE_X               _UxGT("Calibra X")
 #define MSG_DELTA_CALIBRATE_Y               _UxGT("Calibra Y")
 #define MSG_DELTA_CALIBRATE_Z               _UxGT("Calibra Z")
-<<<<<<< HEAD:Marlin/language_it.h
-#define MSG_DELTA_CALIBRATE_CENTER          _UxGT("Calibra Center")
-#define MSG_DELTA_SETTINGS                  _UxGT("Impostaz. Delta")
-#define MSG_DELTA_AUTO_CALIBRATE            _UxGT("Auto calibrazione")
-#define MSG_DELTA_HEIGHT_CALIBRATE          _UxGT("Imp. altezza Delta")
-=======
 #define MSG_DELTA_CALIBRATE_CENTER          _UxGT("Calibra centro")
 #define MSG_DELTA_SETTINGS                  _UxGT("Impostaz. Delta")
 #define MSG_DELTA_AUTO_CALIBRATE            _UxGT("Auto calibrazione")
 #define MSG_DELTA_HEIGHT_CALIBRATE          _UxGT("Imp. altezza Delta")
 #define MSG_DELTA_Z_OFFSET_CALIBRATE        _UxGT("Offset sonda-Z")
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/lcd/language/language_it.h
 #define MSG_DELTA_DIAG_ROD                  _UxGT("Barra Diagonale")
 #define MSG_DELTA_HEIGHT                    _UxGT("Altezza")
 #define MSG_DELTA_RADIUS                    _UxGT("Raggio")
@@ -458,18 +374,6 @@
 #define MSG_DRIVE_STRENGTH                  _UxGT("Potenza Drive")
 #define MSG_DAC_PERCENT                     _UxGT("Driver %")
 #define MSG_DAC_EEPROM_WRITE                _UxGT("Scrivi DAC EEPROM")
-<<<<<<< HEAD:Marlin/language_it.h
-
-#define MSG_FILAMENT_CHANGE_HEADER_PAUSE    _UxGT("STAMPA IN PAUSA")
-#define MSG_FILAMENT_CHANGE_HEADER_LOAD     _UxGT("CARICA FILAMENTO")
-#define MSG_FILAMENT_CHANGE_HEADER_UNLOAD   _UxGT("RIMUOVI FILAMENTO")
-#define MSG_FILAMENT_CHANGE_OPTION_HEADER   _UxGT("OPZIONI:")
-#define MSG_FILAMENT_CHANGE_OPTION_PURGE    _UxGT("Libera di piu")
-#define MSG_FILAMENT_CHANGE_OPTION_RESUME   _UxGT("Riprendi stampa")
-#define MSG_FILAMENT_CHANGE_NOZZLE          _UxGT("  Ugello: ")
-#define MSG_ERR_HOMING_FAILED               _UxGT("Home fallito")
-#define MSG_ERR_PROBING_FAILED              _UxGT("Probing fallito")
-=======
 #define MSG_FILAMENT_CHANGE_HEADER_PAUSE    _UxGT("STAMPA IN PAUSA")
 #define MSG_FILAMENT_CHANGE_HEADER_LOAD     _UxGT("CARICA FILAMENTO")
 #define MSG_FILAMENT_CHANGE_HEADER_UNLOAD   _UxGT("RIMUOVI FILAMENTO")
@@ -480,7 +384,6 @@
 #define MSG_RUNOUT_SENSOR_ENABLE            _UxGT("Sens.filo terminato")
 #define MSG_ERR_HOMING_FAILED               _UxGT("Home fallito")
 #define MSG_ERR_PROBING_FAILED              _UxGT("Sondaggio fallito")
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/lcd/language/language_it.h
 #define MSG_M600_TOO_COLD                   _UxGT("M600:Troppo freddo")
 
 //

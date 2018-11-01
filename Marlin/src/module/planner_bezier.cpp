@@ -27,18 +27,13 @@
  *
  */
 
-<<<<<<< HEAD:Marlin/planner_bezier.cpp
-#include "MarlinConfig.h"
-=======
 #include "../inc/MarlinConfig.h"
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/module/planner_bezier.cpp
 
 #if ENABLED(BEZIER_CURVE_SUPPORT)
 
 #include "planner.h"
 #include "motion.h"
 #include "temperature.h"
-#include "Marlin.h"
 
 #include "../Marlin.h"
 #include "../core/language.h"
@@ -50,11 +45,7 @@
 #define SIGMA 0.1f
 
 // Compute the linear interpolation between two real numbers.
-<<<<<<< HEAD:Marlin/planner_bezier.cpp
-inline static float interp(float a, float b, float t) { return (1.0f - t) * a + t * b; }
-=======
 static inline float interp(const float &a, const float &b, const float &t) { return (1 - t) * a + t * b; }
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/module/planner_bezier.cpp
 
 /**
  * Compute a Bézier curve using the De Casteljau's algorithm (see
@@ -75,11 +66,7 @@ static inline float eval_bezier(const float &a, const float &b, const float &c, 
  * We approximate Euclidean distance with the sum of the coordinates
  * offset (so-called "norm 1"), which is quicker to compute.
  */
-<<<<<<< HEAD:Marlin/planner_bezier.cpp
-inline static float dist1(float x1, float y1, float x2, float y2) { return ABS(x1 - x2) + ABS(y1 - y2); }
-=======
 static inline float dist1(const float &x1, const float &y1, const float &x2, const float &y2) { return ABS(x1 - x2) + ABS(y1 - y2); }
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/module/planner_bezier.cpp
 
 /**
  * The algorithm for computing the step is loosely based on the one in Kig
@@ -203,17 +190,6 @@ void cubic_b_spline(const float position[NUM_AXIS], const float target[NUM_AXIS]
     bez_target[E_AXIS] = interp(position[E_AXIS], target[E_AXIS], t);
     clamp_to_software_endstops(bez_target);
 
-<<<<<<< HEAD:Marlin/planner_bezier.cpp
-    #if HAS_UBL_AND_CURVES
-      float pos[XYZ] = { bez_target[X_AXIS], bez_target[Y_AXIS], bez_target[Z_AXIS] };
-      planner.apply_leveling(pos);
-      if (!planner.buffer_segment(pos[X_AXIS], pos[Y_AXIS], pos[Z_AXIS], bez_target[E_AXIS], fr_mm_s, active_extruder))
-        break;
-    #else
-      if (!planner.buffer_line_kinematic(bez_target, fr_mm_s, extruder))
-        break;
-    #endif
-=======
     #if HAS_LEVELING && !PLANNER_LEVELING
       float pos[XYZE] = { bez_target[X_AXIS], bez_target[Y_AXIS], bez_target[Z_AXIS], bez_target[E_AXIS] };
       planner.apply_leveling(pos);
@@ -223,7 +199,6 @@ void cubic_b_spline(const float position[NUM_AXIS], const float target[NUM_AXIS]
 
     if (!planner.buffer_line(pos, fr_mm_s, active_extruder, step))
       break;
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/module/planner_bezier.cpp
   }
 }
 

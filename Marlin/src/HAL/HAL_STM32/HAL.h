@@ -41,7 +41,6 @@
   #include <USBSerial.h>
 #endif
 
-#include "../../inc/MarlinConfigPre.h"
 #include "../shared/math_32bit.h"
 #include "../shared/HAL_SPI.h"
 #include "fastio_STM32.h"

@@ -28,8 +28,10 @@
 #include "../../parser.h"
 #include "../../../feature/pause.h"
 #include "../../../module/motion.h"
-#include "../../../sd/cardreader.h"
-#include "../../../module/printcounter.h"
+
+#if DISABLED(SDSUPPORT)
+  #include "../../../module/printcounter.h"
+#endif
 
 /**
  * M125: Store current position and move to filament change position.
@@ -68,14 +70,21 @@ void GcodeSuite::M125() {
     park_point.y += (active_extruder ? hotend_offset[Y_AXIS][active_extruder] : 0);
   #endif
 
-  const bool job_running = print_job_timer.isRunning();
+  #if DISABLED(SDSUPPORT)
+    const bool job_running = print_job_timer.isRunning();
+  #endif
 
-  if (pause_print(retract, park_point) && !IS_SD_PRINTING()) {
-    wait_for_filament_reload(); // Wait for lcd click or M108
-    resume_print();             // Return to print position and continue
+  if (pause_print(retract, park_point)) {
+    #if DISABLED(SDSUPPORT)
+      // Wait for lcd click or M108
+      wait_for_filament_reload();
+
+      // Return to print position and continue
+      resume_print();
+
+      if (job_running) print_job_timer.start();
+    #endif
   }
-
-  if (job_running) print_job_timer.start();
 }
 
 #endif // PARK_HEAD_ON_PAUSE

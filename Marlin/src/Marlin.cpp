@@ -160,6 +160,17 @@
 
 bool Running = true;
 
+/**
+ * axis_homed
+ *   Flags that each linear axis was homed.
+ *   XYZ on cartesian, ABC on delta, ABZ on SCARA.
+ *
+ * axis_known_position
+ *   Flags that the position is known in each linear axis. Set when homed.
+ *   Cleared whenever a stepper powers off, potentially losing its position.
+ */
+uint8_t axis_homed, axis_known_position; // = 0
+
 #if ENABLED(TEMPERATURE_UNITS_SUPPORT)
   TempUnit input_temp_units = TEMPUNIT_C;
 #endif
@@ -368,7 +379,7 @@ void manage_inactivity(const bool ignore_stepper_queue/*=false*/) {
       #if ENABLED(DISABLE_INACTIVE_E)
         disable_e_steppers();
       #endif
-      #if HAS_LCD_MENU && ENABLED(AUTO_BED_LEVELING_UBL)
+      #if ENABLED(AUTO_BED_LEVELING_UBL) && ENABLED(ULTIPANEL)  // Only needed with an LCD
         if (ubl.lcd_map_control) ubl.lcd_map_control = defer_return_to_status = false;
       #endif
     }
@@ -606,7 +617,9 @@ void kill(PGM_P const lcd_msg/*=NULL*/) {
   SERIAL_ERROR_START();
   SERIAL_ERRORLNPGM(MSG_ERR_KILLED);
 
-  #if ENABLED(ULTRA_LCD) || ENABLED(EXTENSIBLE_UI)
+  #if ENABLED(EXTENSIBLE_UI)
+    UI::onPrinterKilled(lcd_msg ? lcd_msg : PSTR(MSG_KILLED));
+  #elif ENABLED(ULTRA_LCD)
     kill_screen(lcd_msg ? lcd_msg : PSTR(MSG_KILLED));
   #else
     UNUSED(lcd_msg);
@@ -622,12 +635,12 @@ void kill(PGM_P const lcd_msg/*=NULL*/) {
 void minkill() {
 
   // Wait a short time (allows messages to get out before shutting down.
-  for (int i = 1000; i--;) DELAY_US(600);
+  DELAY_US(600000);
 
   cli(); // Stop interrupts
 
   // Wait to ensure all interrupts stopped
-  for (int i = 1000; i--;) DELAY_US(250);
+  DELAY_US(250000);
 
   thermalManager.disable_all_heaters(); // turn off heaters again
 
@@ -947,7 +960,7 @@ void setup() {
   #if ENABLED(SDSUPPORT) && DISABLED(ULTRA_LCD)
     card.beginautostart();
   #endif
-}
+  }
 
 /**
  * The main Marlin program loop

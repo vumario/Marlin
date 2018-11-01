@@ -14,20 +14,6 @@ __Not for production use. Use with caution!__
 
 Marlin 2.0 takes this popular RepRap firmware to the next level with support for much faster 32-bit processor boards.
 
-<<<<<<< HEAD
-Download earlier versions of Marlin on the [Releases page](https://github.com/MarlinFirmware/Marlin/releases). (The latest tagged release of Marlin is version 1.1.7.)
-
-## Recent Changes
-- Internally always use native machine space
-- Initial UBL LCD Menu
-- New optimized G-code parser singleton
-- Initial `M3`/`M4`/`M5` Spindle and Laser support
-- Added `M421 Q` to offset a mesh point
-- Refinements to `G26` and `G33`
-- Added `M80 S` to query the power state
-- "Cancel Print" now shuts off heaters
-- Added `EXTRAPOLATE_BEYOND_GRID` option for mesh-based leveling
-=======
 This branch is for patches to the latest 2.0.x release version. Periodically this branch will form the basis for the next minor 2.0.x release.
 
 Download earlier versions of Marlin on the [Releases page](https://github.com/MarlinFirmware/Marlin/releases).
@@ -60,72 +46,25 @@ Marlin 2.0 adds a new abstraction layer so that Marlin can build and run on 32-b
   ----|---------|-----|-----|----|-----|---
   [STEVAL-3DP001V1](http://www.st.com/en/evaluation-tools/steval-3dp001v1.html)|[STM32F401VE Arm-Cortex M4](http://www.st.com/en/microcontrollers/stm32f401ve.html)|84MHz|512k|64+32k|3.3-5V|yes
   [Smoothieboard](http://reprap.org/wiki/Smoothieboard)|LPC1769 ARM-Cortex M3|120MHz|512k|64k|3.3-5V|no
->>>>>>> upstream/bugfix-2.0.x
 
 ## Submitting Patches
 
 Proposed patches should be submitted as a Pull Request against the ([bugfix-2.0.x](https://github.com/MarlinFirmware/Marlin/tree/bugfix-2.0.x)) branch.
 
-<<<<<<< HEAD
-- This branch is for fixing bugs and integrating any new features for the duration of the Marlin 1.1.x life-cycle. We've opted for a simplified branch structure while we work on the maintainability and encapsulation of code modules. Version 2.0 and beyond should improve on separation of bug fixes and cutting-edge development.
-- Follow the proper coding style to gain points with the maintainers. See our [Coding Standards](http://marlinfw.org/docs/development/coding_standards.html) page for more information.
-- Please submit your questions and concerns to the [Issue Queue](https://github.com/MarlinFirmware/Marlin/issues). The "naive" question is often the one we forget to ask.
-=======
 - This branch is for fixing bugs and integrating any new features for the duration of the Marlin 2.0.x life-cycle.
 - Follow the [Coding Standards](http://marlinfw.org/docs/development/coding_standards.html) to gain points with the maintainers.
 - Please submit your questions and concerns to the [Issue Queue](https://github.com/MarlinFirmware/Marlin/issues).
->>>>>>> upstream/bugfix-2.0.x
 
 ### [RepRap.org Wiki Page](http://reprap.org/wiki/Marlin)
 
 ## Credits
 
 The current Marlin dev team consists of:
-<<<<<<< HEAD
- - Roxanne Neufeld [[@Roxy-3D](https://github.com/Roxy-3D)]
- - Scott Lahteine [[@thinkyhead](https://github.com/thinkyhead)]
- - Bob Kuhn [[@Bob-the-Kuhn](https://github.com/Bob-the-Kuhn)]
-
-Notable contributors include:
- - Alberto Cotronei [[@MagoKimbra](https://github.com/MagoKimbra)]
- - Andreas Hardtung [[@AnHardt](https://github.com/AnHardt)]
- - Bernhard Kubicek [[@bkubicek](https://github.com/bkubicek)]
- - Bob Cousins [[@bobc](https://github.com/bobc)]
- - Chris Palmer [[@nophead](https://github.com/nophead)]
- - David Braam [[@daid](https://github.com/daid)]
- - Edward Patel [[@epatel](https://github.com/epatel)]
- - Erik van der Zalm [[@ErikZalm](https://github.com/ErikZalm)]
- - Ernesto Martinez [[@emartinez167](https://github.com/emartinez167)]
- - F. Malpartida [[@fmalpartida](https://github.com/fmalpartida)]
- - Jochen Groppe [[@CONSULitAS](https://github.com/CONSULitAS)]
- - João Brazio [[@jbrazio](https://github.com/jbrazio)]
- - Kai [[@Kaibob2](https://github.com/Kaibob2)]
- - Luc Van Daele[[@LVD-AC](https://github.com/LVD-AC)]
- - Nico Tonnhofer [[@Wurstnase](https://github.com/Wurstnase)]
- - Petr Zahradnik [[@clexpert](https://github.com/clexpert)]
- - Thomas Moore [[@tcm0116](https://github.com/tcm0116)]
- - [[@alexxy](https://github.com/alexxy)]
- - [[@android444](https://github.com/android444)]
- - [[@benlye](https://github.com/benlye)]
- - [[@bgort](https://github.com/bgort)]
- - [[@Grogyan](https://github.com/Grogyan)]
- - [[@marcio-ao](https://github.com/marcio-ao)]
- - [[@maverikou](https://github.com/maverikou)]
- - [[@oysteinkrog](https://github.com/oysteinkrog)]
- - [[@p3p](https://github.com/p3p)]
- - [[@paclema](https://github.com/paclema)]
- - [[@paulusjacobus](https://github.com/paulusjacobus)]
- - [[@psavva](https://github.com/psavva)]
- - [[@Tannoo](https://github.com/Tannoo)]
- - [[@teemuatlut](https://github.com/teemuatlut)]
- - ...and many others
-=======
  - Roxanne Neufeld [[@Roxy-3D](https://github.com/Roxy-3D)] - English
  - Scott Lahteine [[@thinkyhead](https://github.com/thinkyhead)] - English
  - Bob Kuhn [[@Bob-the-Kuhn](https://github.com/Bob-the-Kuhn)] - English
  - Chris Pepper [[@p3p](https://github.com/p3p)] - English
  - João Brazio [[@jbrazio](https://github.com/jbrazio)] - Portuguese, English
->>>>>>> upstream/bugfix-2.0.x
 
 ## License
 

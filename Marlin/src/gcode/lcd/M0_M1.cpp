@@ -27,7 +27,7 @@
 #include "../gcode.h"
 #include "../../module/stepper.h"
 
-#if HAS_LCD_MENU
+#if ENABLED(ULTIPANEL)
   #include "../../lcd/ultralcd.h"
 #endif
 
@@ -59,7 +59,7 @@ void GcodeSuite::M0_M1() {
 
   planner.synchronize();
 
-  #if HAS_LCD_MENU
+  #if ENABLED(ULTIPANEL)
 
     if (has_message)
       lcd_setstatus(args, true);
@@ -93,7 +93,7 @@ void GcodeSuite::M0_M1() {
     printerEventLEDs.onResumeAfterWait();
   #endif
 
-  #if HAS_LCD_MENU
+  #if ENABLED(ULTIPANEL)
     lcd_reset_status();
   #endif
 

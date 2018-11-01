@@ -45,9 +45,6 @@
 // One ISR for all EXT-Interrupts
 void endstop_ISR(void) { endstops.update(); }
 
-// One ISR for all EXT-Interrupts
-void endstop_ISR(void) { endstops.update(); }
-
 /**
  * Patch for pins_arduino.h (...\Arduino\hardware\arduino\avr\variants\mega\pins_arduino.h)
  *
@@ -88,27 +85,12 @@ void pciSetup(const int8_t pin) {
   SBI(PCICR, digitalPinToPCICRbit(pin)); // enable interrupt for the group
 }
 
-<<<<<<< HEAD:Marlin/endstop_interrupts.h
-
-=======
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/HAL/HAL_AVR/endstop_interrupts.h
 // Handlers for pin change interrupts
 #ifdef PCINT0_vect
   ISR(PCINT0_vect) { endstop_ISR(); }
 #endif
 
 #ifdef PCINT1_vect
-<<<<<<< HEAD:Marlin/endstop_interrupts.h
-  ISR(PCINT1_vect) { endstop_ISR(); }
-#endif
-
-#ifdef PCINT2_vect
-  ISR(PCINT2_vect) { endstop_ISR(); }
-#endif
-
-#ifdef PCINT3_vect
-  ISR(PCINT3_vect) { endstop_ISR(); }
-=======
   ISR(PCINT1_vect, ISR_ALIASOF(PCINT0_vect));
 #endif
 
@@ -118,13 +100,12 @@ void pciSetup(const int8_t pin) {
 
 #ifdef PCINT3_vect
   ISR(PCINT3_vect, ISR_ALIASOF(PCINT0_vect));
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/HAL/HAL_AVR/endstop_interrupts.h
 #endif
 
 void setup_endstop_interrupts( void ) {
 
   #if HAS_X_MAX
-    #if digitalPinToInterrupt(X_MAX_PIN) != NOT_AN_INTERRUPT // if pin has an external interrupt
+    #if (digitalPinToInterrupt(X_MAX_PIN) != NOT_AN_INTERRUPT) // if pin has an external interrupt
       attachInterrupt(digitalPinToInterrupt(X_MAX_PIN), endstop_ISR, CHANGE); // assign it
     #else
       // Not all used endstop/probe -pins can raise interrupts. Please deactivate ENDSTOP_INTERRUPTS or change the pin configuration!
@@ -134,7 +115,7 @@ void setup_endstop_interrupts( void ) {
   #endif
 
   #if HAS_X_MIN
-    #if digitalPinToInterrupt(X_MIN_PIN) != NOT_AN_INTERRUPT
+    #if (digitalPinToInterrupt(X_MIN_PIN) != NOT_AN_INTERRUPT)
       attachInterrupt(digitalPinToInterrupt(X_MIN_PIN), endstop_ISR, CHANGE);
     #else
       // Not all used endstop/probe -pins can raise interrupts. Please deactivate ENDSTOP_INTERRUPTS or change the pin configuration!
@@ -144,7 +125,7 @@ void setup_endstop_interrupts( void ) {
   #endif
 
   #if HAS_Y_MAX
-    #if digitalPinToInterrupt(Y_MAX_PIN) != NOT_AN_INTERRUPT
+    #if (digitalPinToInterrupt(Y_MAX_PIN) != NOT_AN_INTERRUPT)
       attachInterrupt(digitalPinToInterrupt(Y_MAX_PIN), endstop_ISR, CHANGE);
     #else
       // Not all used endstop/probe -pins can raise interrupts. Please deactivate ENDSTOP_INTERRUPTS or change the pin configuration!
@@ -154,7 +135,7 @@ void setup_endstop_interrupts( void ) {
   #endif
 
   #if HAS_Y_MIN
-    #if digitalPinToInterrupt(Y_MIN_PIN) != NOT_AN_INTERRUPT
+    #if (digitalPinToInterrupt(Y_MIN_PIN) != NOT_AN_INTERRUPT)
       attachInterrupt(digitalPinToInterrupt(Y_MIN_PIN), endstop_ISR, CHANGE);
     #else
       // Not all used endstop/probe -pins can raise interrupts. Please deactivate ENDSTOP_INTERRUPTS or change the pin configuration!
@@ -164,7 +145,7 @@ void setup_endstop_interrupts( void ) {
   #endif
 
   #if HAS_Z_MAX
-    #if digitalPinToInterrupt(Z_MAX_PIN) != NOT_AN_INTERRUPT
+    #if (digitalPinToInterrupt(Z_MAX_PIN) != NOT_AN_INTERRUPT)
       attachInterrupt(digitalPinToInterrupt(Z_MAX_PIN), endstop_ISR, CHANGE);
     #else
       // Not all used endstop/probe -pins can raise interrupts. Please deactivate ENDSTOP_INTERRUPTS or change the pin configuration!
@@ -174,7 +155,7 @@ void setup_endstop_interrupts( void ) {
   #endif
 
   #if HAS_Z_MIN
-    #if digitalPinToInterrupt(Z_MIN_PIN) != NOT_AN_INTERRUPT
+    #if (digitalPinToInterrupt(Z_MIN_PIN) != NOT_AN_INTERRUPT)
       attachInterrupt(digitalPinToInterrupt(Z_MIN_PIN), endstop_ISR, CHANGE);
     #else
       // Not all used endstop/probe -pins can raise interrupts. Please deactivate ENDSTOP_INTERRUPTS or change the pin configuration!
@@ -224,7 +205,7 @@ void setup_endstop_interrupts( void ) {
   #endif
 
   #if HAS_Z2_MAX
-    #if digitalPinToInterrupt(Z2_MAX_PIN) != NOT_AN_INTERRUPT
+    #if (digitalPinToInterrupt(Z2_MAX_PIN) != NOT_AN_INTERRUPT)
       attachInterrupt(digitalPinToInterrupt(Z2_MAX_PIN), endstop_ISR, CHANGE);
     #else
       // Not all used endstop/probe -pins can raise interrupts. Please deactivate ENDSTOP_INTERRUPTS or change the pin configuration!
@@ -234,7 +215,7 @@ void setup_endstop_interrupts( void ) {
   #endif
 
   #if HAS_Z2_MIN
-    #if digitalPinToInterrupt(Z2_MIN_PIN) != NOT_AN_INTERRUPT
+    #if (digitalPinToInterrupt(Z2_MIN_PIN) != NOT_AN_INTERRUPT)
       attachInterrupt(digitalPinToInterrupt(Z2_MIN_PIN), endstop_ISR, CHANGE);
     #else
       // Not all used endstop/probe -pins can raise interrupts. Please deactivate ENDSTOP_INTERRUPTS or change the pin configuration!
@@ -264,7 +245,7 @@ void setup_endstop_interrupts( void ) {
   #endif
 
   #if HAS_Z_MIN_PROBE_PIN
-    #if digitalPinToInterrupt(Z_MIN_PROBE_PIN) != NOT_AN_INTERRUPT
+    #if (digitalPinToInterrupt(Z_MIN_PROBE_PIN) != NOT_AN_INTERRUPT)
       attachInterrupt(digitalPinToInterrupt(Z_MIN_PROBE_PIN), endstop_ISR, CHANGE);
     #else
       // Not all used endstop/probe -pins can raise interrupts. Please deactivate ENDSTOP_INTERRUPTS or change the pin configuration!

@@ -40,11 +40,7 @@ bool fastDigitalRead(uint8_t pin) {
  * @param[in] level value to write
  */
 static inline __attribute__((always_inline))
-<<<<<<< HEAD:Marlin/softspi.h
-void fastDigitalWrite(uint8_t pin, bool value){
-=======
 void fastDigitalWrite(uint8_t pin, bool value) {
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/libs/softspi.h
   if (value)
     g_APinDescription[pin].pPort->PIO_SODR = g_APinDescription[pin].ulPin;
   else

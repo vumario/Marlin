@@ -23,11 +23,6 @@
 #ifndef SPEED_LOOKUPTABLE_H
 #define SPEED_LOOKUPTABLE_H
 
-<<<<<<< HEAD:Marlin/speed_lookuptable.h
-#include "MarlinConfig.h"
-
-=======
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/module/speed_lookuptable.h
 #if F_CPU == 16000000
 
   const uint16_t speed_lookuptable_fast[256][2] PROGMEM = {

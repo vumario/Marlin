@@ -23,14 +23,9 @@
 // NOTE - the HAL version of the rrd device uses a generic ST7920 device.  See the
 // file u8g_dev_st7920_128x64_HAL.cpp for the HAL version.
 
-<<<<<<< HEAD:Marlin/ultralcd_st7920_u8glib_rrd.h
-#include <U8glib.h>
-#include "delay.h"
-=======
 #include "../../inc/MarlinConfig.h"
 
 #if ENABLED(U8GLIB_ST7920)
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/lcd/dogm/ultralcd_st7920_u8glib_rrd_AVR.cpp
 
 #if !(defined(U8G_HAL_LINKS) || defined(__SAM3X8E__))
 
@@ -46,6 +41,8 @@
 
 #define LCD_PIXEL_WIDTH 128
 #define LCD_PIXEL_HEIGHT 64
+
+#include <U8glib.h>
 
 //set optimization so ARDUINO optimizes this file
 #pragma GCC optimize (3)
@@ -63,11 +60,7 @@
   #define CPU_ST7920_DELAY_1 DELAY_NS(0)
   #define CPU_ST7920_DELAY_2 DELAY_NS(188)
   #define CPU_ST7920_DELAY_3 DELAY_NS(0)
-<<<<<<< HEAD:Marlin/ultralcd_st7920_u8glib_rrd.h
-#elif MB(MINIRAMBO)
-=======
 #elif MB(MINIRAMBO) || MB(EINSY_RAMBO) || MB(EINSY_RETRO)
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/lcd/dogm/ultralcd_st7920_u8glib_rrd_AVR.cpp
   #define CPU_ST7920_DELAY_1 DELAY_NS(0)
   #define CPU_ST7920_DELAY_2 DELAY_NS(250)
   #define CPU_ST7920_DELAY_3 DELAY_NS(0)
@@ -79,13 +72,10 @@
   #define CPU_ST7920_DELAY_1 DELAY_NS(0)
   #define CPU_ST7920_DELAY_2 DELAY_NS(0)
   #define CPU_ST7920_DELAY_3 DELAY_NS(189)
-<<<<<<< HEAD:Marlin/ultralcd_st7920_u8glib_rrd.h
-=======
-#elif defined(ARDUINO_ARCH_STM32)
-  #define CPU_ST7920_DELAY_1 DELAY_NS(300)
-  #define CPU_ST7920_DELAY_2 DELAY_NS(40)
-  #define CPU_ST7920_DELAY_3 DELAY_NS(340)
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/lcd/dogm/ultralcd_st7920_u8glib_rrd_AVR.cpp
+#elif MB(REMRAM_V1)
+  #define CPU_ST7920_DELAY_1 DELAY_NS(0)
+  #define CPU_ST7920_DELAY_2 DELAY_NS(0)
+  #define CPU_ST7920_DELAY_3 DELAY_NS(0)
 #elif F_CPU == 16000000
   #define CPU_ST7920_DELAY_1 DELAY_NS(0)
   #define CPU_ST7920_DELAY_2 DELAY_NS(0)
@@ -210,18 +200,8 @@ u8g_dev_t u8g_dev_st7920_128x64_rrd_sw_spi = {u8g_dev_rrd_st7920_128x64_fn, &u8g
   #include "status_screen_lite_ST7920_spi.h"
 #endif
 
-#if ENABLED(LIGHTWEIGHT_UI)
-  // We have to include the code for the lightweight UI here
-  // as it relies on macros that are only defined in this file.
-  #include "status_screen_lite_ST7920_spi.h"
-#endif
-
 #pragma GCC reset_options
 
-<<<<<<< HEAD:Marlin/ultralcd_st7920_u8glib_rrd.h
-#endif // ULCDST7920_H
-=======
 #endif // U8G_HAL_LINKS
 
 #endif // U8GLIB_ST7920
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/lcd/dogm/ultralcd_st7920_u8glib_rrd_AVR.cpp

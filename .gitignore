@@ -119,9 +119,6 @@ tags
 .pio*
 .pioenvs
 .piolibdeps
-<<<<<<< HEAD
-lib/readme.txt
-=======
 .clang_complete
 .gcc-flags.json
 /lib/
@@ -148,7 +145,6 @@ Marlin/*/readme.txt
 Marlin/*/*/readme.txt
 Marlin/*/*/*/readme.txt
 Marlin/*/*/*/*/readme.txt
->>>>>>> upstream/bugfix-2.0.x
 
 #Visual Studio
 *.sln

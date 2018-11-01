@@ -33,7 +33,7 @@
   #include "../../../module/tool_change.h"
 #endif
 
-#if HAS_LCD_MENU
+#if ENABLED(ULTIPANEL)
   #include "../../../lcd/ultralcd.h"
 #endif
 
@@ -70,7 +70,7 @@ void GcodeSuite::M600() {
   #endif
 
   // Show initial "wait for start" message
-  #if HAS_LCD_MENU
+  #if ENABLED(ULTIPANEL)
     lcd_advanced_pause_show_message(ADVANCED_PAUSE_MESSAGE_INIT, ADVANCED_PAUSE_MODE_PAUSE_PRINT, target_extruder);
   #endif
 

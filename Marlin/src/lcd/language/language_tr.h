@@ -32,13 +32,6 @@
 
 #define DISPLAY_CHARSET_ISO10646_TR
 #define CHARSIZE 2
-<<<<<<< HEAD:Marlin/language_tr.h
-
-#if DISABLED(DOGLCD)
-  #error "Turkish needs a graphical display."
-#endif
-=======
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/lcd/language/language_tr.h
 
 #define WELCOME_MSG                         MACHINE_NAME _UxGT(" hazır.")                               // hazır.
 #define MSG_SD_INSERTED                     _UxGT("SD Yerleşti.")                                       // SD Yerleşti.
@@ -54,11 +47,7 @@
 #define MSG_AUTO_HOME_X                     _UxGT("X Sıfırla")                                          // X Sıfırla
 #define MSG_AUTO_HOME_Y                     _UxGT("Y Sıfırla")                                          // Y Sıfırla
 #define MSG_AUTO_HOME_Z                     _UxGT("Z Sıfırla")                                          // Z Sıfırla
-<<<<<<< HEAD:Marlin/language_tr.h
-#define MSG_TMC_Z_CALIBRATION               _UxGT("Ayarla Z")                                           // Ayarla Z
-=======
 #define MSG_TMC_Z_CALIBRATION               _UxGT("Ayarla Z")
->>>>>>> upstream/bugfix-2.0.x:Marlin/src/lcd/language/language_tr.h
 #define MSG_LEVEL_BED_HOMING                _UxGT("XYZ Sıfırlanıyor")                                   // XYZ Sıfırlanıyor
 #define MSG_LEVEL_BED_WAITING               _UxGT("Başlatmak için tıkla")                               // Başlatmak için tıkla
 #define MSG_LEVEL_BED_NEXT_POINT            _UxGT("Sıradaki Nokta")                                     // Sıradaki Nokta
@@ -66,13 +55,13 @@
 #define MSG_SET_HOME_OFFSETS                _UxGT("Offset Ayarla")                                      // Offset Ayarla
 #define MSG_HOME_OFFSETS_APPLIED            _UxGT("Offset Tamam")                                       // Offset Tamam
 #define MSG_SET_ORIGIN                      _UxGT("Sıfır Belirle")                                      // Sıfır Belirle
-#define MSG_PREHEAT_1                       _UxGT("Ön Isınma " PREHEAT_1_LABEL)                         // Ön Isınma PREHEAT_1_LABEL
+#define MSG_PREHEAT_1                       _UxGT("Ön Isınma PLA")                                      // Ön Isınma PLA
 #define MSG_PREHEAT_1_N                     MSG_PREHEAT_1 _UxGT(" ")                                    //
 #define MSG_PREHEAT_1_ALL                   MSG_PREHEAT_1 _UxGT(" Tüm")                                 //  Tüm
 #define MSG_PREHEAT_1_END                   MSG_PREHEAT_1 _UxGT(" Nozül")                               //  Nozül
 #define MSG_PREHEAT_1_BEDONLY               MSG_PREHEAT_1 _UxGT(" Tabla")                               //  Tabla
 #define MSG_PREHEAT_1_SETTINGS              MSG_PREHEAT_1 _UxGT(" Ayar")                                //  Ayar
-#define MSG_PREHEAT_2                       _UxGT("Ön Isınma " PREHEAT_2_LABEL)                         // Ön Isınma PREHEAT_2_LABEL
+#define MSG_PREHEAT_2                       _UxGT("Ön Isınma ABS")                                      // Ön Isınma ABS
 #define MSG_PREHEAT_2_N                     MSG_PREHEAT_2 _UxGT(" ")                                    //
 #define MSG_PREHEAT_2_ALL                   MSG_PREHEAT_2 _UxGT(" Tüm")                                 //  Tüm
 #define MSG_PREHEAT_2_END                   MSG_PREHEAT_2 _UxGT(" Nozül")                               //  Nozül
@@ -184,7 +173,7 @@
 #define MSG_AUTORETRACT                     _UxGT("AutoRetr.")                                          // AutoRetr.
 #define MSG_FILAMENTCHANGE                  _UxGT("Filaman Değiştir")                                   // Filaman Değiştir
 #define MSG_INIT_SDCARD                     _UxGT("Init. SD")                                           // Init. SD
-#define MSG_CHANGE_SDCARD                   _UxGT("SD Değiştir")                                        // SD Değiştir
+#define MSG_CNG_SDCARD                      _UxGT("SD Değiştir")                                        // SD Değiştir
 #define MSG_ZPROBE_OUT                      _UxGT("Z Prob Açık. Tabla")                                 // Z Prob Açık. Tabla
 #define MSG_BLTOUCH_SELFTEST                _UxGT("BLTouch Self-Test")                                  // BLTouch Self-Test
 #define MSG_BLTOUCH_RESET                   _UxGT("Sıfırla BLTouch")                                    // Sıfırla BLTouch
