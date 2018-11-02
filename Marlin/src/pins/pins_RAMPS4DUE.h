@@ -60,10 +60,3 @@
 
 #undef TEMP_BED_PIN
 #define TEMP_BED_PIN       10   // Analog Input
-
-//
-// EEPROM
-//
-#define I2C_EEPROM    // EEPROM on I2C-0
-#define E2END 0x7FFF  // 32Kb (24lc256)
-
