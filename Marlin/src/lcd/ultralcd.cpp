@@ -514,6 +514,7 @@ millis_t next_lcd_update_ms;
   void lcd_move_z();
   float move_menu_scale;
 
+<<<<<<< HEAD
   /**
    * General function to go directly to a screen
    */
@@ -524,6 +525,29 @@ millis_t next_lcd_update_ms;
         // Shadow for editing the fade height
         new_z_fade_height = planner.z_fade_height;
       #endif
+=======
+#if ENABLED(REPRAPWORLD_KEYPAD) || ENABLED(ADC_KEYPAD)
+  #define REPRAPWORLD_BTN_OFFSET         0 // bit offset into buttons for shift register values
+
+  #define BLEN_REPRAPWORLD_KEYPAD_F3     0
+  #define BLEN_REPRAPWORLD_KEYPAD_F2     1
+  #define BLEN_REPRAPWORLD_KEYPAD_F1     2
+
+  #define BLEN_REPRAPWORLD_KEYPAD_DOWN   3
+  #define BLEN_REPRAPWORLD_KEYPAD_RIGHT  4
+  #define BLEN_REPRAPWORLD_KEYPAD_MIDDLE 5
+  #define BLEN_REPRAPWORLD_KEYPAD_UP     6
+  #define BLEN_REPRAPWORLD_KEYPAD_LEFT   7
+  #define EN_REPRAPWORLD_KEYPAD_DOWN     (_BV(REPRAPWORLD_BTN_OFFSET + BLEN_REPRAPWORLD_KEYPAD_DOWN))
+  #define EN_REPRAPWORLD_KEYPAD_RIGHT    (_BV(REPRAPWORLD_BTN_OFFSET + BLEN_REPRAPWORLD_KEYPAD_RIGHT))
+  #define EN_REPRAPWORLD_KEYPAD_MIDDLE   (_BV(REPRAPWORLD_BTN_OFFSET + BLEN_REPRAPWORLD_KEYPAD_MIDDLE))
+  #define EN_REPRAPWORLD_KEYPAD_UP       (_BV(REPRAPWORLD_BTN_OFFSET + BLEN_REPRAPWORLD_KEYPAD_UP))
+  #define EN_REPRAPWORLD_KEYPAD_LEFT     (_BV(REPRAPWORLD_BTN_OFFSET + BLEN_REPRAPWORLD_KEYPAD_LEFT))
+  
+#endif // REPRAPWORLD_KEYPAD || ADC_KEYPAD
+
+#if ENABLED(ADC_KEYPAD)
+>>>>>>> upstream/bugfix-2.0.x
 
       #if ENABLED(DOUBLECLICK_FOR_Z_BABYSTEPPING) && ENABLED(BABYSTEPPING)
         static millis_t doubleclick_expire_ms = 0;
@@ -582,6 +606,7 @@ millis_t next_lcd_update_ms;
     }
   }
 
+<<<<<<< HEAD
   /**
    * Show "Moving..." till moves are done, then revert to previous display.
    */
@@ -603,6 +628,51 @@ millis_t next_lcd_update_ms;
     planner.synchronize(); // idle() is called until moves complete
     no_reentry = false;
     lcd_goto_screen(old_screen);
+=======
+#elif ENABLED(REPRAPWORLD_KEYPAD)
+
+  #define KEYPAD_HOME EN_REPRAPWORLD_KEYPAD_F1
+  #define KEYPAD_EN_C EN_REPRAPWORLD_KEYPAD_MIDDLE
+
+  #define EN_REPRAPWORLD_KEYPAD_F1        (_BV(REPRAPWORLD_BTN_OFFSET + BLEN_REPRAPWORLD_KEYPAD_F1))
+  #define EN_REPRAPWORLD_KEYPAD_F2        (_BV(REPRAPWORLD_BTN_OFFSET + BLEN_REPRAPWORLD_KEYPAD_F2))
+  #define EN_REPRAPWORLD_KEYPAD_F3        (_BV(REPRAPWORLD_BTN_OFFSET + BLEN_REPRAPWORLD_KEYPAD_F3))
+  
+  #define REPRAPWORLD_KEYPAD_MOVE_Z_UP    (buttons_reprapworld_keypad & EN_REPRAPWORLD_KEYPAD_F2)
+  #define REPRAPWORLD_KEYPAD_MOVE_Z_DOWN  (buttons_reprapworld_keypad & EN_REPRAPWORLD_KEYPAD_F3)
+  #define REPRAPWORLD_KEYPAD_MOVE_Y_DOWN  (buttons_reprapworld_keypad & EN_REPRAPWORLD_KEYPAD_DOWN)
+  #define REPRAPWORLD_KEYPAD_MOVE_X_RIGHT (buttons_reprapworld_keypad & EN_REPRAPWORLD_KEYPAD_RIGHT)
+  #define REPRAPWORLD_KEYPAD_MOVE_Y_UP    (buttons_reprapworld_keypad & EN_REPRAPWORLD_KEYPAD_UP)
+  #define REPRAPWORLD_KEYPAD_MOVE_X_LEFT  (buttons_reprapworld_keypad & EN_REPRAPWORLD_KEYPAD_LEFT)
+
+  #define REPRAPWORLD_KEYPAD_MOVE_HOME    (buttons_reprapworld_keypad & KEYPAD_HOME)
+  #define REPRAPWORLD_KEYPAD_MOVE_MENU    (buttons_reprapworld_keypad & KEYPAD_EN_C)
+
+  #define REPRAPWORLD_KEYPAD_PRESSED      (buttons_reprapworld_keypad & ( \
+                                            EN_REPRAPWORLD_KEYPAD_F1 | \
+                                            EN_REPRAPWORLD_KEYPAD_F2 | \
+                                            EN_REPRAPWORLD_KEYPAD_F3 | \
+                                            EN_REPRAPWORLD_KEYPAD_DOWN | \
+                                            EN_REPRAPWORLD_KEYPAD_RIGHT | \
+                                            EN_REPRAPWORLD_KEYPAD_MIDDLE | \
+                                            EN_REPRAPWORLD_KEYPAD_UP | \
+                                            EN_REPRAPWORLD_KEYPAD_LEFT) \
+                                          )
+
+  void lcd_move_x();
+  void lcd_move_y();
+  void lcd_move_z();
+
+  void _reprapworld_keypad_move(const AxisEnum axis, const int16_t dir) {
+    move_menu_scale = REPRAPWORLD_KEYPAD_MOVE_STEP;
+    encoderPosition = dir;
+    switch (axis) {
+      case X_AXIS: lcd_move_x(); break;
+      case Y_AXIS: lcd_move_y(); break;
+      case Z_AXIS: lcd_move_z();
+      default: break;
+    }
+>>>>>>> upstream/bugfix-2.0.x
   }
 
   // Display the synchronize screen with a custom message
@@ -639,6 +709,7 @@ millis_t next_lcd_update_ms;
     lcd_goto_previous_menu();
   }
 
+<<<<<<< HEAD
   /**
    * Scrolling for menus and other line-based screens
    *
@@ -666,6 +737,19 @@ millis_t next_lcd_update_ms;
       NOMORE(encoderTopLine, encoderLine);
       if (encoderLine >= encoderTopLine + menu_bottom)
         encoderTopLine = encoderLine - menu_bottom + 1;
+=======
+      if (all_axes_homed()) {
+        #if ENABLED(DELTA) || Z_HOME_DIR != -1
+          if (REPRAPWORLD_KEYPAD_MOVE_Z_UP)   reprapworld_keypad_move_z_up();
+        #endif
+        if (REPRAPWORLD_KEYPAD_MOVE_Z_DOWN)   reprapworld_keypad_move_z_down();
+        if (REPRAPWORLD_KEYPAD_MOVE_X_LEFT)   reprapworld_keypad_move_x_left();
+        if (REPRAPWORLD_KEYPAD_MOVE_X_RIGHT)  reprapworld_keypad_move_x_right();
+        if (REPRAPWORLD_KEYPAD_MOVE_Y_DOWN)   reprapworld_keypad_move_y_down();
+        if (REPRAPWORLD_KEYPAD_MOVE_Y_UP)     reprapworld_keypad_move_y_up();
+      }
+      else if (REPRAPWORLD_KEYPAD_MOVE_HOME)  reprapworld_keypad_move_home();
+>>>>>>> upstream/bugfix-2.0.x
     }
     else
       encoderTopLine = encoderLine;

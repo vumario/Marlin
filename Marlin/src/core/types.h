@@ -26,6 +26,7 @@
 
 typedef uint32_t millis_t;
 
+<<<<<<< HEAD:Marlin/src/core/types.h
 #pragma pack(push, 1) // No padding between fields
 
 typedef struct {
@@ -44,3 +45,7 @@ typedef struct {
 } fwretract_settings_t;
 
 #pragma pack(pop)
+=======
+#define PENDING(NOW,SOON) ((int32_t)(NOW-(SOON))<0)
+#define ELAPSED(NOW,SOON) (!PENDING(NOW,SOON))
+>>>>>>> upstream/bugfix-2.0.x:Marlin/src/core/millis_t.h
