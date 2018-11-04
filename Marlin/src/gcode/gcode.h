@@ -251,9 +251,7 @@
  * T0-T3 - Select an extruder (tool) by index: "T<n> F<units/min>"
  *
  */
-
-#ifndef _GCODE_H_
-#define _GCODE_H_
+#pragma once
 
 #include "../inc/MarlinConfig.h"
 #include "parser.h"
@@ -749,7 +747,7 @@ private:
     static void M665();
   #endif
 
-  #if ENABLED(DELTA) || ENABLED(X_DUAL_ENDSTOPS) || ENABLED(Y_DUAL_ENDSTOPS) || ENABLED(Z_DUAL_ENDSTOPS)
+  #if ENABLED(DELTA) || ENABLED(X_DUAL_ENDSTOPS) || ENABLED(Y_DUAL_ENDSTOPS) || Z_MULTI_ENDSTOPS
     static void M666();
   #endif
 
@@ -829,5 +827,3 @@ private:
 };
 
 extern GcodeSuite gcode;
-
-#endif // _GCODE_H_
