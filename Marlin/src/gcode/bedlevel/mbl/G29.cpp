@@ -79,18 +79,19 @@ void GcodeSuite::G29() {
 
   switch (state) {
     case MeshReport:
+      SERIAL_PROTOCOLPGM("Mesh Bed Leveling ");
       if (leveling_is_valid()) {
-        SERIAL_PROTOCOLLNPAIR("State: ", planner.leveling_active ? MSG_ON : MSG_OFF);
+        serialprintln_onoff(planner.leveling_active);
         mbl.report_mesh();
       }
       else
-        SERIAL_PROTOCOLLNPGM("Mesh bed leveling has no data.");
+        SERIAL_PROTOCOLLNPGM("has no data.");
       break;
 
     case MeshStart:
       mbl.reset();
       mbl_probe_index = 0;
-      if (!lcd_wait_for_move) {
+      if (!ui.wait_for_bl_move) {
         enqueue_and_echo_commands_P(PSTR("G28\nG29 S2"));
         return;
       }
@@ -151,7 +152,7 @@ void GcodeSuite::G29() {
         #endif
 
         #if ENABLED(LCD_BED_LEVELING)
-          lcd_wait_for_move = false;
+          ui.wait_for_bl_move = false;
         #endif
       }
       break;
