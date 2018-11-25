@@ -639,7 +639,7 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4[, E5]]]]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 640, 640, 2560, 1889 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 640, 640, 1600, 1889 }
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -871,7 +871,7 @@
 // :{ 0:'Low', 1:'High' }
 #define X_ENABLE_ON 1
 #define Y_ENABLE_ON 1
-#define Z_ENABLE_ON 0
+#define Z_ENABLE_ON 1
 #define E_ENABLE_ON 0 // For all extruders
 
 // Disables axis stepper immediately when it's not being used.
