@@ -58,23 +58,23 @@
 //
 // Steppers
 //
-#define X_STEP_PIN         24
-#define X_DIR_PIN          23
-#define X_ENABLE_PIN       26
+#define X_STEP_PIN         25
+#define X_DIR_PIN          27
+#define X_ENABLE_PIN       67
 #ifndef X_CS_PIN
   #define X_CS_PIN         25
 #endif
 
-#define Y_STEP_PIN         17
-#define Y_DIR_PIN          16
-#define Y_ENABLE_PIN       22
+#define Y_STEP_PIN         29
+#define Y_DIR_PIN          31
+#define Y_ENABLE_PIN       67
 #ifndef Y_CS_PIN
   #define Y_CS_PIN         27
 #endif
 
-#define Z_STEP_PIN          2
-#define Z_DIR_PIN           3
-#define Z_ENABLE_PIN       15
+#define Z_STEP_PIN         33
+#define Z_DIR_PIN          35
+#define Z_ENABLE_PIN       68
 #ifndef Z_CS_PIN
   #define Z_CS_PIN         29
 #endif
@@ -194,7 +194,7 @@
 // Misc. Functions
 //
 #define SD_DETECT_PIN      14
-#define PS_ON_PIN          40   // SERVO3_PIN
+#define PS_ON_PIN          66   // SERVO3_PIN
 
 #ifndef FIL_RUNOUT_PIN
   #define FIL_RUNOUT_PIN   39   // SERVO2_PIN
