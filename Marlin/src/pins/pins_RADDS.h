@@ -163,8 +163,8 @@
 //
 // Temperature Sensors
 //
-#define TEMP_0_PIN          0   // Analog Input
-#define TEMP_1_PIN          1   // Analog Input
+#define TEMP_0_PIN          6   // Analog Input
+#define TEMP_1_PIN          7   // Analog Input
 #define TEMP_2_PIN          2   // Analog Input
 #define TEMP_3_PIN          3   // Analog Input
 #define TEMP_4_PIN          5   // dummy so will compile when PINS_DEBUGGING is enabled
@@ -201,8 +201,9 @@
 #endif
 
 // I2C EEPROM with 8K of space
-#define I2C_EEPROM
-#define E2END 0x1FFF
+//#define I2C_EEPROM    // EEPROM on I2C-0
+#define E2END 0xFFF  // 32Kb (24lc256)
+#define EEPROM_SERIAL_ADDR 0x51
 
 //
 // LCD / Controller
